@@ -94,9 +94,12 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(872, 368);
+            this.panel1.Size = new System.Drawing.Size(872, 487);
             this.panel1.TabIndex = 5;
             // 
             // FrmArticulos
@@ -104,7 +107,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(872, 407);
+            this.ClientSize = new System.Drawing.Size(872, 526);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnObservarArticulos);
             this.Controls.Add(this.btnEditarArticulo);

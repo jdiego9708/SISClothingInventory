@@ -31,7 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -43,6 +54,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\CustomDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\CustomTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\CustomTextBox.designer.cs">
+      <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\PoperContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\PoperContainer.designer.cs">
+      <DependentUpon>PoperContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormsArticulos\FrmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,12 +87,82 @@
     <Compile Include="Forms\FormsPrincipales\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormsProveedores\FrmAgregarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsProveedores\FrmAgregarProveedor.Designer.cs">
+      <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsProveedores\FrmObservarProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsProveedores\FrmObservarProveedores.Designer.cs">
+      <DependentUpon>FrmObservarProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsProveedores\FrmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsProveedores\FrmProveedores.Designer.cs">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Servicios\ComprobacionesControles.cs" />
+    <Compile Include="Servicios\DatagridString.cs" />
+    <Compile Include="Servicios\EnviarEmailErrores.cs" />
+    <Compile Include="Servicios\GetValuePanel.cs" />
+    <Compile Include="Servicios\Imagenes.cs" />
+    <Compile Include="Servicios\LlenarListas.cs" />
+    <Compile Include="Servicios\MensajeEspera\MensajeEspera.cs" />
+    <Compile Include="Servicios\Mensajes.cs" />
+    <Compile Include="Servicios\Mensajes\FrmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmInputBox.designer.cs">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeError.designer.cs">
+      <DependentUpon>FrmMensajeError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeErrorCompleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeErrorCompleto.designer.cs">
+      <DependentUpon>FrmMensajeErrorCompleto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeInformacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeInformacion.designer.cs">
+      <DependentUpon>FrmMensajeInformacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajeOk.designer.cs">
+      <DependentUpon>FrmMensajeOk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajePregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmMensajePregunta.designer.cs">
+      <DependentUpon>FrmMensajePregunta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mensajes\FrmWait.designer.cs">
+      <DependentUpon>FrmWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\MessageConvert.cs" />
+    <Compile Include="Servicios\MsgBoxUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
@@ -75,6 +171,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controles\CustomTextBox.resx">
+      <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsArticulos\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,15 +183,51 @@
     <EmbeddedResource Include="Forms\FormsPrincipales\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsProveedores\FrmAgregarProveedor.resx">
+      <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsProveedores\FrmObservarProveedores.resx">
+      <DependentUpon>FrmObservarProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsProveedores\FrmProveedores.resx">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mensajes\FrmInputBox.resx">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mensajes\FrmMensajeError.resx">
+      <DependentUpon>FrmMensajeError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mensajes\FrmMensajeErrorCompleto.resx">
+      <DependentUpon>FrmMensajeErrorCompleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mensajes\FrmMensajeInformacion.resx">
+      <DependentUpon>FrmMensajeInformacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mensajes\FrmMensajeOk.resx">
+      <DependentUpon>FrmMensajeOk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mensajes\FrmMensajePregunta.resx">
+      <DependentUpon>FrmMensajePregunta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mensajes\FrmWait.resx">
+      <DependentUpon>FrmWait.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuraciones\" />
-    <Folder Include="Forms\FormsProveedores\" />
-    <Folder Include="Servicios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\toolbar_find.png" />
+    <None Include="Resources\SIN_IMAGEN1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
