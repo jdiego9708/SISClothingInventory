@@ -86,6 +86,7 @@ namespace CapaPresentacion.Forms.FormsProveedores
             frm.Dock = DockStyle.Fill;
             frm.TopLevel = false;
             frm.IsEditar = true;
+            frm.Text = "Editar datos de un proveedor";
             frm.AsignarDatos(DatagridString.ReturnValuesOfCells(sender, 0));
             this.panel1.Controls.Add(frm);
             this.panel1.Tag = frm;

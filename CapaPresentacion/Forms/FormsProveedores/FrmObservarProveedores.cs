@@ -81,6 +81,11 @@ namespace CapaPresentacion.Forms.FormsProveedores
 
         private void FrmObservarProveedores_Load(object sender, EventArgs e)
         {
+            this.lblEncabezaco.Text = this.Text;
+
+            if (this.editarProveedor)
+                this.lblEncabezaco.Text = "Seleccione un proveedor para editar";
+
             this.txtBusqueda.TextoInicial = "Buscar proveedores";
             this.txtBusqueda.EstablecerTextoInicial();
             this.BuscarProveedores("COMPLETO", "");

@@ -12,6 +12,12 @@ namespace CapaPresentacion.Forms.FormsProveedores
             InitializeComponent();
             this.btnGuardar.Click += BtnGuardar_Click;
             this.btnCancelar.Click += BtnCancelar_Click;
+            this.Load += FrmAgregarProveedor_Load;
+        }
+
+        private void FrmAgregarProveedor_Load(object sender, EventArgs e)
+        {
+            this.lblEncabezaco.Text = this.Text;
         }
 
         public void AsignarDatos(List<string> datosProveedor)
