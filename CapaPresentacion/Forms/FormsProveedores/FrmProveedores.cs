@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms.FormsProveedores
@@ -16,108 +17,132 @@ namespace CapaPresentacion.Forms.FormsProveedores
 
         private void FrmProveedores_Load(object sender, EventArgs e)
         {
-            frmObservarProveedores = new FrmObservarProveedores();
-            frmObservarProveedores.FormBorderStyle = FormBorderStyle.None;
-            frmObservarProveedores.Dock = DockStyle.Fill;
-            frmObservarProveedores.TopLevel = false;
-            frmObservarProveedores.editarProveedor = false;
-            frmObservarProveedores.FormClosed += FrmObservarProveedores_FormClosed;
-            this.panel1.Controls.Add(frmObservarProveedores);
-            this.panel1.Tag = frmObservarProveedores;
-            frmObservarProveedores.Show();
-            frmObservarProveedores.BringToFront();
-        }
-
-        private void BtnObservarProveedores_Click(object sender, EventArgs e)
-        {
-            if (this.frmObservarProveedores == null)
-            {
-                frmObservarProveedores = new FrmObservarProveedores();
-                frmObservarProveedores.FormBorderStyle = FormBorderStyle.None;
-                frmObservarProveedores.Dock = DockStyle.Fill;
-                frmObservarProveedores.TopLevel = false;
-                frmObservarProveedores.editarProveedor = false;
-                frmObservarProveedores.FormClosed += FrmObservarProveedores_FormClosed;
-                this.panel1.Controls.Add(frmObservarProveedores);
-                this.panel1.Tag = frmObservarProveedores;
-                frmObservarProveedores.Show();
-                frmObservarProveedores.BringToFront();
-            }
-            else
-            {
-                frmObservarProveedores.Activate();
-                frmObservarProveedores.BringToFront();
-            }
-        }
-
-        private void FrmObservarProveedores_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.frmObservarProveedores = null;
+            this.OpenObservarProveedor(true, false);
         }
 
         private void BtnEditarProveedor_Click(object sender, EventArgs e)
         {
-            if (this.frmObservarProveedores == null)
-            {
-                frmObservarProveedores = new FrmObservarProveedores();
-                frmObservarProveedores.FormBorderStyle = FormBorderStyle.None;
-                frmObservarProveedores.Dock = DockStyle.Fill;
-                frmObservarProveedores.TopLevel = false;
-                frmObservarProveedores.editarProveedor = true;
-                frmObservarProveedores.ondgvDoubleClick += FrmObservar_ondgvDoubleClick;
-                this.panel1.Controls.Add(frmObservarProveedores);
-                this.panel1.Tag = frmObservarProveedores;
-                frmObservarProveedores.Show();
-                frmObservarProveedores.BringToFront();
-            }
-            else
-            {
-                frmObservarProveedores.editarProveedor = true;
-                frmObservarProveedores.ondgvDoubleClick += FrmObservar_ondgvDoubleClick;
-                frmObservarProveedores.Activate();
-                frmObservarProveedores.BringToFront();
-            }
+            this.OpenObservarProveedor(true, true);
         }
 
-        private void FrmObservar_ondgvDoubleClick(object sender, EventArgs e)
+        private void BtnObservarProveedores_Click(object sender, EventArgs e)
         {
-            FrmAgregarProveedor frm = new FrmAgregarProveedor();
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.TopLevel = false;
-            frm.IsEditar = true;
-            frm.Text = "Editar datos de un proveedor";
-            frm.AsignarDatos(DatagridString.ReturnValuesOfCells(sender, 0));
-            this.panel1.Controls.Add(frm);
-            this.panel1.Tag = frm;
-            frm.Show();
-            frm.BringToFront();
+            this.OpenObservarProveedor(true, false);
         }
 
         private void BtnNuevoProveedor_Click(object sender, EventArgs e)
         {
-            if (this.frmAgregarProveedor == null)
+            this.OpenAgregarProveedor(true, false, null);
+        }
+
+        private void OpenAgregarProveedor(bool visible, bool isEditar,
+            List<string> variables)
+        {
+            if (visible)
             {
-                frmAgregarProveedor = new FrmAgregarProveedor();
-                frmAgregarProveedor.FormBorderStyle = FormBorderStyle.None;
-                frmAgregarProveedor.Dock = DockStyle.Fill;
-                frmAgregarProveedor.TopLevel = false;
-                frmAgregarProveedor.FormClosed += FrmAgregarProveedor_FormClosed;
-                this.panel1.Controls.Add(frmAgregarProveedor);
-                this.panel1.Tag = frmAgregarProveedor;
-                frmAgregarProveedor.Show();
-                frmAgregarProveedor.BringToFront();
-            }
-            else
-            {
-                this.frmAgregarProveedor.Activate();
-                frmAgregarProveedor.BringToFront();
+                if (this.panel1.Controls.Count > 0)
+                    this.panel1.Controls.Clear();
+
+                if (this.frmAgregarProveedor == null)
+                {
+                    frmAgregarProveedor = new FrmAgregarProveedor();
+                    frmAgregarProveedor.FormBorderStyle = FormBorderStyle.None;
+                    frmAgregarProveedor.Dock = DockStyle.Fill;
+                    frmAgregarProveedor.TopLevel = false;
+                    frmAgregarProveedor.FormClosed += Frm_FormClosed;
+                    frmAgregarProveedor.IsEditar = isEditar;
+                    frmAgregarProveedor.Text = "Agregar un nuevo proveedor";
+                    if (isEditar)
+                    {
+                        frmAgregarProveedor.AsignarDatos(variables);
+                        frmAgregarProveedor.Text = "Editar los datos de un proveedor";
+                    }
+                    this.panel1.Controls.Add(frmAgregarProveedor);
+                    this.panel1.Tag = frmAgregarProveedor;
+                    frmAgregarProveedor.Show();
+                    frmAgregarProveedor.BringToFront();
+                }
+                else
+                {
+                    this.frmAgregarProveedor.IsEditar = isEditar;
+                    this.frmAgregarProveedor.Text = "Agregar un nuevo proveedor";
+                    if (isEditar)
+                    {
+                        this.frmAgregarProveedor.AsignarDatos(variables);
+                        this.frmAgregarProveedor.Text = "Editar los datos de un proveedor";
+                    }
+                    this.panel1.Controls.Add(frmAgregarProveedor);
+                    this.panel1.Tag = frmAgregarProveedor;
+                    this.frmAgregarProveedor.Activate();
+                    this.frmAgregarProveedor.BringToFront();
+                }
+                this.panel1.Refresh();
             }
         }
 
-        private void FrmAgregarProveedor_FormClosed(object sender, FormClosedEventArgs e)
+        private void OpenObservarProveedor(bool visible, bool isEditar)
         {
-            this.frmAgregarProveedor = null;
+            if (visible)
+            {
+                if (this.panel1.Controls.Count > 0)
+                    this.panel1.Controls.Clear();
+
+                if (this.frmObservarProveedores == null)
+                {
+                    frmObservarProveedores = new FrmObservarProveedores();
+                    frmObservarProveedores.editarProveedor = isEditar;
+                    frmObservarProveedores.FormBorderStyle = FormBorderStyle.None;
+                    frmObservarProveedores.Dock = DockStyle.Fill;
+                    frmObservarProveedores.TopLevel = false;
+                    frmObservarProveedores.FormClosed += Frm_FormClosed;
+                    this.frmObservarProveedores.Text = "Observar proveedores existentes";
+                    if (isEditar)
+                    {
+                        this.frmObservarProveedores.ondgvDoubleClick += FrmObservarProveedores_ondgvDoubleClick;
+                        this.frmObservarProveedores.Text = "Seleccione un proveedor para editar";
+                    }
+                    this.panel1.Controls.Add(frmObservarProveedores);
+                    this.panel1.Tag = frmObservarProveedores;
+                    frmObservarProveedores.Show();
+                    frmObservarProveedores.BringToFront();
+                }
+                else
+                {
+                    this.frmObservarProveedores.Text = "Observar proveedores existentes";
+                    if (isEditar)
+                    {
+                        this.frmObservarProveedores.ondgvDoubleClick += FrmObservarProveedores_ondgvDoubleClick;
+                        this.frmObservarProveedores.Text = "Seleccione un proveedor para editar";
+                    }
+
+                    this.frmObservarProveedores.editarProveedor = isEditar;
+                    this.panel1.Controls.Add(frmObservarProveedores);
+                    this.panel1.Tag = frmObservarProveedores;
+                    this.frmObservarProveedores.Activate();
+                    frmObservarProveedores.BringToFront();
+                }
+                this.panel1.Refresh();
+            }
+        }
+
+        private void FrmObservarProveedores_ondgvDoubleClick(object sender, EventArgs e)
+        {
+            List<string> datos =
+                DatagridString.ReturnValuesOfCells(sender, 0);
+            this.OpenAgregarProveedor(true, true, datos);
+        }
+
+        private void Frm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form frm = (Form)sender;
+            if (frm is FrmAgregarProveedor)
+            {
+                this.frmAgregarProveedor = null;
+            }
+            else if (frm is FrmObservarProveedores)
+            {
+                this.frmObservarProveedores = null;
+            }
         }
 
         private FrmAgregarProveedor frmAgregarProveedor;

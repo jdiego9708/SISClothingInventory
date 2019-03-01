@@ -69,6 +69,12 @@
     <Compile Include="Controles\PoperContainer.designer.cs">
       <DependentUpon>PoperContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\UploadImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UploadImage.Designer.cs">
+      <DependentUpon>UploadImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormsArticulos\FrmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,12 @@
     </Compile>
     <Compile Include="Forms\FormsArticulos\FrmNuevoArticulo.Designer.cs">
       <DependentUpon>FrmNuevoArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsArticulos\FrmObservarArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsArticulos\FrmObservarArticulos.Designer.cs">
+      <DependentUpon>FrmObservarArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormsPrincipales\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -174,11 +186,17 @@
     <EmbeddedResource Include="Controles\CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UploadImage.resx">
+      <DependentUpon>UploadImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsArticulos\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsArticulos\FrmNuevoArticulo.resx">
       <DependentUpon>FrmNuevoArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsArticulos\FrmObservarArticulos.resx">
+      <DependentUpon>FrmObservarArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsPrincipales\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

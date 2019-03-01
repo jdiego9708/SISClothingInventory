@@ -16,8 +16,13 @@ namespace CapaPresentacion.Forms.FormsProveedores
             this.txtBusqueda.onKeyPress += TxtBusqueda_onKeyPress;
             this.txtBusqueda.onLostFocus += TxtBusqueda_onLostFocus;
             this.dgvProveedores.DoubleClick += DgvProveedores_DoubleClick;
+            this.TextChanged += FrmObservarProveedores_TextChanged;
         }
 
+        private void FrmObservarProveedores_TextChanged(object sender, EventArgs e)
+        {
+            this.lblEncabezaco.Text = this.Text;
+        }
 
         private void DgvProveedores_DoubleClick(object sender, EventArgs e)
         {
@@ -81,11 +86,6 @@ namespace CapaPresentacion.Forms.FormsProveedores
 
         private void FrmObservarProveedores_Load(object sender, EventArgs e)
         {
-            this.lblEncabezaco.Text = this.Text;
-
-            if (this.editarProveedor)
-                this.lblEncabezaco.Text = "Seleccione un proveedor para editar";
-
             this.txtBusqueda.TextoInicial = "Buscar proveedores";
             this.txtBusqueda.EstablecerTextoInicial();
             this.BuscarProveedores("COMPLETO", "");

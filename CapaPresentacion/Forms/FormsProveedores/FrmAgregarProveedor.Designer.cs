@@ -51,7 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 23);
+            this.label1.Size = new System.Drawing.Size(59, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
@@ -60,7 +60,7 @@
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombre.Location = new System.Drawing.Point(12, 52);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(303, 30);
+            this.txtNombre.Size = new System.Drawing.Size(303, 26);
             this.txtNombre.TabIndex = 1;
             // 
             // txtTelefono
@@ -68,7 +68,7 @@
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTelefono.Location = new System.Drawing.Point(12, 111);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(147, 30);
+            this.txtTelefono.Size = new System.Drawing.Size(147, 26);
             this.txtTelefono.TabIndex = 3;
             // 
             // label2
@@ -76,7 +76,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(8, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 23);
+            this.label2.Size = new System.Drawing.Size(60, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Teléfono";
             // 
@@ -85,7 +85,7 @@
             this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCorreo.Location = new System.Drawing.Point(12, 171);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(303, 30);
+            this.txtCorreo.Size = new System.Drawing.Size(303, 26);
             this.txtCorreo.TabIndex = 5;
             // 
             // label3
@@ -93,7 +93,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 23);
+            this.label3.Size = new System.Drawing.Size(121, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Correo electrónico";
             // 
@@ -149,6 +149,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
             this.panel1.Controls.Add(this.lblEncabezaco);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(335, 23);
@@ -157,7 +158,7 @@
             // lblEncabezaco
             // 
             this.lblEncabezaco.AutoSize = true;
-            this.lblEncabezaco.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncabezaco.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEncabezaco.ForeColor = System.Drawing.Color.White;
             this.lblEncabezaco.Location = new System.Drawing.Point(4, 1);
             this.lblEncabezaco.Name = "lblEncabezaco";
@@ -167,7 +168,7 @@
             // 
             // FrmAgregarProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(336, 254);
