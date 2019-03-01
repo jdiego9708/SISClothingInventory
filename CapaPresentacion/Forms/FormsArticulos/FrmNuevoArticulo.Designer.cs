@@ -45,6 +45,8 @@
             this.panelImágenes = new System.Windows.Forms.Panel();
             this.lblImagenes = new System.Windows.Forms.Label();
             this.numericImagenes = new System.Windows.Forms.NumericUpDown();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericImagenes)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +75,7 @@
             this.txtTipo.Location = new System.Drawing.Point(4, 85);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.ReadOnly = true;
-            this.txtTipo.Size = new System.Drawing.Size(236, 23);
+            this.txtTipo.Size = new System.Drawing.Size(173, 23);
             this.txtTipo.TabIndex = 3;
             this.txtTipo.Text = "Seleccione un tipo de artículo";
             // 
@@ -94,7 +96,7 @@
             this.txtProveedor.Location = new System.Drawing.Point(4, 143);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.ReadOnly = true;
-            this.txtProveedor.Size = new System.Drawing.Size(236, 23);
+            this.txtProveedor.Size = new System.Drawing.Size(325, 23);
             this.txtProveedor.TabIndex = 5;
             this.txtProveedor.Text = "Seleccione un proveedor";
             // 
@@ -159,7 +161,7 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(213, 181);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(103, 26);
+            this.txtPrecio.Size = new System.Drawing.Size(116, 26);
             this.txtPrecio.TabIndex = 11;
             // 
             // btnAddImagenes
@@ -175,7 +177,7 @@
             this.btnAddImagenes.ForeColor = System.Drawing.Color.Gray;
             this.btnAddImagenes.Image = ((System.Drawing.Image)(resources.GetObject("btnAddImagenes.Image")));
             this.btnAddImagenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddImagenes.Location = new System.Drawing.Point(4, 340);
+            this.btnAddImagenes.Location = new System.Drawing.Point(4, 390);
             this.btnAddImagenes.Name = "btnAddImagenes";
             this.btnAddImagenes.Size = new System.Drawing.Size(325, 42);
             this.btnAddImagenes.TabIndex = 12;
@@ -187,16 +189,16 @@
             this.panelImágenes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelImágenes.AutoScroll = true;
-            this.panelImágenes.Location = new System.Drawing.Point(344, 26);
+            this.panelImágenes.Location = new System.Drawing.Point(344, 35);
             this.panelImágenes.Name = "panelImágenes";
-            this.panelImágenes.Size = new System.Drawing.Size(375, 355);
+            this.panelImágenes.Size = new System.Drawing.Size(375, 405);
             this.panelImágenes.TabIndex = 13;
             this.panelImágenes.Visible = false;
             // 
             // lblImagenes
             // 
             this.lblImagenes.AutoSize = true;
-            this.lblImagenes.Location = new System.Drawing.Point(340, 0);
+            this.lblImagenes.Location = new System.Drawing.Point(340, 5);
             this.lblImagenes.Name = "lblImagenes";
             this.lblImagenes.Size = new System.Drawing.Size(68, 19);
             this.lblImagenes.TabIndex = 14;
@@ -207,7 +209,7 @@
             // 
             this.numericImagenes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.numericImagenes.ForeColor = System.Drawing.Color.Gray;
-            this.numericImagenes.Location = new System.Drawing.Point(412, 0);
+            this.numericImagenes.Location = new System.Drawing.Point(412, 5);
             this.numericImagenes.Maximum = new decimal(new int[] {
             10,
             0,
@@ -220,12 +222,54 @@
             this.numericImagenes.Tag = "0";
             this.numericImagenes.Visible = false;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Gray;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(182, 340);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(147, 42);
+            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Gray;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(3, 340);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(147, 42);
+            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            // 
             // FrmNuevoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(727, 393);
+            this.ClientSize = new System.Drawing.Size(727, 443);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.numericImagenes);
             this.Controls.Add(this.lblImagenes);
             this.Controls.Add(this.panelImágenes);
@@ -271,5 +315,7 @@
         private System.Windows.Forms.Panel panelImágenes;
         private System.Windows.Forms.Label lblImagenes;
         private System.Windows.Forms.NumericUpDown numericImagenes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

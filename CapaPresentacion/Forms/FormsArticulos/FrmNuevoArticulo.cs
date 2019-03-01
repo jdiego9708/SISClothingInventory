@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 
+using CapaPresentacion.Forms.FormsProveedores;
+using CapaPresentacion.Forms.FormsTipoArticulos;
+using System.Data;
+
 namespace CapaPresentacion.Forms.FormsArticulos
 {
     public partial class FrmNuevoArticulo : Form
@@ -13,6 +17,113 @@ namespace CapaPresentacion.Forms.FormsArticulos
             InitializeComponent();
             this.btnAddImagenes.Click += BtnAddImagenes_Click;
             this.numericImagenes.ValueChanged += NumericImagenes_ValueChanged;
+            this.btnGuardar.Click += BtnGuardar_Click;
+            this.btnCancelar.Click += BtnCancelar_Click;
+            this.txtTipo.Click += TxtTipo_Click;
+            this.txtProveedor.Click += TxtProveedor_Click;
+            this.txtPrecio.KeyPress += TxtPrecio_KeyPress;
+        }
+
+        private DataTable dtImages(out string rpta)
+        {
+            rpta = "OK";
+            try
+            {
+                if (this.listImages == null)
+                {
+                    return null;
+                }
+                else if (this.listImages.Count < 1)
+                {
+                    return null;
+                }
+
+                DataTable table = new DataTable("Images");
+                table.Columns.Add("Imagen", typeof(string));
+                table.Columns.Add("Descripcion_imagen", typeof(string));
+
+                foreach (UploadImage upload in this.listImages)
+                {
+                    //Código para guardar el nombre de la imagen y la descripcion en la tabla
+                    //También llamar al método guardar de upload imagen
+                }
+                return table;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+                return null;
+            }
+        }
+
+        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void TxtProveedor_Click(object sender, EventArgs e)
+        {
+            FrmObservarProveedores frmObservarProveedores = new FrmObservarProveedores
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            frmObservarProveedores.ondgvDoubleClick += FrmObservarProveedores_ondgvDoubleClick;
+        }
+
+        private void FrmObservarProveedores_ondgvDoubleClick(object sender, EventArgs e)
+        {
+            DataGridViewRow row = (DataGridViewRow)sender;
+            if (row != null)
+            {
+                this.txtProveedor.Text = Convert.ToString(row.Cells["Nombre_proveedor"].Value);
+                this.txtProveedor.Tag = Convert.ToInt32(row.Cells["Id_proveedor"].Value);
+            }
+        }
+
+        private void TxtTipo_Click(object sender, EventArgs e)
+        {
+            FrmObservarTipoArticulos observarTipoArticulos = new FrmObservarTipoArticulos();
+            observarTipoArticulos.StartPosition = FormStartPosition.CenterScreen;
+            observarTipoArticulos.ondgvDoubleClick += ObservarTipoArticulos_ondgvDoubleClick;
+            observarTipoArticulos.ShowDialog();
+        }
+
+        private void ObservarTipoArticulos_ondgvDoubleClick(object sender, EventArgs e)
+        {
+            DataGridViewRow row = (DataGridViewRow)sender;
+            if (row != null)
+            {
+                this.txtTipo.Text = Convert.ToString(row.Cells["Nombre_tipo"].Value);
+                this.txtTipo.Tag = Convert.ToInt32(row.Cells["Id_tipo_articulo"].Value);
+            }
+        }
+
+        private bool Comprobaciones()
+        {
+
+        }
+
+        private List<string> Variables()
+        {
+
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Mensajes.MensajeErrorCompleto(this.Name, "BtnGuardar_Click",
+                    "Hubo un error al guardar artículos", ex.Message);
+            }
         }
 
         List<UploadImage> listImages;

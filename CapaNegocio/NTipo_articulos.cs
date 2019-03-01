@@ -9,7 +9,7 @@ using System.Data;
 
 namespace CapaNegocio
 {
-    public class DTipo_articulos
+    public class NTipo_articulos
     {
         public static string InsertarTipoArticulo(List<string> variables, out int id_tipo)
         {

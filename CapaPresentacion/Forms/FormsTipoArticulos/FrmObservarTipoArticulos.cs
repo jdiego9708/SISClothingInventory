@@ -1,37 +1,44 @@
 ﻿using CapaNegocio;
 using CapaPresentacion.Controles;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Forms.FormsProveedores
+namespace CapaPresentacion.Forms.FormsTipoArticulos
 {
-    public partial class FrmObservarProveedores : Form
+    public partial class FrmObservarTipoArticulos : Form
     {
-        public FrmObservarProveedores()
+        public FrmObservarTipoArticulos()
         {
             InitializeComponent();
-            this.Load += FrmObservarProveedores_Load;
             this.txtBusqueda.onPxClick += TxtBusqueda_onPxClick;
             this.txtBusqueda.onKeyPress += TxtBusqueda_onKeyPress;
             this.txtBusqueda.onLostFocus += TxtBusqueda_onLostFocus;
-            this.dgvProveedores.DoubleClick += DgvProveedores_DoubleClick;
-            this.TextChanged += FrmObservarProveedores_TextChanged;
+            this.dgvTipoArticulos.DoubleClick += DgvTipoArticulos_DoubleClick;
+            this.Load += FrmObservarTipoArticulos_Load;
         }
 
-        private void FrmObservarProveedores_TextChanged(object sender, EventArgs e)
+        private void FrmObservarTipoArticulos_Load(object sender, EventArgs e)
         {
-            this.lblEncabezaco.Text = this.Text;
+            this.txtBusqueda.TextoInicial = "Buscar tipos de artículos";
+            this.txtBusqueda.EstablecerTextoInicial();
+            this.BuscarTipoArticulos("COMPLETO", "");
         }
 
-        private void DgvProveedores_DoubleClick(object sender, EventArgs e)
+        private void DgvTipoArticulos_DoubleClick(object sender, EventArgs e)
         {
             try
             {
-                DataGridViewRow row = this.dgvProveedores.CurrentRow;
+                DataGridViewRow row = this.dgvTipoArticulos.CurrentRow;
                 if (row != null)
                 {
-                    if (this.editarProveedor)
+                    if (this.editarTipoArticulos)
                     {
                         if (this.ondgvDoubleClick != null)
                             this.ondgvDoubleClick(row, e);
@@ -47,7 +54,7 @@ namespace CapaPresentacion.Forms.FormsProveedores
             }
             catch (Exception ex)
             {
-                Mensajes.MensajeErrorCompleto(this.Name, "DgvProveedores_DoubleClick",
+                Mensajes.MensajeErrorCompleto(this.Name, "DgvTipoArticulos_DoubleClick",
                     "Hubo un error con la tabla de datos", ex.Message);
             }
         }
@@ -57,7 +64,7 @@ namespace CapaPresentacion.Forms.FormsProveedores
             CustomTextBox txt = (CustomTextBox)sender;
             if (txt.Equals(txt.TextoInicial) || txt.Equals(""))
             {
-                this.BuscarProveedores("COMPLETO", "");
+                this.BuscarTipoArticulos("COMPLETO", "");
             }
         }
 
@@ -68,11 +75,11 @@ namespace CapaPresentacion.Forms.FormsProveedores
             {
                 if (txt.Texto.Equals("") || txt.Texto.Equals(txt.TextoInicial))
                 {
-                    this.BuscarProveedores("COMPLETO", "");
+                    this.BuscarTipoArticulos("COMPLETO", "");
                 }
                 else
                 {
-                    this.BuscarProveedores("TODO", txt.Texto);
+                    this.BuscarTipoArticulos("NOMBRE", txt.Texto);
                 }
             }
         }
@@ -82,47 +89,40 @@ namespace CapaPresentacion.Forms.FormsProveedores
             CustomTextBox txt = (CustomTextBox)sender;
             if (txt.Texto.Equals("") || txt.Texto.Equals(txt.TextoInicial))
             {
-                this.BuscarProveedores("COMPLETO", "");
+                this.BuscarTipoArticulos("COMPLETO", "");
             }
             else
             {
-                this.BuscarProveedores("TODO", txt.Texto);
+                this.BuscarTipoArticulos("NOMBRE", txt.Texto);
             }
         }
 
-        private void FrmObservarProveedores_Load(object sender, EventArgs e)
-        {
-            this.txtBusqueda.TextoInicial = "Buscar proveedores";
-            this.txtBusqueda.EstablecerTextoInicial();
-            this.BuscarProveedores("COMPLETO", "");
-        }
-
-        private void BuscarProveedores(string tipo_busqueda, string texto_busqueda)
+        private void BuscarTipoArticulos(string tipo_busqueda, string texto_busqueda)
         {
             try
             {
-                DataTable tableProveedores =
-                    NProveedores.BuscarProveedores(tipo_busqueda, texto_busqueda, out string rpta);
-                if (tableProveedores != null)
+                DataTable tableTipoArticulos =
+                    NTipo_articulos.BuscarTipoArticulos(tipo_busqueda, texto_busqueda, out string rpta);
+                if (tableTipoArticulos != null)
                 {
-                    this.dgvProveedores.Enabled = true;
-                    this.dgvProveedores.PageSize = 30;
-                    this.dgvProveedores.SetPagedDataSource(tableProveedores, this.bindingNavigator1);
+                    this.dgvTipoArticulos.Enabled = true;
+                    this.dgvTipoArticulos.PageSize = 30;
+                    this.dgvTipoArticulos.SetPagedDataSource(tableTipoArticulos, this.bindingNavigator1);
 
                     string[] columns_header =
                     {
-                        "Id proveedor", "Fecha ingreso", "Nombre", "Teléfono", "Correo electrónico"
+                        "Id tipo artículo", "Nombre", "Descripción"
                     };
 
                     bool[] columns_visible =
                     {
-                            false, false, true, true, true
+                        false, true, true
                     };
 
-                    this.dgvProveedores =
-                        DatagridString.ChangeHeaderTextAndVisibleCustomDataGrid(this.dgvProveedores,
+                    this.dgvTipoArticulos =
+                        DatagridString.ChangeHeaderTextAndVisibleCustomDataGrid(this.dgvTipoArticulos,
                         columns_header, columns_visible);
-                    this.lblResultados.Text = "Se encontraron " + tableProveedores.Rows.Count + " proveedores";
+                    this.lblResultados.Text = "Se encontraron " + tableTipoArticulos.Rows.Count + " tipos de artículos";
 
                 }
                 else
@@ -130,21 +130,21 @@ namespace CapaPresentacion.Forms.FormsProveedores
                     if (!rpta.Equals("OK"))
                         throw new Exception(rpta);
 
-                    this.dgvProveedores.clearDataSource();
-                    this.dgvProveedores.Enabled = false;
-                    this.lblResultados.Text = "No se encontraron proveedores";
+                    this.dgvTipoArticulos.clearDataSource();
+                    this.dgvTipoArticulos.Enabled = false;
+                    this.lblResultados.Text = "No se encontraron tipos de artículos";
                 }
             }
             catch (Exception ex)
             {
                 Mensajes.MensajeErrorCompleto(this.Name, "BuscarProveedores",
-                    "Hubo un error al buscar un proveedor", ex.Message);
+                    "Hubo un error al buscar un tipo de artículo", ex.Message);
             }
         }
 
         public event EventHandler ondgvDoubleClick;
 
-        public bool editarProveedor = false;
+        public bool editarTipoArticulos = false;
         public bool nuevoArticulo = false;
     }
 }
