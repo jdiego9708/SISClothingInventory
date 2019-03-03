@@ -7,6 +7,7 @@ using System.Linq;
 using CapaPresentacion.Forms.FormsProveedores;
 using CapaPresentacion.Forms.FormsTipoArticulos;
 using System.Data;
+using CapaNegocio;
 
 namespace CapaPresentacion.Forms.FormsArticulos
 {
@@ -24,7 +25,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.txtPrecio.KeyPress += TxtPrecio_KeyPress;
         }
 
-        private DataTable dtImages(out string rpta)
+        private DataTable DtImages(out string rpta)
         {
             rpta = "OK";
             try
@@ -58,7 +59,14 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (Char.IsDigit(e.KeyChar) | Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void TxtProveedor_Click(object sender, EventArgs e)
@@ -100,12 +108,66 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private bool Comprobaciones()
         {
+            if (this.txtNombre.Text.Equals(string.Empty))
+            {
+                this.errorProvider1.SetError(this.txtNombre, "El nombre del artículo es necesario");
+                return false;
+            }
+            
+            if (this.txtProveedor.Tag.Equals(null))
+            {
+                this.errorProvider1.SetError(this.txtProveedor, "Proveedor requerido");
+                return false;
+            }
 
+            if (this.txtTipo.Tag.Equals(null))
+            {
+                this.errorProvider1.SetError(this.txtTipo, "Tipo de artículo requerido");
+                return false;
+            }
+
+            int precio;
+            if (Int32.TryParse(this.txtPrecio.Text, out precio))
+            {
+                if (precio == 0)
+                {
+                    this.errorProvider1.SetError(this.txtPrecio, "El precio es necesario");
+                    return false;
+                }
+            }
+            else
+            {
+                this.errorProvider1.SetError(this.txtPrecio, "El precio no tiene el formato correcto, debe ser solo números");
+                return false;
+            }
+
+            if (this.numericCantidad.Value == 0)
+            {
+                this.errorProvider1.SetError(this.numericCantidad, "La cantidad debe ser mayor que 0");
+                return false;
+            }
+
+            string rpta;
+            if (this.DtImages(out rpta) != null)
+            {
+                if (!rpta.Equals("OK"))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
-        private List<string> Variables()
+        private List<string> Variables(out DataTable dtImages)
         {
-
+            string rpta;
+            dtImages = this.DtImages(out rpta);
+            return new List<string>
+            {
+                this.txtTipo.Tag.ToString(), this.txtNombre.Text, 
+                this.txtProveedor.Tag.ToString(), this.numericCantidad.Value.ToString(),
+                "", this.txtDescripcion.Text, this.txtPrecio.Text
+            };
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -117,7 +179,17 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             try
             {
+                string rpta = "";
+                if (this.Comprobaciones())
+                {
+                    DataTable dtImages;
+                    int id_articulo;
+                    rpta = NArticulos.InsertarArticulos(this.Variables(out dtImages), dtImages, out id_articulo);
+                    if (rpta.Equals("OK"))
+                    {
 
+                    }
+                }
             }
             catch (Exception ex)
             {
