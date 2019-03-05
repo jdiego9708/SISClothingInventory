@@ -30,5 +30,11 @@ namespace CapaNegocio
         {
             return DArticulos.BuscarArticulos(tipo_busqueda, texto_busqueda, out rpta);
         }
+
+        public static DataTable BuscarImagenesArticulos(string tipo_busqueda, string texto_busqueda,
+            out string rpta)
+        {
+            return DArticulos.BuscarImagenesArticulos(tipo_busqueda, texto_busqueda, out rpta);
+        }
     }
 }

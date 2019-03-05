@@ -1,12 +1,13 @@
-﻿using CapaPresentacion.Controles;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Linq;
-
+﻿using CapaNegocio;
+using CapaPresentacion.Controles;
 using CapaPresentacion.Forms.FormsProveedores;
 using CapaPresentacion.Forms.FormsTipoArticulos;
+using CapaPresentacion.Properties;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms.FormsArticulos
 {
@@ -44,8 +45,15 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
                 foreach (UploadImage upload in this.listImages)
                 {
-                    //Código para guardar el nombre de la imagen y la descripcion en la tabla
-                    //También llamar al método guardar de upload imagen
+                    rpta =
+                        ArchivosAdjuntos.GuardarArchivo(01, "RutaImagenesArticulos", upload.Nombre_imagen, upload.Ruta_origen);
+                    if (rpta.Equals("OK"))
+                    {
+                        DataRow row = table.NewRow();
+                        row["Imagen"] = upload.Nombre_imagen;
+                        row["Descripcion_imagen"] = upload.Observaciones != null ? "" : upload.Observaciones;
+                        table.Rows.Add(row);
+                    }
                 }
                 return table;
             }
@@ -76,9 +84,11 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             FrmObservarProveedores frmObservarProveedores = new FrmObservarProveedores
             {
-                StartPosition = FormStartPosition.CenterScreen
+                StartPosition = FormStartPosition.CenterScreen,
+                nuevoArticulo = true
             };
             frmObservarProveedores.ondgvDoubleClick += FrmObservarProveedores_ondgvDoubleClick;
+            frmObservarProveedores.Show();
         }
 
         private void FrmObservarProveedores_ondgvDoubleClick(object sender, EventArgs e)
@@ -95,6 +105,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             FrmObservarTipoArticulos observarTipoArticulos = new FrmObservarTipoArticulos();
             observarTipoArticulos.StartPosition = FormStartPosition.CenterScreen;
+            observarTipoArticulos.nuevoArticulo = true;
             observarTipoArticulos.ondgvDoubleClick += ObservarTipoArticulos_ondgvDoubleClick;
             observarTipoArticulos.ShowDialog();
         }
@@ -111,12 +122,57 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private bool Comprobaciones()
         {
+            bool result = true;
 
+            if (this.txtNombre.Text.Equals(""))
+            {
+                this.errorProvider1.SetError(this.txtNombre, "El nombre del artículo es necesario");
+                result = false;
+            }
+
+            if (this.txtTipo.Tag.Equals(null))
+            {
+                this.errorProvider1.SetError(this.txtTipo, "El tipo de artículo es necesario");
+                result = false;
+            }
+
+            if (this.txtProveedor.Tag.Equals(null))
+            {
+                this.errorProvider1.SetError(this.txtProveedor, "El proveedor es necesario");
+                result = false;
+            }
+
+            if (this.numericCantidad.Value.Equals(0))
+            {
+                this.errorProvider1.SetError(this.numericCantidad, "La cantidad es necesaria");
+                result = false;
+            }
+
+            if (Int32.TryParse(this.txtPrecio.Text, out int precio))
+            {
+                if (precio == 0 | precio < 500)
+                {
+                    this.errorProvider1.SetError(this.txtPrecio, "Verifique el precio, es obligatorio y" +
+                                                                    " no puede ser menor que $500");
+                    result = false;
+                }
+            }
+            else
+            {
+                this.errorProvider1.SetError(this.txtPrecio, "El precio solo puede tener números");
+                result = false;
+            }
+            return result;
         }
 
         private List<string> Variables()
         {
-
+            return new List<string>
+            {
+                Convert.ToString(this.txtTipo.Tag), this.txtNombre.Text,
+                Convert.ToString(this.txtProveedor.Tag), this.numericCantidad.Value.ToString(),
+                "", this.txtDescripcion.Text, this.txtPrecio.Text
+            };
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -128,7 +184,32 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             try
             {
+                string rpta = "";
+                if (this.Comprobaciones())
+                {
+                    int id_articulo;
+                    DataTable dtImagenes = this.dtImages(out rpta);
 
+                    string rptaImages = "OK";
+                    if (!rpta.Equals("OK"))
+                        rptaImages = rpta;
+
+                    rpta =
+                        NArticulos.InsertarArticulos(this.Variables(), dtImagenes, out id_articulo);
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (rptaImages.Equals("OK"))
+                        {
+                            Mensajes.MensajeOkForm("Se guardó el artículo correctamente");
+                        }
+                        else
+                        {
+                            Mensajes.MensajeInformacion("Se guardó el artículo " +
+                            "correctamente pero no se pudieron guardar las imágenes", "Entendido");
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -198,6 +279,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 this.Width = this.Width - this.panelImágenes.Width - 2;
                 this.numericImagenes.Value = 0;
                 this.numericImagenes.Tag = 0;
+                this.btnAddImagenes.Image = Resources.mas;
             }
             else
             {
@@ -209,6 +291,8 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 this.Width = this.Width + this.panelImágenes.Width + 2;
                 this.numericImagenes.Value = 1;
                 this.numericImagenes.Tag = 1;
+                this.btnAddImagenes.Image = Resources.negative;
+
             }
         }
 

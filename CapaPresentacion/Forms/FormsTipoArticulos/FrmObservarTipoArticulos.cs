@@ -50,6 +50,12 @@ namespace CapaPresentacion.Forms.FormsTipoArticulos
                             this.ondgvDoubleClick(row, e);
                         this.Close();
                     }
+                    else if (this.observarArticulo)
+                    {
+                        if (this.ondgvDoubleClick != null)
+                            this.ondgvDoubleClick(row, e);
+                        this.Close();
+                    }
                 }
             }
             catch (Exception ex)
@@ -146,5 +152,6 @@ namespace CapaPresentacion.Forms.FormsTipoArticulos
 
         public bool editarTipoArticulos = false;
         public bool nuevoArticulo = false;
+        public bool observarArticulo = false;
     }
 }

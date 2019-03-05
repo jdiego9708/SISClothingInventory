@@ -54,11 +54,11 @@ namespace CapaPresentacion
             //Estilo de borde a los encabezados de columna
             this.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             //Posición del texto de la celda
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             //Color de fondo de la celda
             dataGridViewCellStyle2.BackColor = Color.FromArgb(34, 143, 168);
             //Fuente aplicada a el estilo de la celda
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             //Color de la letra de las celdas
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(245, 245, 245);
             //Color de fondo cuando se selecciona una celda
@@ -70,11 +70,11 @@ namespace CapaPresentacion
             //Obtiene o establece el estilo de todas las celdas
             this.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             //Alineación del texto de cabecera
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             //Color de fondo del estilo de cabecera
             dataGridViewCellStyle3.BackColor = Color.FromArgb(227, 224, 217);
             //Fuente para la cabecera
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
             //Color de letra para la cabecera
             dataGridViewCellStyle3.ForeColor = SystemColors.ControlDark;
             //Color de fondo utilizado cuando se selecciona una celda

@@ -45,25 +45,21 @@
             // 
             // metroTile1
             // 
-            this.metroTile1.ActiveControl = null;
             this.metroTile1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTile1.Location = new System.Drawing.Point(0, 0);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(219, 23);
             this.metroTile1.TabIndex = 2;
-            this.metroTile1.Text = "metroTile1";
             // 
             // metroTile2
             // 
-            this.metroTile2.ActiveControl = null;
             this.metroTile2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTile2.Location = new System.Drawing.Point(0, 150);
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(219, 23);
             this.metroTile2.TabIndex = 3;
-            this.metroTile2.Text = "metroTile2";
             // 
             // txtMensaje
             // 

@@ -142,6 +142,11 @@ namespace CapaPresentacion.Controles
             this.txtBusqueda.Text = TextoInicial;
         }
 
+        public void EstablecerTexto()
+        {
+            this.txtBusqueda.Text = Texto;
+        }
+
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = (TextBox)sender;

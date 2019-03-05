@@ -63,6 +63,12 @@
     <Compile Include="Controles\CustomTextBox.designer.cs">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\Observacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\Observacion.Designer.cs">
+      <DependentUpon>Observacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\PoperContainer.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -74,6 +80,18 @@
     </Compile>
     <Compile Include="Controles\UploadImage.Designer.cs">
       <DependentUpon>UploadImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsArticulos\ArticuloSmall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsArticulos\ArticuloSmall.Designer.cs">
+      <DependentUpon>ArticuloSmall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsArticulos\FrmArticuloProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsArticulos\FrmArticuloProfile.Designer.cs">
+      <DependentUpon>FrmArticuloProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormsArticulos\FrmArticulos.cs">
       <SubType>Form</SubType>
@@ -129,6 +147,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Servicios\ArchivosAdjuntos.cs" />
     <Compile Include="Servicios\ComprobacionesControles.cs" />
     <Compile Include="Servicios\DatagridString.cs" />
     <Compile Include="Servicios\EnviarEmailErrores.cs" />
@@ -192,8 +211,17 @@
     <EmbeddedResource Include="Controles\CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controles\Observacion.resx">
+      <DependentUpon>Observacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UploadImage.resx">
       <DependentUpon>UploadImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsArticulos\ArticuloSmall.resx">
+      <DependentUpon>ArticuloSmall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsArticulos\FrmArticuloProfile.resx">
+      <DependentUpon>FrmArticuloProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsArticulos\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
@@ -253,6 +281,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\if_Plus_green_1891032.png" />
+    <None Include="Resources\negative.png" />
     <None Include="Resources\toolbar_find.png" />
     <None Include="Resources\SIN_IMAGEN1.jpg" />
   </ItemGroup>
