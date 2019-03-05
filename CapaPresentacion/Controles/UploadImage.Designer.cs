@@ -43,9 +43,11 @@
             // pxImagen
             // 
             this.pxImagen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pxImagen.Image")));
             this.pxImagen.Location = new System.Drawing.Point(3, 3);
             this.pxImagen.Name = "pxImagen";
             this.pxImagen.Size = new System.Drawing.Size(165, 150);
+            this.pxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pxImagen.TabIndex = 0;
             this.pxImagen.TabStop = false;
             // 

@@ -58,7 +58,18 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void TxtProveedor_Click(object sender, EventArgs e)
@@ -139,7 +150,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 {
                     UploadImage upload = new UploadImage();
                     upload.Name = "Image" + cantidad_nueva;
-                    upload.Valor = cantidad_nueva;
+                    upload.Numero_imagen = cantidad_nueva;
                     upload.Location = new System.Drawing.Point(0, 0);
                     this.listImages.Add(upload);
                     this.panelImágenes.Controls.Add(upload);
@@ -153,7 +164,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                         int y = upload.Location.Y + upload.Height;
                         upload = new UploadImage();
                         upload.Name = "Image" + cantidad_nueva;
-                        upload.Valor = cantidad_nueva;
+                        upload.Numero_imagen = cantidad_nueva;
                         upload.Location = new System.Drawing.Point(0, y);
                         this.listImages.Add(upload);
                         this.panelImágenes.Controls.Add(upload);
