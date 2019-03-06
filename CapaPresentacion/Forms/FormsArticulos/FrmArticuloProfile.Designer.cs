@@ -29,33 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArticuloProfile));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelImagenes = new System.Windows.Forms.Panel();
             this.px1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.panelImagenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.px1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelImagenes
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelImagenes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.px1);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(165, 459);
-            this.panel1.TabIndex = 0;
+            this.panelImagenes.AutoScroll = true;
+            this.panelImagenes.Controls.Add(this.px1);
+            this.panelImagenes.Location = new System.Drawing.Point(1, 1);
+            this.panelImagenes.Name = "panelImagenes";
+            this.panelImagenes.Size = new System.Drawing.Size(159, 414);
+            this.panelImagenes.TabIndex = 0;
             // 
             // px1
             // 
@@ -69,31 +70,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(172, 1);
+            this.label1.Location = new System.Drawing.Point(166, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre:";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.Location = new System.Drawing.Point(172, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(299, 27);
-            this.textBox1.TabIndex = 2;
+            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNombre.Location = new System.Drawing.Point(166, 24);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(299, 27);
+            this.txtNombre.TabIndex = 2;
             // 
-            // textBox2
+            // txtTipo
             // 
-            this.textBox2.Location = new System.Drawing.Point(172, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(117, 27);
-            this.textBox2.TabIndex = 3;
+            this.txtTipo.Location = new System.Drawing.Point(166, 75);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(117, 27);
+            this.txtTipo.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(172, 52);
+            this.label2.Location = new System.Drawing.Point(166, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 4;
@@ -102,80 +103,102 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(172, 102);
+            this.label3.Location = new System.Drawing.Point(166, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Proveedor:";
             // 
-            // textBox3
+            // txtProveedor
             // 
-            this.textBox3.Location = new System.Drawing.Point(172, 125);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(299, 27);
-            this.textBox3.TabIndex = 5;
+            this.txtProveedor.Location = new System.Drawing.Point(166, 125);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(299, 27);
+            this.txtProveedor.TabIndex = 5;
             // 
-            // label4
+            // lblCantidad
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(172, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Cantidad:";
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(166, 161);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(72, 20);
+            this.lblCantidad.TabIndex = 8;
+            this.lblCantidad.Text = "Cantidad:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(172, 250);
+            this.label5.Location = new System.Drawing.Point(166, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Descripción:";
             // 
-            // textBox4
+            // txtDescripcion
             // 
-            this.textBox4.Location = new System.Drawing.Point(172, 273);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(299, 88);
-            this.textBox4.TabIndex = 9;
+            this.txtDescripcion.Location = new System.Drawing.Point(166, 273);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescripcion.Size = new System.Drawing.Size(299, 88);
+            this.txtDescripcion.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(172, 190);
+            this.label6.Location = new System.Drawing.Point(166, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Precio:";
             // 
-            // textBox5
+            // txtPrecio
             // 
-            this.textBox5.Location = new System.Drawing.Point(172, 213);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(117, 27);
-            this.textBox5.TabIndex = 12;
+            this.txtPrecio.Location = new System.Drawing.Point(166, 213);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(117, 27);
+            this.txtPrecio.TabIndex = 12;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(166, 367);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(147, 42);
+            this.btnEditar.TabIndex = 17;
+            this.btnEditar.Text = "Editar datos";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // FrmArticuloProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(475, 457);
-            this.Controls.Add(this.textBox5);
+            this.ClientSize = new System.Drawing.Size(475, 412);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtProveedor);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTipo);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelImagenes);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -186,7 +209,7 @@
             this.Name = "FrmArticuloProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artículo";
-            this.panel1.ResumeLayout(false);
+            this.panelImagenes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.px1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,18 +218,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelImagenes;
         private System.Windows.Forms.PictureBox px1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

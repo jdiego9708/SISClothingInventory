@@ -25,6 +25,94 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.txtPrecio.KeyPress += TxtPrecio_KeyPress;
         }
 
+        private void Limpiar()
+        {
+            this.txtNombre.Text = string.Empty;
+            this.txtTipo.Text = "Seleccione un tipo de artículo";
+            this.txtTipo.Tag = null;
+            this.txtProveedor.Text = "Seleccione un proveedor";
+            this.txtProveedor.Tag = null;
+            this.numericCantidad.Value = 0;
+            this.numericCantidad.Tag = 0;
+            this.txtPrecio.Text = "0";
+            this.txtDescripcion.Text = string.Empty;
+            this.Articulo = null;
+            this.numericImagenes.Value = 0;
+            this.numericImagenes.Tag = 0;
+
+            if (this.panelImágenes.Visible)
+                this.btnAddImagenes.PerformClick();
+        }
+
+        public void AsignarDatosArticulo(Articulo articulo)
+        {
+            this.Articulo = articulo;
+            this.txtNombre.Text = articulo.Nombre_articulo;
+            this.txtTipo.Text = articulo.Tipo_articulo;
+            this.txtTipo.Tag = articulo.Id_tipo_articulo;
+            this.txtProveedor.Text = articulo.Nombre_proveedor;
+            this.txtProveedor.Tag = articulo.Id_proveedor;
+            this.numericCantidad.Value = articulo.Cantidad;
+            this.txtPrecio.Text = articulo.Precio.ToString();
+            this.txtDescripcion.Text = articulo.Descripcion_articulo;
+
+            if (articulo.DtImagenes != null)
+            {
+                this.numericImagenes.Value = articulo.DtImagenes.Rows.Count;
+                this.numericImagenes.Tag = articulo.DtImagenes.Rows.Count - 1;
+
+                int cantidad_nueva = 0;
+                int cantidad_anterior = 0;
+
+                foreach (DataRow row in articulo.DtImagenes.Rows)
+                {
+                    cantidad_nueva += 1;
+                    if (cantidad_nueva > 0)
+                    {
+                        if (this.listImages.Count == 0)
+                        {
+                            UploadImage upload = new UploadImage();
+                            upload.Name = "Image" + cantidad_nueva;
+                            upload.Numero_imagen = cantidad_nueva;
+                            upload.Location = new System.Drawing.Point(0, 0);
+                            upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
+                            this.listImages.Add(upload);
+                            this.panelImágenes.Controls.Add(upload);
+                        }
+                        else
+                        {
+                            if (cantidad_nueva > cantidad_anterior)
+                            {
+                                //Obtener último elemento de la lista
+                                UploadImage upload = this.listImages.Last<UploadImage>();
+                                int y = upload.Location.Y + upload.Height;
+                                upload = new UploadImage();
+                                upload.Name = "Image" + cantidad_nueva;
+                                upload.Numero_imagen = cantidad_nueva;
+                                upload.Location = new System.Drawing.Point(0, y);
+                                upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
+                                this.listImages.Add(upload);
+                                this.panelImágenes.Controls.Add(upload);
+                            }
+                            else
+                            {
+                                //Obtener último elemento de la lista
+                                UploadImage upload = this.listImages.Last<UploadImage>();
+                                this.listImages.Remove(upload);
+                                this.panelImágenes.Controls.Remove(upload);
+                            }
+                        }
+                        cantidad_anterior = cantidad_nueva;
+                    }
+                    else
+                    {
+                        this.listImages = new List<UploadImage>();
+                        this.panelImágenes.Controls.Clear();
+                    }
+                }
+            }
+        }
+
         private DataTable dtImages(out string rpta)
         {
             rpta = "OK";
@@ -296,8 +384,8 @@ namespace CapaPresentacion.Forms.FormsArticulos
             }
         }
 
+        private Articulo Articulo;
         private bool _isEditar;
-
         public bool IsEditar { get => _isEditar; set => _isEditar = value; }
     }
 }

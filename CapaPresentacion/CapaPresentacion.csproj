@@ -81,6 +81,7 @@
     <Compile Include="Controles\UploadImage.Designer.cs">
       <DependentUpon>UploadImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormsArticulos\Articulo.cs" />
     <Compile Include="Forms\FormsArticulos\ArticuloSmall.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,6 +111,12 @@
     </Compile>
     <Compile Include="Forms\FormsArticulos\FrmObservarArticulos.Designer.cs">
       <DependentUpon>FrmObservarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsClientes\FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsClientes\FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormsPrincipales\FrmPrincipal.cs">
       <SubType>Form</SubType>

@@ -115,11 +115,12 @@ namespace CapaPresentacion.Forms.FormsArticulos
         private void FrmObservarArticulos_Load(object sender, EventArgs e)
         {
             this.txtBusqueda.TextoInicial = "Escriba para buscar artículos";
-            this.listArticulos = new List<ArticuloSmall>();
+            this.listArticulosSmall = new List<ArticuloSmall>();
             this.BuscarArticulos("COMPLETO", "");
         }
 
-        List<ArticuloSmall> listArticulos;
+        List<ArticuloSmall> listArticulosSmall;
+        List<Articulo> listArticulos;
 
         private void BuscarArticulos(string tipo_busqueda, string texto_busqueda)
         {
@@ -134,7 +135,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                     this.panelArticulos.Enabled = true;
                     this.lblResultados.Text = "Se encontraron " + dtArticulos.Rows.Count + " artículos";
                     this.panelArticulos.Controls.Clear();
-                    this.listArticulos.Clear();
+                    this.listArticulosSmall.Clear();
 
                     int ancho_total_articulos = 0;
                     foreach (DataRow row in dtArticulos.Rows)
@@ -147,7 +148,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
                         int positionX = 0;
                         int positionY = 0;
-                        if (this.listArticulos.Count < 1)
+                        if (this.listArticulosSmall.Count < 1)
                         {
                             articulo.Location = new Point(positionX, positionY);
                         }
@@ -155,27 +156,28 @@ namespace CapaPresentacion.Forms.FormsArticulos
                         {
                             if (ancho_total_articulos > this.ancho_panel)
                             {
-                                ArticuloSmall primerArticulo = this.listArticulos.First<ArticuloSmall>();
+                                ArticuloSmall primerArticulo = this.listArticulosSmall.First<ArticuloSmall>();
                                 positionX = 0;
                                 positionY = primerArticulo.Location.Y + primerArticulo.Height;
                             }
                             else
                             {
-                                ArticuloSmall articuloAnterior = this.listArticulos.Last<ArticuloSmall>();
+                                ArticuloSmall articuloAnterior = this.listArticulosSmall.Last<ArticuloSmall>();
                                 positionX = articuloAnterior.Location.X + articuloAnterior.Width;
                                 positionY = articuloAnterior.Location.Y;
                             }
                             articulo.Location = new Point(positionX, positionY);
                         }
+                        articulo.onBtnVerArticuloClick += Articulo_onBtnVerArticuloClick;
                         articulo.IsEditar = this.IsEditar;
                         this.panelArticulos.Controls.Add(articulo);
-                        this.listArticulos.Add(articulo);
+                        this.listArticulosSmall.Add(articulo);
                     }
                 }
                 else
                 {
                     this.panelArticulos.Controls.Clear();
-                    this.listArticulos.Clear();
+                    this.listArticulosSmall.Clear();
                     this.lblResultados.Text = "No se encontraron artículos";
                     this.panelArticulos.Enabled = false;
                 }
@@ -189,6 +191,26 @@ namespace CapaPresentacion.Forms.FormsArticulos
             }
         }
 
+        private void Articulo_onBtnVerArticuloClick(object sender, EventArgs e)
+        {
+            ArticuloSmall articuloSmall = (ArticuloSmall)sender;
+            FrmArticuloProfile articuloProfile = new FrmArticuloProfile
+            {
+                StartPosition = FormStartPosition.CenterScreen,
+                Articulo = articuloSmall.articulo
+            };
+            articuloProfile.onBtnEditarClick += ArticuloProfile_onBtnEditarClick;
+            articuloProfile.Show();
+        }
+
+        private void ArticuloProfile_onBtnEditarClick(object sender, EventArgs e)
+        {
+            //Sender es FrmArticuloProfile que contiene una clase Articulo con los datos necesario
+            if (this.onEditarArticulo != null)
+                this.onEditarArticulo(sender, e);
+        }
+
+        public event EventHandler onEditarArticulo;
         private int ancho_panel;
         private bool _isEditar;
 

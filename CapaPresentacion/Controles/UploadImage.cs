@@ -40,10 +40,10 @@ namespace CapaPresentacion.Controles
             this.conObservaciones.Show(this.btnAgregarComentario);
         }
 
-        public void AsignarImagen(string nombre_imagen)
+        public void AsignarImagen(string nombre_imagen, string appKey)
         {
             string rutaOr;
-            Image Imagen = Imagenes.ObtenerImagen(this.Tipo_imagen, nombre_imagen, out rutaOr);
+            Image Imagen = Imagenes.ObtenerImagen(appKey, nombre_imagen, out rutaOr);
             this.pxImagen.Image = Imagen;
             this.pxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
             this.txtImagen.Text = nombre_imagen;

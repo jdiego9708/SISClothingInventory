@@ -36,7 +36,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
         }
 
         private void OpenNuevoArticulo(bool visible, bool isEditar,
-            List<string> variables)
+            Articulo articulo)
         {
             if (visible)
             {
@@ -54,7 +54,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                     frmNuevoArticulo.Text = "Agregar un nuevo artículo";
                     if (isEditar)
                     {
-                        //frmNuevoArticulo.AsignarDatos(variables);
+                        frmNuevoArticulo.AsignarDatosArticulo(articulo);
                         frmNuevoArticulo.Text = "Editar los datos de un artículo";
                     }
                     this.panel1.Controls.Add(frmNuevoArticulo);
@@ -68,7 +68,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                     this.frmNuevoArticulo.Text = "Agregar un nuevo artículo";
                     if (isEditar)
                     {
-                        //this.frmNuevoArticulo.AsignarDatos(variables);
+                        frmNuevoArticulo.AsignarDatosArticulo(articulo);
                         this.frmNuevoArticulo.Text = "Editar los datos de un artículo";
                     }
                     this.panel1.Controls.Add(frmNuevoArticulo);
@@ -98,7 +98,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                     this.frmObservarArticulos.Text = "Observar artículos existentes";
                     if (isEditar)
                     {
-                        this.frmObservarArticulos.ondgvDoubleClick += FrmObservar_ondgvDoubleClick;
+                        this.frmObservarArticulos.onEditarArticulo += FrmArticuloProfileEdit;
                         this.frmObservarArticulos.Text = "Seleccione un artículo para editar";
                     }
                     this.panel1.Controls.Add(frmObservarArticulos);
@@ -111,7 +111,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                     this.frmObservarArticulos.Text = "Observar artículos existentes";
                     if (isEditar)
                     {
-                        this.frmObservarArticulos.ondgvDoubleClick += FrmObservar_ondgvDoubleClick;
+                        this.frmObservarArticulos.onEditarArticulo += FrmArticuloProfileEdit;
                         this.frmObservarArticulos.Text = "Seleccione un artículo para editar";
                     }
 
@@ -125,11 +125,11 @@ namespace CapaPresentacion.Forms.FormsArticulos
             }
         }
 
-        private void FrmObservar_ondgvDoubleClick(object sender, EventArgs e)
+        private void FrmArticuloProfileEdit(object sender, EventArgs e)
         {
-            List<string> datos =
-                DatagridString.ReturnValuesOfCells(sender, 0);
-            this.OpenNuevoArticulo(true, true, datos);
+            FrmArticuloProfile frmArticuloProfile = (FrmArticuloProfile)sender;
+            Articulo articulo = frmArticuloProfile.Articulo;
+            this.OpenNuevoArticulo(true, true, articulo);
         }
 
         private void Frm_FormClosed(object sender, FormClosedEventArgs e)

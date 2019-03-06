@@ -157,15 +157,15 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(170, 185);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 19);
+            this.label6.Size = new System.Drawing.Size(61, 19);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Precio";
+            this.label6.Text = "Precio: $";
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(213, 181);
+            this.txtPrecio.Location = new System.Drawing.Point(227, 181);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(116, 26);
+            this.txtPrecio.Size = new System.Drawing.Size(102, 26);
             this.txtPrecio.TabIndex = 11;
             // 
             // panelImágenes
