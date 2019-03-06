@@ -61,6 +61,10 @@ namespace CapaPresentacion.Controles
         private void UploadImage_Load(object sender, EventArgs e)
         {
             this.label1.Text = "Imagen " + this.Numero_imagen;
+            if (this.Observaciones != null)
+            {
+                this.observacion.txtObservacion.Text = this.Observaciones;
+            }
         }
 
         private void BtnSeleccionar_Click(object sender, EventArgs e)

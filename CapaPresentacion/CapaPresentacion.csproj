@@ -112,11 +112,24 @@
     <Compile Include="Forms\FormsArticulos\FrmObservarArticulos.Designer.cs">
       <DependentUpon>FrmObservarArticulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormsClientes\Cliente.cs" />
     <Compile Include="Forms\FormsClientes\FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormsClientes\FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsClientes\FrmNuevoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsClientes\FrmNuevoCliente.Designer.cs">
+      <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsClientes\FrmObservarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsClientes\FrmObservarClientes.Designer.cs">
+      <DependentUpon>FrmObservarClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormsPrincipales\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -239,6 +252,15 @@
     <EmbeddedResource Include="Forms\FormsArticulos\FrmObservarArticulos.resx">
       <DependentUpon>FrmObservarArticulos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsClientes\FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsClientes\FrmNuevoCliente.resx">
+      <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsClientes\FrmObservarClientes.resx">
+      <DependentUpon>FrmObservarClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsPrincipales\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\edit.png" />
     <None Include="Resources\if_Plus_green_1891032.png" />
     <None Include="Resources\negative.png" />
     <None Include="Resources\toolbar_find.png" />

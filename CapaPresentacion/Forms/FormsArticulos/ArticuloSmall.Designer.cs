@@ -130,7 +130,7 @@
             this.btnVerArticulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerArticulo.Location = new System.Drawing.Point(220, 33);
             this.btnVerArticulo.Name = "btnVerArticulo";
-            this.btnVerArticulo.Size = new System.Drawing.Size(36, 37);
+            this.btnVerArticulo.Size = new System.Drawing.Size(40, 37);
             this.btnVerArticulo.TabIndex = 4;
             this.toolTip1.SetToolTip(this.btnVerArticulo, "Ver detalle del artículo");
             this.btnVerArticulo.UseVisualStyleBackColor = false;

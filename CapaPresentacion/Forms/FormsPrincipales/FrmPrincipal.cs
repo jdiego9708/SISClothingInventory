@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using CapaPresentacion.Forms.FormsArticulos;
 using CapaPresentacion.Forms.FormsProveedores;
+using CapaPresentacion.Forms.FormsClientes;
 
 namespace CapaPresentacion.Forms.FormsPrincipales
 {
@@ -20,6 +21,25 @@ namespace CapaPresentacion.Forms.FormsPrincipales
             InitializeComponent();
             this.btnArticulos.Click += BtnArticulos_Click;
             this.btnProveedores.Click += BtnProveedores_Click;
+            this.btnClientes.Click += BtnClientes_Click;
+        }
+
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn.Tag == null)
+            {
+                FrmClientes frm = new FrmClientes();
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.FormClosed += Frm_FormClosed;
+                btn.Tag = frm;
+                frm.Show();
+            }
+            else
+            {
+                FrmClientes frm = (FrmClientes)btn.Tag;
+                frm.Activate();
+            }
         }
 
         private void BtnProveedores_Click(object sender, EventArgs e)

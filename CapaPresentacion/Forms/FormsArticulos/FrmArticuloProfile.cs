@@ -18,7 +18,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             if (this.onBtnEditarClick != null)
-                this.onBtnEditarClick(this, e);
+                this.onBtnEditarClick(this.Articulo, e);
             this.Close();
         }
 
@@ -31,7 +31,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 this.txtTipo.Text = this.Articulo.Tipo_articulo;
                 this.txtProveedor.Text = this.Articulo.Nombre_proveedor;
                 this.lblCantidad.Text = "Cantidad: " + this.Articulo.Cantidad;
-                this.txtPrecio.Text = this.Articulo.Precio.ToString("C");
+                this.txtPrecio.Text = this.Articulo.Precio.ToString();
                 this.txtDescripcion.Text = this.Articulo.Descripcion_articulo;
 
                 if (this.Articulo.DtImagenes != null)

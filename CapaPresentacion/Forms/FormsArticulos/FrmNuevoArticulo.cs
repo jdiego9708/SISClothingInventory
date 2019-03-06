@@ -58,6 +58,17 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
             if (articulo.DtImagenes != null)
             {
+                if (this.panelImágenes.Controls.Count > 0)
+                    this.panelImágenes.Controls.Clear();
+
+                this.panelImágenes.Visible = true;
+                this.lblImagenes.Visible = true;
+                this.numericImagenes.Visible = true;
+                this.btnAddImagenes.Text = "Sin imágenes";
+                this.listImages = new List<UploadImage>();
+                this.Width = this.Width + this.panelImágenes.Width + 2;
+                this.btnAddImagenes.Image = Resources.negative;
+
                 this.numericImagenes.Value = articulo.DtImagenes.Rows.Count;
                 this.numericImagenes.Tag = articulo.DtImagenes.Rows.Count - 1;
 
@@ -75,6 +86,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                             upload.Name = "Image" + cantidad_nueva;
                             upload.Numero_imagen = cantidad_nueva;
                             upload.Location = new System.Drawing.Point(0, 0);
+                            upload.Observaciones = Convert.ToString(row["Descripcion_imagen"]);
                             upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
                             this.listImages.Add(upload);
                             this.panelImágenes.Controls.Add(upload);
@@ -90,6 +102,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                                 upload.Name = "Image" + cantidad_nueva;
                                 upload.Numero_imagen = cantidad_nueva;
                                 upload.Location = new System.Drawing.Point(0, y);
+                                upload.Observaciones = Convert.ToString(row["Descripcion_imagen"]);
                                 upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
                                 this.listImages.Add(upload);
                                 this.panelImágenes.Controls.Add(upload);
@@ -359,15 +372,16 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             if (this.panelImágenes.Visible)
             {
-                this.lblImagenes.Visible = false;
-                this.numericImagenes.Visible = false;
-                this.btnAddImagenes.Text = "Agregar imágenes";
                 this.listImages = null;
                 this.panelImágenes.Visible = false;
                 this.Width = this.Width - this.panelImágenes.Width - 2;
                 this.numericImagenes.Value = 0;
                 this.numericImagenes.Tag = 0;
+                this.lblImagenes.Visible = false;
+                this.numericImagenes.Visible = false;
+                this.btnAddImagenes.Text = "Agregar imágenes";
                 this.btnAddImagenes.Image = Resources.mas;
+
             }
             else
             {

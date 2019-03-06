@@ -95,10 +95,10 @@ namespace CapaPresentacion.Forms.FormsArticulos
                     frmObservarArticulos.Dock = DockStyle.Fill;
                     frmObservarArticulos.TopLevel = false;
                     frmObservarArticulos.FormClosed += Frm_FormClosed;
+                    frmObservarArticulos.onEditarArticulo += FrmArticuloProfileEdit;
                     this.frmObservarArticulos.Text = "Observar artículos existentes";
                     if (isEditar)
                     {
-                        this.frmObservarArticulos.onEditarArticulo += FrmArticuloProfileEdit;
                         this.frmObservarArticulos.Text = "Seleccione un artículo para editar";
                     }
                     this.panel1.Controls.Add(frmObservarArticulos);
@@ -108,10 +108,10 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 }
                 else
                 {
+                    this.frmObservarArticulos.onEditarArticulo += FrmArticuloProfileEdit;
                     this.frmObservarArticulos.Text = "Observar artículos existentes";
                     if (isEditar)
                     {
-                        this.frmObservarArticulos.onEditarArticulo += FrmArticuloProfileEdit;
                         this.frmObservarArticulos.Text = "Seleccione un artículo para editar";
                     }
 
@@ -127,8 +127,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private void FrmArticuloProfileEdit(object sender, EventArgs e)
         {
-            FrmArticuloProfile frmArticuloProfile = (FrmArticuloProfile)sender;
-            Articulo articulo = frmArticuloProfile.Articulo;
+            Articulo articulo = (Articulo)sender;
             this.OpenNuevoArticulo(true, true, articulo);
         }
 

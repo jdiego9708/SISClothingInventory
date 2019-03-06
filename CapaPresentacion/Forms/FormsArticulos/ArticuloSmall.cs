@@ -21,6 +21,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.btnVerArticulo.Click += BtnVerArticulo_Click;
         }
         public event EventHandler onBtnVerArticuloClick;
+
         private void BtnVerArticulo_Click(object sender, EventArgs e)
         {
             if (onBtnVerArticuloClick != null)
@@ -48,7 +49,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                     articulo.Cantidad = Convert.ToInt32(dtArticulo.Rows[0]["Cantidad"]);
                     articulo.Tipo_detalle = Convert.ToString(dtArticulo.Rows[0]["Tipo_detalle"]);
                     articulo.Descripcion_articulo = Convert.ToString(dtArticulo.Rows[0]["Descripcion_articulo"]);
-                    articulo.Precio = Convert.ToInt32(dtArticulo.Rows[0]["Precio"]);
+                    articulo.Precio = Convert.ToInt32(dtArticulo.Rows[0]["Precio_articulo"]);
 
                     this.txtNombre.Text = articulo.Nombre_articulo;
                     this.txtDescripcion.Text = articulo.Descripcion_articulo;

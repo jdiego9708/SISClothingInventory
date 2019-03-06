@@ -120,13 +120,12 @@ namespace CapaPresentacion.Forms.FormsArticulos
         }
 
         List<ArticuloSmall> listArticulosSmall;
-        List<Articulo> listArticulos;
 
         private void BuscarArticulos(string tipo_busqueda, string texto_busqueda)
         {
             try
             {
-                MensajeEspera.ShowWait("Espere");
+                MensajeEspera.ShowWait("Buscando artículos");
                 string rpta;
                 DataTable dtArticulos =
                     NArticulos.BuscarArticulos(tipo_busqueda, texto_busqueda, out rpta);
@@ -193,21 +192,31 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private void Articulo_onBtnVerArticuloClick(object sender, EventArgs e)
         {
-            ArticuloSmall articuloSmall = (ArticuloSmall)sender;
-            FrmArticuloProfile articuloProfile = new FrmArticuloProfile
+            if (this.IsEditar)
             {
-                StartPosition = FormStartPosition.CenterScreen,
-                Articulo = articuloSmall.articulo
-            };
-            articuloProfile.onBtnEditarClick += ArticuloProfile_onBtnEditarClick;
-            articuloProfile.Show();
+                ArticuloSmall articuloSmall = (ArticuloSmall)sender;
+
+                if (this.onEditarArticulo != null)
+                    this.onEditarArticulo(articuloSmall.articulo, null);
+            }
+            else
+            {
+                ArticuloSmall articuloSmall = (ArticuloSmall)sender;
+                FrmArticuloProfile articuloProfile = new FrmArticuloProfile
+                {
+                    StartPosition = FormStartPosition.CenterScreen,
+                    Articulo = articuloSmall.articulo
+                };
+                articuloProfile.onBtnEditarClick += ArticuloProfile_onBtnEditarClick;
+                articuloProfile.Show();
+            }
         }
 
         private void ArticuloProfile_onBtnEditarClick(object sender, EventArgs e)
         {
-            //Sender es FrmArticuloProfile que contiene una clase Articulo con los datos necesario
+            //Sender es una clase Articulo con los datos necesario
             if (this.onEditarArticulo != null)
-                this.onEditarArticulo(sender, e);
+                this.onEditarArticulo(sender, null);
         }
 
         public event EventHandler onEditarArticulo;
