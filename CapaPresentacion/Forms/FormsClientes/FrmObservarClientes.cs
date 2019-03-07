@@ -21,6 +21,9 @@ namespace CapaPresentacion.Forms.FormsClientes
 
         private void FrmObservarClientes_Load(object sender, EventArgs e)
         {
+            this.toolBox1.Texto = this.Text;
+            this.toolBox1.EstablecerTexto();
+
             this.txtBusqueda.TextoInicial = "Ingrese texto para buscar clientes";
             this.txtBusqueda.EstablecerTextoInicial();
         }

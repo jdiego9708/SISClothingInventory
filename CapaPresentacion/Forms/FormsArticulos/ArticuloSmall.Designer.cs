@@ -42,6 +42,7 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAddCarrito = new System.Windows.Forms.Button();
             this.panelImagenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.px4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.px3)).BeginInit();
@@ -104,6 +105,7 @@
             this.panelContenido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContenido.Controls.Add(this.btnAddCarrito);
             this.panelContenido.Controls.Add(this.btnVerArticulo);
             this.panelContenido.Controls.Add(this.lblCantidad);
             this.panelContenido.Controls.Add(this.lblTipo);
@@ -128,7 +130,7 @@
             this.btnVerArticulo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerArticulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnVerArticulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerArticulo.Location = new System.Drawing.Point(220, 33);
+            this.btnVerArticulo.Location = new System.Drawing.Point(220, 23);
             this.btnVerArticulo.Name = "btnVerArticulo";
             this.btnVerArticulo.Size = new System.Drawing.Size(40, 37);
             this.btnVerArticulo.TabIndex = 4;
@@ -139,7 +141,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(186, 86);
+            this.lblCantidad.Location = new System.Drawing.Point(137, 86);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(55, 15);
             this.lblCantidad.TabIndex = 3;
@@ -176,6 +178,28 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(259, 20);
             this.txtNombre.TabIndex = 0;
+            // 
+            // btnAddCarrito
+            // 
+            this.btnAddCarrito.BackColor = System.Drawing.Color.White;
+            this.btnAddCarrito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddCarrito.BackgroundImage")));
+            this.btnAddCarrito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddCarrito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCarrito.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAddCarrito.FlatAppearance.BorderSize = 0;
+            this.btnAddCarrito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAddCarrito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAddCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCarrito.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCarrito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddCarrito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddCarrito.Location = new System.Drawing.Point(217, 64);
+            this.btnAddCarrito.Name = "btnAddCarrito";
+            this.btnAddCarrito.Size = new System.Drawing.Size(38, 37);
+            this.btnAddCarrito.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btnAddCarrito, "Añadir al carrito");
+            this.btnAddCarrito.UseVisualStyleBackColor = false;
+            this.btnAddCarrito.Visible = false;
             // 
             // ArticuloSmall
             // 
@@ -214,5 +238,6 @@
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Button btnVerArticulo;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnAddCarrito;
     }
 }

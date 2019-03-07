@@ -40,10 +40,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblEncabezaco = new System.Windows.Forms.Label();
+            this.toolBox1 = new CapaPresentacion.Controles.ToolBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -143,28 +141,20 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // panel1
+            // toolBox1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.toolBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
-            this.panel1.Controls.Add(this.lblEncabezaco);
-            this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 23);
-            this.panel1.TabIndex = 15;
-            // 
-            // lblEncabezaco
-            // 
-            this.lblEncabezaco.AutoSize = true;
-            this.lblEncabezaco.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEncabezaco.ForeColor = System.Drawing.Color.White;
-            this.lblEncabezaco.Location = new System.Drawing.Point(4, 1);
-            this.lblEncabezaco.Name = "lblEncabezaco";
-            this.lblEncabezaco.Size = new System.Drawing.Size(91, 20);
-            this.lblEncabezaco.TabIndex = 16;
-            this.lblEncabezaco.Text = "Encabezado";
+            this.toolBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.toolBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.toolBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolBox1.ForeColor = System.Drawing.Color.White;
+            this.toolBox1.Location = new System.Drawing.Point(1, 0);
+            this.toolBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.toolBox1.Name = "toolBox1";
+            this.toolBox1.Size = new System.Drawing.Size(334, 16);
+            this.toolBox1.TabIndex = 15;
+            this.toolBox1.Texto = null;
             // 
             // FrmAgregarProveedor
             // 
@@ -172,7 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(336, 254);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.toolBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtCorreo);
@@ -183,12 +173,12 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "FrmAgregarProveedor";
             this.Text = "Agregar un proveedor";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,7 +196,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblEncabezaco;
+        private Controles.ToolBox toolBox1;
     }
 }

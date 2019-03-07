@@ -12,7 +12,19 @@ namespace CapaPresentacion.Forms.FormsArticulos
             InitializeComponent();
             this.Load += FrmArticuloProfile_Load;
             this.btnEditar.Click += BtnEditar_Click;
+            this.btnAddCarrito.Click += BtnAddCarrito_Click;
         }
+
+        public ArticuloSmall ArticuloSmall;
+
+        public event EventHandler onBtnAddCart;
+
+        private void BtnAddCarrito_Click(object sender, EventArgs e)
+        {
+            if (onBtnAddCart != null)
+                onBtnAddCart(this.ArticuloSmall, e);
+        }
+
         public event EventHandler onBtnEditarClick;
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -26,6 +38,9 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             if (this.Articulo != null)
             {
+                if (this.IsVenta)
+                    this.btnAddCarrito.Visible = true;
+
                 this.Id_articulo = this.Articulo.Id_articulo;
                 this.txtNombre.Text = this.Articulo.Nombre_articulo;
                 this.txtTipo.Text = this.Articulo.Tipo_articulo;
@@ -78,7 +93,9 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private int _id_articulo;
         public Articulo Articulo;
+        private bool _isVenta;
 
         public int Id_articulo { get => _id_articulo; set => _id_articulo = value; }
+        public bool IsVenta { get => _isVenta; set => _isVenta = value; }
     }
 }

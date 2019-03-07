@@ -45,14 +45,12 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.lblResultados = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblEncabezaco = new System.Windows.Forms.Label();
             this.txtBusqueda = new CapaPresentacion.Controles.CustomTextBox();
             this.dgvClientes = new CapaPresentacion.CustomDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.toolBox1 = new CapaPresentacion.Controles.ToolBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -167,28 +165,6 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Búsqueda de clientes";
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
-            this.panel1.Controls.Add(this.lblEncabezaco);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 23);
-            this.panel1.TabIndex = 22;
-            // 
-            // lblEncabezaco
-            // 
-            this.lblEncabezaco.AutoSize = true;
-            this.lblEncabezaco.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEncabezaco.ForeColor = System.Drawing.Color.White;
-            this.lblEncabezaco.Location = new System.Drawing.Point(4, 1);
-            this.lblEncabezaco.Name = "lblEncabezaco";
-            this.lblEncabezaco.Size = new System.Drawing.Size(91, 20);
-            this.lblEncabezaco.TabIndex = 16;
-            this.lblEncabezaco.Text = "Encabezado";
-            // 
             // txtBusqueda
             // 
             this.txtBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -265,16 +241,31 @@
             this.panel2.Size = new System.Drawing.Size(426, 271);
             this.panel2.TabIndex = 24;
             // 
+            // toolBox1
+            // 
+            this.toolBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.toolBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.toolBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolBox1.ForeColor = System.Drawing.Color.White;
+            this.toolBox1.Location = new System.Drawing.Point(0, 0);
+            this.toolBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.toolBox1.Name = "toolBox1";
+            this.toolBox1.Size = new System.Drawing.Size(449, 14);
+            this.toolBox1.TabIndex = 25;
+            this.toolBox1.Texto = null;
+            // 
             // FrmObservarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(449, 385);
+            this.Controls.Add(this.toolBox1);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.lblResultados);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -282,13 +273,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "FrmObservarClientes";
             this.Text = "Observar clientes";
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -309,10 +299,9 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.Label lblResultados;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblEncabezaco;
         private Controles.CustomTextBox txtBusqueda;
         private CustomDataGridView dgvClientes;
         private System.Windows.Forms.Panel panel2;
+        private Controles.ToolBox toolBox1;
     }
 }

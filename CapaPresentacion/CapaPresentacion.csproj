@@ -75,6 +75,12 @@
     <Compile Include="Controles\PoperContainer.designer.cs">
       <DependentUpon>PoperContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\ToolBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ToolBox.Designer.cs">
+      <DependentUpon>ToolBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\UploadImage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,12 +100,6 @@
     <Compile Include="Forms\FormsArticulos\FrmArticuloProfile.Designer.cs">
       <DependentUpon>FrmArticuloProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsArticulos\FrmArticulos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormsArticulos\FrmArticulos.Designer.cs">
-      <DependentUpon>FrmArticulos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormsArticulos\FrmNuevoArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,12 +113,6 @@
       <DependentUpon>FrmObservarArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormsClientes\Cliente.cs" />
-    <Compile Include="Forms\FormsClientes\FrmClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormsClientes\FrmClientes.Designer.cs">
-      <DependentUpon>FrmClientes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormsClientes\FrmNuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +124,30 @@
     </Compile>
     <Compile Include="Forms\FormsClientes\FrmObservarClientes.Designer.cs">
       <DependentUpon>FrmObservarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Ventas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Clientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Proveedores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Articulos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsPrincipales\Articulos.Designer.cs">
+      <DependentUpon>Articulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormsPrincipales\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -149,17 +167,17 @@
     <Compile Include="Forms\FormsProveedores\FrmObservarProveedores.Designer.cs">
       <DependentUpon>FrmObservarProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsProveedores\FrmProveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormsProveedores\FrmProveedores.Designer.cs">
-      <DependentUpon>FrmProveedores.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormsTipoArticulos\FrmObservarTipoArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormsTipoArticulos\FrmObservarTipoArticulos.Designer.cs">
       <DependentUpon>FrmObservarTipoArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsVentas\FrmRealizarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsVentas\FrmRealizarVenta.Designer.cs">
+      <DependentUpon>FrmRealizarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -234,6 +252,9 @@
     <EmbeddedResource Include="Controles\Observacion.resx">
       <DependentUpon>Observacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ToolBox.resx">
+      <DependentUpon>ToolBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UploadImage.resx">
       <DependentUpon>UploadImage.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,23 +264,29 @@
     <EmbeddedResource Include="Forms\FormsArticulos\FrmArticuloProfile.resx">
       <DependentUpon>FrmArticuloProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsArticulos\FrmArticulos.resx">
-      <DependentUpon>FrmArticulos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsArticulos\FrmNuevoArticulo.resx">
       <DependentUpon>FrmNuevoArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsArticulos\FrmObservarArticulos.resx">
       <DependentUpon>FrmObservarArticulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsClientes\FrmClientes.resx">
-      <DependentUpon>FrmClientes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsClientes\FrmNuevoCliente.resx">
       <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsClientes\FrmObservarClientes.resx">
       <DependentUpon>FrmObservarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsPrincipales\Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsPrincipales\Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsPrincipales\Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsPrincipales\Articulos.resx">
+      <DependentUpon>Articulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsPrincipales\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -270,11 +297,11 @@
     <EmbeddedResource Include="Forms\FormsProveedores\FrmObservarProveedores.resx">
       <DependentUpon>FrmObservarProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsProveedores\FrmProveedores.resx">
-      <DependentUpon>FrmProveedores.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsTipoArticulos\FrmObservarTipoArticulos.resx">
       <DependentUpon>FrmObservarTipoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsVentas\FrmRealizarVenta.resx">
+      <DependentUpon>FrmRealizarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

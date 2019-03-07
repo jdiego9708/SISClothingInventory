@@ -135,6 +135,26 @@
         n+c+ugS75gHM/QalAtLWRnfxCAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnAddCarrito.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        sQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMwSURBVFhHvZZN
+        axNBGMcj9KRHP4CehW3SNklrxSIetEnxULSp0HopfoCCkMSDGC9eemwSWrEbvCjexF68aSq1WiRUirZR
+        E/EgRKQ9REE0uxnnP9kpO5tnN2mTuvBj93nmefnvzOyLjzHWdS5UKsciX3bj0fLuk0h55xsQ19yHMXus
+        ktgNxsq7Z6PlnRKHuVBCjIz3JbL6s0RGZzYq9oL7wWpuOhpSmFIEJYAl5nOas3grMLW8sNedOykhRykS
+        z+gPISCeXpq1+9uhsebNjeRBjSFHKZJM52YgIJnVl+3+dsAmo5rIgxpDjlLkRvr+CWsZqqlUqoc9P9dj
+        boeqHOZGLa+x2guNTX8qKsXdDnsMchQBgO+Jz5aIYdj1YmiZaiyprfR2WUBGX4CAeGbpFmxzOzjrbGqs
+        +QXyGgLuvH+qFJfIgxpDTpOAZDY30ZiBXF74tgY0pwA0BELA2z5x/bhwl2wiD2oMOU0CbqYfHOcC6om0
+        /ie1uHiUu47wRt/dBJibA+L6Zz7EZj5uko0oEIucJgGACyhgFpKZ3Chscyv0yFUAx3gTEPa7tSk2Vv5B
+        NrSDGMQix03AXGMZ9DnYRjF83UsAF7jnQ2GvmcCYbI4NTAuY1y9aAgrCtzV00lOAzQcwtVhfbDLsdIBr
+        +DAm4lb5JubLRwrA2mMPcAF17An4eJOSs5m07T65HK3ArBkb/bQAgKcAs4CnAjZPuCeb2R9D0sfvDE+H
+        eETxnnjZy4zXAWYU+pnxyorDsq36/5LNAd4D1jIswDaKoUl7wwPzISjuXIhaDXwlmwPeeFgI4G9G4Sv0
+        naKm8sCsaHW2HhgmmwN8C7iAKkTgGwEfV/2bLLYfVjQTd47mqEk2l+CrCAH4SlLj3YB0SvBfAAH4T6DG
+        uwHplODPSOyDw4L/jZGN7fDASlNit2hHwGFDOv8npNONWOxadDI2vc6p4gybipO0E68YXljFmBM3Ee3G
+        K0lejI/HNqiC8HcSryR5EQ6fNmITU0ox2PB3Eq8keREMDv4aGjzDIqOX2JXLV8UZNvydxCtJXoyMnL+t
+        aQHmBP5O4pWkViAZd+D399dxdmsuaR3PfP8AgqlOWbg/56gAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAABABILAAASCwAAAAAAAAAA

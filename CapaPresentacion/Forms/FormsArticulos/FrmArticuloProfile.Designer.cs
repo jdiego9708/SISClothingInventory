@@ -43,6 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAddCarrito = new System.Windows.Forms.Button();
             this.panelImagenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.px1)).BeginInit();
             this.SuspendLayout();
@@ -78,17 +79,19 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombre.Location = new System.Drawing.Point(166, 24);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(299, 27);
+            this.txtNombre.Size = new System.Drawing.Size(299, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // txtTipo
             // 
+            this.txtTipo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTipo.Location = new System.Drawing.Point(166, 75);
             this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(117, 27);
+            this.txtTipo.Size = new System.Drawing.Size(117, 20);
             this.txtTipo.TabIndex = 3;
             // 
             // label2
@@ -111,9 +114,10 @@
             // 
             // txtProveedor
             // 
+            this.txtProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProveedor.Location = new System.Drawing.Point(166, 125);
             this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Size = new System.Drawing.Size(299, 27);
+            this.txtProveedor.Size = new System.Drawing.Size(299, 20);
             this.txtProveedor.TabIndex = 5;
             // 
             // lblCantidad
@@ -136,6 +140,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Location = new System.Drawing.Point(166, 273);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -154,9 +159,10 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrecio.Location = new System.Drawing.Point(166, 213);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(117, 27);
+            this.txtPrecio.Size = new System.Drawing.Size(117, 20);
             this.txtPrecio.TabIndex = 12;
             // 
             // btnEditar
@@ -180,12 +186,34 @@
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
             // 
+            // btnAddCarrito
+            // 
+            this.btnAddCarrito.BackColor = System.Drawing.Color.White;
+            this.btnAddCarrito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddCarrito.BackgroundImage")));
+            this.btnAddCarrito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddCarrito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCarrito.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAddCarrito.FlatAppearance.BorderSize = 0;
+            this.btnAddCarrito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAddCarrito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAddCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCarrito.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCarrito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddCarrito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddCarrito.Location = new System.Drawing.Point(427, 370);
+            this.btnAddCarrito.Name = "btnAddCarrito";
+            this.btnAddCarrito.Size = new System.Drawing.Size(38, 37);
+            this.btnAddCarrito.TabIndex = 18;
+            this.btnAddCarrito.UseVisualStyleBackColor = false;
+            this.btnAddCarrito.Visible = false;
+            // 
             // FrmArticuloProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(475, 412);
+            this.Controls.Add(this.btnAddCarrito);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label6);
@@ -232,5 +260,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnAddCarrito;
     }
 }

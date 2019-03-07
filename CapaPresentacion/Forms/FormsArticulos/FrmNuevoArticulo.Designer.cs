@@ -50,6 +50,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAddImagenes = new System.Windows.Forms.Button();
+            this.toolBox1 = new CapaPresentacion.Controles.ToolBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericImagenes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -58,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(0, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 19);
             this.label1.TabIndex = 0;
@@ -66,7 +67,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(4, 26);
+            this.txtNombre.Location = new System.Drawing.Point(4, 47);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(325, 26);
             this.txtNombre.TabIndex = 1;
@@ -76,7 +77,7 @@
             this.txtTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtTipo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTipo.Location = new System.Drawing.Point(4, 85);
+            this.txtTipo.Location = new System.Drawing.Point(4, 106);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.ReadOnly = true;
             this.txtTipo.Size = new System.Drawing.Size(173, 23);
@@ -86,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 59);
+            this.label2.Location = new System.Drawing.Point(0, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 19);
             this.label2.TabIndex = 2;
@@ -97,7 +98,7 @@
             this.txtProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtProveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtProveedor.Location = new System.Drawing.Point(4, 143);
+            this.txtProveedor.Location = new System.Drawing.Point(4, 164);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.ReadOnly = true;
             this.txtProveedor.Size = new System.Drawing.Size(325, 23);
@@ -107,7 +108,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 117);
+            this.label3.Location = new System.Drawing.Point(0, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 19);
             this.label3.TabIndex = 4;
@@ -116,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 185);
+            this.label4.Location = new System.Drawing.Point(0, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 19);
             this.label4.TabIndex = 6;
@@ -125,7 +126,7 @@
             // numericCantidad
             // 
             this.numericCantidad.ForeColor = System.Drawing.Color.Gray;
-            this.numericCantidad.Location = new System.Drawing.Point(70, 181);
+            this.numericCantidad.Location = new System.Drawing.Point(70, 202);
             this.numericCantidad.Maximum = new decimal(new int[] {
             150,
             0,
@@ -137,7 +138,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(4, 249);
+            this.txtDescripcion.Location = new System.Drawing.Point(4, 270);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(325, 85);
@@ -146,7 +147,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 223);
+            this.label5.Location = new System.Drawing.Point(0, 244);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 19);
             this.label5.TabIndex = 8;
@@ -155,7 +156,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(170, 185);
+            this.label6.Location = new System.Drawing.Point(170, 206);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 19);
             this.label6.TabIndex = 10;
@@ -163,7 +164,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(227, 181);
+            this.txtPrecio.Location = new System.Drawing.Point(227, 202);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(102, 26);
             this.txtPrecio.TabIndex = 11;
@@ -173,16 +174,16 @@
             this.panelImágenes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelImágenes.AutoScroll = true;
-            this.panelImágenes.Location = new System.Drawing.Point(344, 35);
+            this.panelImágenes.Location = new System.Drawing.Point(344, 59);
             this.panelImágenes.Name = "panelImágenes";
-            this.panelImágenes.Size = new System.Drawing.Size(375, 405);
+            this.panelImágenes.Size = new System.Drawing.Size(375, 433);
             this.panelImágenes.TabIndex = 13;
             this.panelImágenes.Visible = false;
             // 
             // lblImagenes
             // 
             this.lblImagenes.AutoSize = true;
-            this.lblImagenes.Location = new System.Drawing.Point(340, 5);
+            this.lblImagenes.Location = new System.Drawing.Point(340, 26);
             this.lblImagenes.Name = "lblImagenes";
             this.lblImagenes.Size = new System.Drawing.Size(68, 19);
             this.lblImagenes.TabIndex = 14;
@@ -193,7 +194,7 @@
             // 
             this.numericImagenes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.numericImagenes.ForeColor = System.Drawing.Color.Gray;
-            this.numericImagenes.Location = new System.Drawing.Point(412, 5);
+            this.numericImagenes.Location = new System.Drawing.Point(412, 26);
             this.numericImagenes.Maximum = new decimal(new int[] {
             10,
             0,
@@ -224,7 +225,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.Gray;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(182, 340);
+            this.btnCancelar.Location = new System.Drawing.Point(182, 361);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 42);
             this.btnCancelar.TabIndex = 17;
@@ -245,7 +246,7 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.Gray;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(3, 340);
+            this.btnGuardar.Location = new System.Drawing.Point(3, 361);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(147, 42);
             this.btnGuardar.TabIndex = 16;
@@ -267,19 +268,35 @@
             this.btnAddImagenes.ForeColor = System.Drawing.Color.Gray;
             this.btnAddImagenes.Image = ((System.Drawing.Image)(resources.GetObject("btnAddImagenes.Image")));
             this.btnAddImagenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddImagenes.Location = new System.Drawing.Point(4, 390);
+            this.btnAddImagenes.Location = new System.Drawing.Point(4, 442);
             this.btnAddImagenes.Name = "btnAddImagenes";
             this.btnAddImagenes.Size = new System.Drawing.Size(325, 42);
             this.btnAddImagenes.TabIndex = 12;
             this.btnAddImagenes.Text = "Agregar imágenes";
             this.btnAddImagenes.UseVisualStyleBackColor = false;
             // 
+            // toolBox1
+            // 
+            this.toolBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.toolBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.toolBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolBox1.ForeColor = System.Drawing.Color.White;
+            this.toolBox1.Location = new System.Drawing.Point(0, 0);
+            this.toolBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.toolBox1.Name = "toolBox1";
+            this.toolBox1.Size = new System.Drawing.Size(729, 17);
+            this.toolBox1.TabIndex = 18;
+            this.toolBox1.Texto = null;
+            // 
             // FrmNuevoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(727, 443);
+            this.ClientSize = new System.Drawing.Size(727, 495);
+            this.Controls.Add(this.toolBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.numericImagenes);
@@ -300,6 +317,8 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoArticulo";
             this.Text = "Nuevo artículo";
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).EndInit();
@@ -332,5 +351,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Controles.ToolBox toolBox1;
     }
 }

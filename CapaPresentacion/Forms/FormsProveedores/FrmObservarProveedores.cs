@@ -21,7 +21,8 @@ namespace CapaPresentacion.Forms.FormsProveedores
 
         private void FrmObservarProveedores_TextChanged(object sender, EventArgs e)
         {
-            this.lblEncabezaco.Text = this.Text;
+            this.toolBox1.Texto = this.Text;
+            this.toolBox1.EstablecerTexto();
         }
 
         private void DgvProveedores_DoubleClick(object sender, EventArgs e)

@@ -34,12 +34,13 @@
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnConfiguraciones = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnArticulos
@@ -111,34 +112,35 @@
             this.btnConfiguraciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguraciones.ForeColor = System.Drawing.Color.White;
             this.btnConfiguraciones.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguraciones.Image")));
-            this.btnConfiguraciones.Location = new System.Drawing.Point(348, 0);
+            this.btnConfiguraciones.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnConfiguraciones.Location = new System.Drawing.Point(348, 114);
             this.btnConfiguraciones.Name = "btnConfiguraciones";
-            this.btnConfiguraciones.Size = new System.Drawing.Size(173, 227);
+            this.btnConfiguraciones.Size = new System.Drawing.Size(173, 113);
             this.btnConfiguraciones.TabIndex = 3;
-            this.btnConfiguraciones.Text = "Configuraciones\rMantenimiento";
+            this.btnConfiguraciones.Text = "Mantenimiento";
             this.btnConfiguraciones.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnConfiguraciones, "Configuraciones del sistema");
             this.btnConfiguraciones.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnVentas
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.Location = new System.Drawing.Point(0, 228);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(173, 113);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Ventas";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.button5, "Visualice las ventas");
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVentas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.ForeColor = System.Drawing.Color.White;
+            this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
+            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVentas.Location = new System.Drawing.Point(0, 228);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(173, 113);
+            this.btnVentas.TabIndex = 4;
+            this.btnVentas.Text = "Ventas";
+            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnVentas, "Visualice las ventas");
+            this.btnVentas.UseVisualStyleBackColor = false;
             // 
             // btnEstadisticas
             // 
@@ -220,17 +222,38 @@
             this.toolTip1.SetToolTip(this.btnCerrarSesion, "Cerrar sesión");
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.Location = new System.Drawing.Point(348, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(173, 113);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Entradas - Salidas";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.button1, "Observe las entradas y salidas con pendientes");
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(522, 343);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnEstadisticas);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnConfiguraciones);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnProveedores);
@@ -252,11 +275,12 @@
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnConfiguraciones;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button1;
     }
 }

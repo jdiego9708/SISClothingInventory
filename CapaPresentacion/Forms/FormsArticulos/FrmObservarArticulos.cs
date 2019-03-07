@@ -22,7 +22,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.Load += FrmObservarArticulos_Load;
             this.btnTipoArticulos.Click += BtnTipoArticulos_Click;
             this.btnProveedores.Click += BtnProveedores_Click;
-            this.panelArticulos.Resize += FrmObservarArticulos_Resize;
+            this.Resize += FrmObservarArticulos_Resize;
         }
 
         private void FrmObservarArticulos_Resize(object sender, EventArgs e)
@@ -114,12 +114,24 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private void FrmObservarArticulos_Load(object sender, EventArgs e)
         {
+            if (this.IsVenta)
+            {
+                this.articulosVenta = new List<ArticuloSmall>();
+                this.btnCarrito.Visible = true;
+            }
+
+            this.Size = new Size(900, 478);
+            this.ancho_panel = this.panelArticulos.Width;
+            this.toolBox1.Texto = "Observar artículos";
+            this.toolBox1.EstablecerTexto();
             this.txtBusqueda.TextoInicial = "Escriba para buscar artículos";
+            this.txtBusqueda.EstablecerTextoInicial();
             this.listArticulosSmall = new List<ArticuloSmall>();
             this.BuscarArticulos("COMPLETO", "");
         }
 
         List<ArticuloSmall> listArticulosSmall;
+        List<ArticuloSmall> articulosVenta;
 
         private void BuscarArticulos(string tipo_busqueda, string texto_busqueda)
         {
@@ -143,6 +155,13 @@ namespace CapaPresentacion.Forms.FormsArticulos
                         ArticuloSmall articulo = new ArticuloSmall();
                         ancho_total_articulos += articulo.Width;
                         articulo.Id_articulo = id_articulo;
+
+                        if (this.IsVenta)
+                        {
+                            articulo.IsVenta = this.IsVenta;
+                            articulo.onBtnAddCart += Articulo_onBtnAddCart;
+                        }
+
                         articulo.AsignarDatosArticulo();
 
                         int positionX = 0;
@@ -168,6 +187,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                             articulo.Location = new Point(positionX, positionY);
                         }
                         articulo.onBtnVerArticuloClick += Articulo_onBtnVerArticuloClick;
+
                         articulo.IsEditar = this.IsEditar;
                         this.panelArticulos.Controls.Add(articulo);
                         this.listArticulosSmall.Add(articulo);
@@ -190,6 +210,13 @@ namespace CapaPresentacion.Forms.FormsArticulos
             }
         }
 
+        private void Articulo_onBtnAddCart(object sender, EventArgs e)
+        {
+            ArticuloSmall art = (ArticuloSmall)sender;
+            this.articulosVenta.Add(art);
+            this.btnCarrito.Text = this.articulosVenta.Count.ToString();
+        }
+
         private void Articulo_onBtnVerArticuloClick(object sender, EventArgs e)
         {
             if (this.IsEditar)
@@ -205,9 +232,15 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 FrmArticuloProfile articuloProfile = new FrmArticuloProfile
                 {
                     StartPosition = FormStartPosition.CenterScreen,
-                    Articulo = articuloSmall.articulo
+                    Articulo = articuloSmall.articulo,
+                    IsVenta = this.IsVenta,
+                    ArticuloSmall = articuloSmall
                 };
                 articuloProfile.onBtnEditarClick += ArticuloProfile_onBtnEditarClick;
+
+                if (this.IsVenta)
+                    articuloProfile.onBtnAddCart += Articulo_onBtnAddCart;
+
                 articuloProfile.Show();
             }
         }
@@ -222,7 +255,9 @@ namespace CapaPresentacion.Forms.FormsArticulos
         public event EventHandler onEditarArticulo;
         private int ancho_panel;
         private bool _isEditar;
+        private bool _isVenta = false;
 
         public bool IsEditar { get => _isEditar; set => _isEditar = value; }
+        public bool IsVenta { get => _isVenta; set => _isVenta = value; }
     }
 }

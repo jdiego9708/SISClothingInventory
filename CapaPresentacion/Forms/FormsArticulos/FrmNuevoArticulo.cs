@@ -9,6 +9,8 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
+using System.Drawing;
+
 namespace CapaPresentacion.Forms.FormsArticulos
 {
     public partial class FrmNuevoArticulo : Form
@@ -23,6 +25,15 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.txtTipo.Click += TxtTipo_Click;
             this.txtProveedor.Click += TxtProveedor_Click;
             this.txtPrecio.KeyPress += TxtPrecio_KeyPress;
+            this.Load += FrmNuevoArticulo_Load;
+        }
+
+        private void FrmNuevoArticulo_Load(object sender, EventArgs e)
+        {
+            this.toolBox1.Texto = "Agregar un artículo";
+            this.toolBox1.EstablecerTexto();
+            if (!this.IsEditar)
+                this.Size = new Size(this.Width - this.panelImágenes.Width, this.Height + 10);
         }
 
         private void Limpiar()
@@ -66,7 +77,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 this.numericImagenes.Visible = true;
                 this.btnAddImagenes.Text = "Sin imágenes";
                 this.listImages = new List<UploadImage>();
-                this.Width = this.Width + this.panelImágenes.Width + 2;
+                this.Size = new Size(this.Width + this.panelImágenes.Width, this.Height + 10);
                 this.btnAddImagenes.Image = Resources.negative;
 
                 this.numericImagenes.Value = articulo.DtImagenes.Rows.Count;
@@ -374,7 +385,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
             {
                 this.listImages = null;
                 this.panelImágenes.Visible = false;
-                this.Width = this.Width - this.panelImágenes.Width - 2;
+                this.Size = new Size(this.Width - this.panelImágenes.Width, this.Height);
                 this.numericImagenes.Value = 0;
                 this.numericImagenes.Tag = 0;
                 this.lblImagenes.Visible = false;
@@ -390,7 +401,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 this.btnAddImagenes.Text = "Sin imágenes";
                 this.listImages = new List<UploadImage>();
                 this.panelImágenes.Visible = true;
-                this.Width = this.Width + this.panelImágenes.Width + 2;
+                this.Size = new Size(this.Width + this.panelImágenes.Width, this.Height);
                 this.numericImagenes.Value = 1;
                 this.numericImagenes.Tag = 1;
                 this.btnAddImagenes.Image = Resources.negative;

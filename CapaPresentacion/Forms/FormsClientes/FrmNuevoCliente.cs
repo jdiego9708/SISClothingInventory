@@ -13,9 +13,16 @@ namespace CapaPresentacion.Forms.FormsClientes
             InitializeComponent();
             this.btnGuardar.Click += BtnGuardar_Click;
             this.btnCancelar.Click += BtnCancelar_Click;
+            this.Load += FrmNuevoCliente_Load;
         }
 
-        private void AsignarDatosEditar(Cliente cliente)
+        private void FrmNuevoCliente_Load(object sender, EventArgs e)
+        {
+            this.toolBox1.Texto = this.Text;
+            this.toolBox1.EstablecerTexto();
+        }
+
+        public void AsignarDatosEditar(Cliente cliente)
         {
             this.Id_cliente = cliente.Id_cliente;
             this.txtNombre.Text = cliente.Nombre;

@@ -18,7 +18,8 @@ namespace CapaPresentacion.Forms.FormsProveedores
 
         private void FrmAgregarProveedor_TextChanged(object sender, EventArgs e)
         {
-            this.lblEncabezaco.Text = this.Text;
+            this.toolBox1.Texto = this.Text;
+            this.toolBox1.EstablecerTexto();
         }
 
         private void FrmAgregarProveedor_Load(object sender, EventArgs e)
