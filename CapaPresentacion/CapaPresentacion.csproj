@@ -173,6 +173,12 @@
     <Compile Include="Forms\FormsTipoArticulos\FrmObservarTipoArticulos.Designer.cs">
       <DependentUpon>FrmObservarTipoArticulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormsVentas\FrmObservarCarrito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsVentas\FrmObservarCarrito.Designer.cs">
+      <DependentUpon>FrmObservarCarrito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormsVentas\FrmRealizarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsTipoArticulos\FrmObservarTipoArticulos.resx">
       <DependentUpon>FrmObservarTipoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsVentas\FrmObservarCarrito.resx">
+      <DependentUpon>FrmObservarCarrito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsVentas\FrmRealizarVenta.resx">
       <DependentUpon>FrmRealizarVenta.cs</DependentUpon>

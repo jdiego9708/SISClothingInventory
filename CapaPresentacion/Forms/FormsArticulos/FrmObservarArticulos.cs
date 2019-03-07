@@ -9,10 +9,13 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+using CapaPresentacion.Forms.FormsVentas;
+
 namespace CapaPresentacion.Forms.FormsArticulos
 {
     public partial class FrmObservarArticulos : Form
     {
+        PoperContainer containerCarrito;
         public FrmObservarArticulos()
         {
             InitializeComponent();
@@ -23,6 +26,20 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.btnTipoArticulos.Click += BtnTipoArticulos_Click;
             this.btnProveedores.Click += BtnProveedores_Click;
             this.Resize += FrmObservarArticulos_Resize;
+            this.btnCarrito.Click += BtnCarrito_Click;
+        }
+
+        private void BtnCarrito_Click(object sender, EventArgs e)
+        {
+            FrmObservarCarrito frmObservarCarrito = new FrmObservarCarrito()
+            {
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill,
+                listArticulosSmall = this.articulosVenta,
+                TopLevel = false
+            };
+            containerCarrito = new PoperContainer(frmObservarCarrito);
+            containerCarrito.Show(this.btnCarrito);
         }
 
         private void FrmObservarArticulos_Resize(object sender, EventArgs e)

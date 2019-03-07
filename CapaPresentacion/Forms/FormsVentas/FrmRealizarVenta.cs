@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CapaPresentacion.Forms.FormsArticulos;
+
 namespace CapaPresentacion.Forms.FormsVentas
 {
     public partial class FrmRealizarVenta : Form
@@ -16,5 +18,9 @@ namespace CapaPresentacion.Forms.FormsVentas
         {
             InitializeComponent();
         }
+
+        private Articulo _articulo;
+
+        public Articulo Articulo { get => _articulo; set => _articulo = value; }
     }
 }
