@@ -6,10 +6,9 @@ using CapaPresentacion.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
-using System.Drawing;
 
 namespace CapaPresentacion.Forms.FormsArticulos
 {
@@ -19,13 +18,23 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             InitializeComponent();
             this.btnAddImagenes.Click += BtnAddImagenes_Click;
-            this.numericImagenes.ValueChanged += NumericImagenes_ValueChanged;
             this.btnGuardar.Click += BtnGuardar_Click;
             this.btnCancelar.Click += BtnCancelar_Click;
             this.txtTipo.Click += TxtTipo_Click;
             this.txtProveedor.Click += TxtProveedor_Click;
             this.txtPrecio.KeyPress += TxtPrecio_KeyPress;
             this.Load += FrmNuevoArticulo_Load;
+            this.btnAgregarImagen.Click += BtnAgregarImagen_Click;
+        }
+
+        private void BtnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            this.cantidad_imagenes += 1;
+            UploadImage upload = new UploadImage();
+            upload.Name = "Image" + cantidad_imagenes;
+            upload.Numero_imagen = cantidad_imagenes;
+            upload.Location = new System.Drawing.Point(0, 0);
+            this.panelImagenes.AddControl(upload);
         }
 
         private void FrmNuevoArticulo_Load(object sender, EventArgs e)
@@ -33,7 +42,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.toolBox1.Texto = "Agregar un artículo";
             this.toolBox1.EstablecerTexto();
             if (!this.IsEditar)
-                this.Size = new Size(this.Width - this.panelImágenes.Width, this.Height + 10);
+                this.Size = new Size(this.Width - this.panelImagenes.Width, this.Height + 10);
         }
 
         private void Limpiar()
@@ -48,10 +57,9 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.txtPrecio.Text = "0";
             this.txtDescripcion.Text = string.Empty;
             this.Articulo = null;
-            this.numericImagenes.Value = 0;
-            this.numericImagenes.Tag = 0;
+            this.cantidad_imagenes = 0;
 
-            if (this.panelImágenes.Visible)
+            if (this.panelImagenes.Visible)
                 this.btnAddImagenes.PerformClick();
         }
 
@@ -69,69 +77,36 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
             if (articulo.DtImagenes != null)
             {
-                if (this.panelImágenes.Controls.Count > 0)
-                    this.panelImágenes.Controls.Clear();
+                if (this.panelImagenes.Controls.Count > 0)
+                    this.panelImagenes.Limpiar();
 
-                this.panelImágenes.Visible = true;
+                this.panelImagenes.Visible = true;
                 this.lblImagenes.Visible = true;
-                this.numericImagenes.Visible = true;
+                this.btnAgregarImagen.Visible = true;
                 this.btnAddImagenes.Text = "Sin imágenes";
-                this.listImages = new List<UploadImage>();
-                this.Size = new Size(this.Width + this.panelImágenes.Width, this.Height + 10);
+                this.Size = new Size(this.Width + this.panelImagenes.Width, this.Height + 10);
                 this.btnAddImagenes.Image = Resources.negative;
 
-                this.numericImagenes.Value = articulo.DtImagenes.Rows.Count;
-                this.numericImagenes.Tag = articulo.DtImagenes.Rows.Count - 1;
+                this.cantidad_imagenes = articulo.DtImagenes.Rows.Count;
 
                 int cantidad_nueva = 0;
-                int cantidad_anterior = 0;
 
                 foreach (DataRow row in articulo.DtImagenes.Rows)
                 {
                     cantidad_nueva += 1;
                     if (cantidad_nueva > 0)
                     {
-                        if (this.listImages.Count == 0)
-                        {
-                            UploadImage upload = new UploadImage();
-                            upload.Name = "Image" + cantidad_nueva;
-                            upload.Numero_imagen = cantidad_nueva;
-                            upload.Location = new System.Drawing.Point(0, 0);
-                            upload.Observaciones = Convert.ToString(row["Descripcion_imagen"]);
-                            upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
-                            this.listImages.Add(upload);
-                            this.panelImágenes.Controls.Add(upload);
-                        }
-                        else
-                        {
-                            if (cantidad_nueva > cantidad_anterior)
-                            {
-                                //Obtener último elemento de la lista
-                                UploadImage upload = this.listImages.Last<UploadImage>();
-                                int y = upload.Location.Y + upload.Height;
-                                upload = new UploadImage();
-                                upload.Name = "Image" + cantidad_nueva;
-                                upload.Numero_imagen = cantidad_nueva;
-                                upload.Location = new System.Drawing.Point(0, y);
-                                upload.Observaciones = Convert.ToString(row["Descripcion_imagen"]);
-                                upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
-                                this.listImages.Add(upload);
-                                this.panelImágenes.Controls.Add(upload);
-                            }
-                            else
-                            {
-                                //Obtener último elemento de la lista
-                                UploadImage upload = this.listImages.Last<UploadImage>();
-                                this.listImages.Remove(upload);
-                                this.panelImágenes.Controls.Remove(upload);
-                            }
-                        }
-                        cantidad_anterior = cantidad_nueva;
+                        UploadImage upload = new UploadImage();
+                        upload.Name = "Image" + cantidad_nueva;
+                        upload.Numero_imagen = cantidad_nueva;
+                        upload.Location = new System.Drawing.Point(0, 0);
+                        upload.Observaciones = Convert.ToString(row["Descripcion_imagen"]);
+                        upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
+                        this.panelImagenes.AddControl(upload);
                     }
                     else
                     {
-                        this.listImages = new List<UploadImage>();
-                        this.panelImágenes.Controls.Clear();
+                        this.panelImagenes.Limpiar();
                     }
                 }
             }
@@ -142,20 +117,11 @@ namespace CapaPresentacion.Forms.FormsArticulos
             rpta = "OK";
             try
             {
-                if (this.listImages == null)
-                {
-                    return null;
-                }
-                else if (this.listImages.Count < 1)
-                {
-                    return null;
-                }
-
                 DataTable table = new DataTable("Images");
                 table.Columns.Add("Imagen", typeof(string));
                 table.Columns.Add("Descripcion_imagen", typeof(string));
 
-                foreach (UploadImage upload in this.listImages)
+                foreach (UploadImage upload in this.panelImagenes.controls)
                 {
                     rpta =
                         ArchivosAdjuntos.GuardarArchivo(01, "RutaImagenesArticulos", upload.Nombre_imagen, upload.Ruta_origen);
@@ -330,85 +296,30 @@ namespace CapaPresentacion.Forms.FormsArticulos
             }
         }
 
-        List<UploadImage> listImages;
-
-        private void NumericImagenes_ValueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown numeric = (NumericUpDown)sender;
-            int cantidad_nueva = Convert.ToInt32(numeric.Value);
-            int cantidad_anterior = Convert.ToInt32(numeric.Tag);
-            if (cantidad_nueva > 0)
-            {
-                if (this.listImages.Count == 0)
-                {
-                    UploadImage upload = new UploadImage();
-                    upload.Name = "Image" + cantidad_nueva;
-                    upload.Numero_imagen = cantidad_nueva;
-                    upload.Location = new System.Drawing.Point(0, 0);
-                    this.listImages.Add(upload);
-                    this.panelImágenes.Controls.Add(upload);
-                }
-                else
-                {
-                    if (cantidad_nueva > cantidad_anterior)
-                    {
-                        //Obtener último elemento de la lista
-                        UploadImage upload = this.listImages.Last<UploadImage>();
-                        int y = upload.Location.Y + upload.Height;
-                        upload = new UploadImage();
-                        upload.Name = "Image" + cantidad_nueva;
-                        upload.Numero_imagen = cantidad_nueva;
-                        upload.Location = new System.Drawing.Point(0, y);
-                        this.listImages.Add(upload);
-                        this.panelImágenes.Controls.Add(upload);
-                    }
-                    else
-                    {
-                        //Obtener último elemento de la lista
-                        UploadImage upload = this.listImages.Last<UploadImage>();
-                        this.listImages.Remove(upload);
-                        this.panelImágenes.Controls.Remove(upload);
-                    }
-                }
-                this.numericImagenes.Tag = cantidad_nueva;
-            }
-            else
-            {
-                this.listImages = new List<UploadImage>();
-                this.panelImágenes.Controls.Clear();
-            }
-        }
-
         private void BtnAddImagenes_Click(object sender, EventArgs e)
         {
-            if (this.panelImágenes.Visible)
+            if (this.panelImagenes.Visible)
             {
-                this.listImages = null;
-                this.panelImágenes.Visible = false;
-                this.Size = new Size(this.Width - this.panelImágenes.Width, this.Height);
-                this.numericImagenes.Value = 0;
-                this.numericImagenes.Tag = 0;
+                this.panelImagenes.Limpiar();
+                this.panelImagenes.Visible = false;
+                this.Size = new Size(this.Width - this.panelImagenes.Width, this.Height);
                 this.lblImagenes.Visible = false;
-                this.numericImagenes.Visible = false;
                 this.btnAddImagenes.Text = "Agregar imágenes";
                 this.btnAddImagenes.Image = Resources.mas;
-
+                this.btnAgregarImagen.Visible = false;
             }
             else
             {
+                this.btnAgregarImagen.Visible = true;
                 this.lblImagenes.Visible = true;
-                this.numericImagenes.Visible = true;
                 this.btnAddImagenes.Text = "Sin imágenes";
-                this.listImages = new List<UploadImage>();
-                this.panelImágenes.Visible = true;
-                this.Size = new Size(this.Width + this.panelImágenes.Width, this.Height);
-                this.numericImagenes.Value = 1;
-                this.numericImagenes.Tag = 1;
+                this.panelImagenes.Visible = true;
+                this.Size = new Size(this.Width + this.panelImagenes.Width, this.Height);
                 this.btnAddImagenes.Image = Resources.negative;
-
             }
         }
 
+        private int cantidad_imagenes;
         private Articulo Articulo;
         private bool _isEditar;
         public bool IsEditar { get => _isEditar; set => _isEditar = value; }

@@ -20,16 +20,31 @@ namespace CapaPresentacion.Forms.FormsArticulos
             InitializeComponent();
             this.btnVerArticulo.Click += BtnVerArticulo_Click;
             this.btnAddCarrito.Click += BtnAddCarrito_Click;
+            this.btnRemove.Click += BtnRemove_Click;
+        }
+
+        private bool carrito = false;
+
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            this.btnRemove.Visible = false;
+            if (onBtnRemove != null)
+                onBtnRemove(this, e);
         }
 
         private void BtnAddCarrito_Click(object sender, EventArgs e)
         {
             if (onBtnAddCart != null)
+            {
                 onBtnAddCart(this, e);
+                this.carrito = true;
+                this.btnRemove.Visible = true;
+            }
         }
 
         public event EventHandler onBtnVerArticuloClick;
         public event EventHandler onBtnAddCart;
+        public event EventHandler onBtnRemove;
 
         private void BtnVerArticulo_Click(object sender, EventArgs e)
         {
@@ -49,7 +64,9 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 if (dtArticulo != null)
                 {
                     if (this.IsVenta)
+                    {
                         this.btnAddCarrito.Visible = true;
+                    }
 
                     articulo = new Articulo();
                     articulo.Id_articulo = this.Id_articulo;

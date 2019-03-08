@@ -25,7 +25,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.Load += FrmObservarArticulos_Load;
             this.btnTipoArticulos.Click += BtnTipoArticulos_Click;
             this.btnProveedores.Click += BtnProveedores_Click;
-            this.Resize += FrmObservarArticulos_Resize;
             this.btnCarrito.Click += BtnCarrito_Click;
         }
 
@@ -35,16 +34,12 @@ namespace CapaPresentacion.Forms.FormsArticulos
             {
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill,
-                listArticulosSmall = this.articulosVenta,
                 TopLevel = false
             };
+            frmObservarCarrito.BuscarArticulos(this.articulosVenta);
+            frmObservarCarrito.Show();
             containerCarrito = new PoperContainer(frmObservarCarrito);
             containerCarrito.Show(this.btnCarrito);
-        }
-
-        private void FrmObservarArticulos_Resize(object sender, EventArgs e)
-        {
-            this.ancho_panel = this.panelArticulos.Width;
         }
 
         private void BtnProveedores_Click(object sender, EventArgs e)
@@ -138,16 +133,13 @@ namespace CapaPresentacion.Forms.FormsArticulos
             }
 
             this.Size = new Size(900, 478);
-            this.ancho_panel = this.panelArticulos.Width;
             this.toolBox1.Texto = "Observar artículos";
             this.toolBox1.EstablecerTexto();
             this.txtBusqueda.TextoInicial = "Escriba para buscar artículos";
             this.txtBusqueda.EstablecerTextoInicial();
-            this.listArticulosSmall = new List<ArticuloSmall>();
             this.BuscarArticulos("COMPLETO", "");
         }
 
-        List<ArticuloSmall> listArticulosSmall;
         List<ArticuloSmall> articulosVenta;
 
         private void BuscarArticulos(string tipo_busqueda, string texto_busqueda)
@@ -155,15 +147,13 @@ namespace CapaPresentacion.Forms.FormsArticulos
             try
             {
                 MensajeEspera.ShowWait("Buscando artículos");
-                string rpta;
                 DataTable dtArticulos =
-                    NArticulos.BuscarArticulos(tipo_busqueda, texto_busqueda, out rpta);
+                    NArticulos.BuscarArticulos(tipo_busqueda, texto_busqueda, out string rpta);
                 if (dtArticulos != null)
                 {
-                    this.panelArticulos.Enabled = true;
+                    this.panelArticles.Enabled = true;
                     this.lblResultados.Text = "Se encontraron " + dtArticulos.Rows.Count + " artículos";
-                    this.panelArticulos.Controls.Clear();
-                    this.listArticulosSmall.Clear();
+                    this.panelArticles.Limpiar();
 
                     int ancho_total_articulos = 0;
                     foreach (DataRow row in dtArticulos.Rows)
@@ -177,45 +167,20 @@ namespace CapaPresentacion.Forms.FormsArticulos
                         {
                             articulo.IsVenta = this.IsVenta;
                             articulo.onBtnAddCart += Articulo_onBtnAddCart;
+                            articulo.onBtnRemove += Articulo_onBtnRemove;
                         }
 
                         articulo.AsignarDatosArticulo();
-
-                        int positionX = 0;
-                        int positionY = 0;
-                        if (this.listArticulosSmall.Count < 1)
-                        {
-                            articulo.Location = new Point(positionX, positionY);
-                        }
-                        else
-                        {
-                            if (ancho_total_articulos > this.ancho_panel)
-                            {
-                                ArticuloSmall primerArticulo = this.listArticulosSmall.First<ArticuloSmall>();
-                                positionX = 0;
-                                positionY = primerArticulo.Location.Y + primerArticulo.Height;
-                            }
-                            else
-                            {
-                                ArticuloSmall articuloAnterior = this.listArticulosSmall.Last<ArticuloSmall>();
-                                positionX = articuloAnterior.Location.X + articuloAnterior.Width;
-                                positionY = articuloAnterior.Location.Y;
-                            }
-                            articulo.Location = new Point(positionX, positionY);
-                        }
                         articulo.onBtnVerArticuloClick += Articulo_onBtnVerArticuloClick;
-
                         articulo.IsEditar = this.IsEditar;
-                        this.panelArticulos.Controls.Add(articulo);
-                        this.listArticulosSmall.Add(articulo);
+                        this.panelArticles.AddControl(articulo);
                     }
                 }
                 else
                 {
-                    this.panelArticulos.Controls.Clear();
-                    this.listArticulosSmall.Clear();
+                    this.panelArticles.Limpiar();
                     this.lblResultados.Text = "No se encontraron artículos";
-                    this.panelArticulos.Enabled = false;
+                    this.panelArticles.Enabled = false;
                 }
                 MensajeEspera.CloseForm();
             }
@@ -224,6 +189,22 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 MensajeEspera.CloseForm();
                 Mensajes.MensajeErrorCompleto(this.Name, "BuscarArticulos",
                     "Hubo un error al buscar artículos", ex.Message);
+            }
+        }
+
+        private void Articulo_onBtnRemove(object sender, EventArgs e)
+        {
+            ArticuloSmall art = (ArticuloSmall)sender;
+            int id_art = art.Id_articulo;
+            this.articulosVenta.Remove(art);
+            this.btnCarrito.Text = this.articulosVenta.Count.ToString();
+            foreach (ArticuloSmall articulo in this.articulosVenta)
+            {
+                if (articulo.Id_articulo == id_art)
+                {
+                    articulo.btnRemove.Visible = true;
+                    break;
+                }
             }
         }
 
@@ -270,7 +251,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
         }
 
         public event EventHandler onEditarArticulo;
-        private int ancho_panel;
         private bool _isEditar;
         private bool _isVenta = false;
 

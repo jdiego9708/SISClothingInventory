@@ -57,6 +57,12 @@
     <Compile Include="Controles\CustomDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controles\CustomGridPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\CustomGridPanel.designer.cs">
+      <DependentUpon>CustomGridPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\CustomTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -37,6 +37,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnAgregarComentario = new System.Windows.Forms.Button();
             this.txtImagen = new System.Windows.Forms.TextBox();
+            this.btnQuitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pxImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,9 +99,9 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Gray;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(274, 118);
+            this.btnLimpiar.Location = new System.Drawing.Point(273, 118);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(34, 35);
+            this.btnLimpiar.Size = new System.Drawing.Size(35, 35);
             this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnLimpiar, "Limpiar imagen");
@@ -121,7 +122,7 @@
             this.btnAgregarComentario.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarComentario.ForeColor = System.Drawing.Color.Gray;
             this.btnAgregarComentario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarComentario.Location = new System.Drawing.Point(314, 118);
+            this.btnAgregarComentario.Location = new System.Drawing.Point(233, 118);
             this.btnAgregarComentario.Name = "btnAgregarComentario";
             this.btnAgregarComentario.Size = new System.Drawing.Size(34, 35);
             this.btnAgregarComentario.TabIndex = 10;
@@ -142,11 +143,33 @@
             this.txtImagen.Size = new System.Drawing.Size(174, 46);
             this.txtImagen.TabIndex = 8;
             // 
+            // btnQuitar
+            // 
+            this.btnQuitar.BackColor = System.Drawing.Color.White;
+            this.btnQuitar.BackgroundImage = global::CapaPresentacion.Properties.Resources.negative;
+            this.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnQuitar.FlatAppearance.BorderSize = 0;
+            this.btnQuitar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnQuitar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitar.Location = new System.Drawing.Point(312, 118);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(35, 35);
+            this.btnQuitar.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btnQuitar, "Quitar imagen");
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            // 
             // UploadImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.btnAgregarComentario);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtImagen);
@@ -173,5 +196,6 @@
         private System.Windows.Forms.TextBox txtImagen;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnAgregarComentario;
+        public System.Windows.Forms.Button btnQuitar;
     }
 }

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmObservarCarrito));
             this.label1 = new System.Windows.Forms.Label();
-            this.panelArticulos = new System.Windows.Forms.Panel();
+            this.panelArticulos = new CapaPresentacion.Controles.CustomGridPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -44,9 +44,13 @@
             // 
             // panelArticulos
             // 
-            this.panelArticulos.Location = new System.Drawing.Point(5, 42);
+            this.panelArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelArticulos.AutoScroll = true;
+            this.panelArticulos.Location = new System.Drawing.Point(5, 26);
             this.panelArticulos.Name = "panelArticulos";
-            this.panelArticulos.Size = new System.Drawing.Size(406, 257);
+            this.panelArticulos.Size = new System.Drawing.Size(406, 266);
             this.panelArticulos.TabIndex = 1;
             // 
             // FrmObservarCarrito
@@ -72,6 +76,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelArticulos;
+        private Controles.CustomGridPanel panelArticulos;
     }
 }

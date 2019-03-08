@@ -42,17 +42,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.panelImágenes = new System.Windows.Forms.Panel();
             this.lblImagenes = new System.Windows.Forms.Label();
-            this.numericImagenes = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAddImagenes = new System.Windows.Forms.Button();
             this.toolBox1 = new CapaPresentacion.Controles.ToolBox();
+            this.panelImagenes = new CapaPresentacion.Controles.CustomGridPanel();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericImagenes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,43 +168,15 @@
             this.txtPrecio.Size = new System.Drawing.Size(102, 26);
             this.txtPrecio.TabIndex = 11;
             // 
-            // panelImágenes
-            // 
-            this.panelImágenes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelImágenes.AutoScroll = true;
-            this.panelImágenes.Location = new System.Drawing.Point(344, 59);
-            this.panelImágenes.Name = "panelImágenes";
-            this.panelImágenes.Size = new System.Drawing.Size(375, 433);
-            this.panelImágenes.TabIndex = 13;
-            this.panelImágenes.Visible = false;
-            // 
             // lblImagenes
             // 
             this.lblImagenes.AutoSize = true;
-            this.lblImagenes.Location = new System.Drawing.Point(340, 26);
+            this.lblImagenes.Location = new System.Drawing.Point(336, 30);
             this.lblImagenes.Name = "lblImagenes";
             this.lblImagenes.Size = new System.Drawing.Size(68, 19);
             this.lblImagenes.TabIndex = 14;
             this.lblImagenes.Text = "Imágenes";
             this.lblImagenes.Visible = false;
-            // 
-            // numericImagenes
-            // 
-            this.numericImagenes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.numericImagenes.ForeColor = System.Drawing.Color.Gray;
-            this.numericImagenes.Location = new System.Drawing.Point(412, 26);
-            this.numericImagenes.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericImagenes.Name = "numericImagenes";
-            this.numericImagenes.ReadOnly = true;
-            this.numericImagenes.Size = new System.Drawing.Size(80, 26);
-            this.numericImagenes.TabIndex = 15;
-            this.numericImagenes.Tag = "0";
-            this.numericImagenes.Visible = false;
             // 
             // errorProvider1
             // 
@@ -286,22 +257,56 @@
             this.toolBox1.Location = new System.Drawing.Point(0, 0);
             this.toolBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.toolBox1.Name = "toolBox1";
-            this.toolBox1.Size = new System.Drawing.Size(729, 17);
+            this.toolBox1.Size = new System.Drawing.Size(760, 17);
             this.toolBox1.TabIndex = 18;
             this.toolBox1.Texto = null;
+            // 
+            // panelImagenes
+            // 
+            this.panelImagenes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelImagenes.AutoScroll = true;
+            this.panelImagenes.Location = new System.Drawing.Point(335, 58);
+            this.panelImagenes.Name = "panelImagenes";
+            this.panelImagenes.Size = new System.Drawing.Size(411, 425);
+            this.panelImagenes.TabIndex = 19;
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAgregarImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnAgregarImagen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.BackgroundImage")));
+            this.btnAgregarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarImagen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAgregarImagen.FlatAppearance.BorderSize = 0;
+            this.btnAgregarImagen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAgregarImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAgregarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarImagen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarImagen.ForeColor = System.Drawing.Color.Gray;
+            this.btnAgregarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarImagen.Location = new System.Drawing.Point(414, 24);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(32, 32);
+            this.btnAgregarImagen.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.btnAgregarImagen, "Adiciona una imagen");
+            this.btnAgregarImagen.UseVisualStyleBackColor = false;
             // 
             // FrmNuevoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(727, 495);
+            this.ClientSize = new System.Drawing.Size(758, 495);
+            this.Controls.Add(this.btnAgregarImagen);
+            this.Controls.Add(this.panelImagenes);
             this.Controls.Add(this.toolBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.numericImagenes);
             this.Controls.Add(this.lblImagenes);
-            this.Controls.Add(this.panelImágenes);
             this.Controls.Add(this.btnAddImagenes);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label6);
@@ -322,7 +327,6 @@
             this.Name = "FrmNuevoArticulo";
             this.Text = "Nuevo artículo";
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericImagenes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -344,13 +348,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnAddImagenes;
-        private System.Windows.Forms.Panel panelImágenes;
         private System.Windows.Forms.Label lblImagenes;
-        private System.Windows.Forms.NumericUpDown numericImagenes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Controles.ToolBox toolBox1;
+        private Controles.CustomGridPanel panelImagenes;
+        private System.Windows.Forms.Button btnAgregarImagen;
     }
 }

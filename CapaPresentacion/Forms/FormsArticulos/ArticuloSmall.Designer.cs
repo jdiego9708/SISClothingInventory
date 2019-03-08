@@ -36,6 +36,7 @@
             this.px2 = new System.Windows.Forms.PictureBox();
             this.px1 = new System.Windows.Forms.PictureBox();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.btnAddCarrito = new System.Windows.Forms.Button();
             this.btnVerArticulo = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -105,6 +106,7 @@
             this.panelContenido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContenido.Controls.Add(this.btnRemove);
             this.panelContenido.Controls.Add(this.btnAddCarrito);
             this.panelContenido.Controls.Add(this.btnVerArticulo);
             this.panelContenido.Controls.Add(this.lblCantidad);
@@ -115,6 +117,28 @@
             this.panelContenido.Name = "panelContenido";
             this.panelContenido.Size = new System.Drawing.Size(263, 106);
             this.panelContenido.TabIndex = 1;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.White;
+            this.btnRemove.BackgroundImage = global::CapaPresentacion.Properties.Resources.negative;
+            this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemove.Location = new System.Drawing.Point(193, 29);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(25, 25);
+            this.btnRemove.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnRemove, "Quitar articulo");
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Visible = false;
             // 
             // btnAddCarrito
             // 
@@ -163,7 +187,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(137, 86);
+            this.lblCantidad.Location = new System.Drawing.Point(118, 86);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(55, 15);
             this.lblCantidad.TabIndex = 3;
@@ -187,7 +211,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(1, 26);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(219, 44);
+            this.txtDescripcion.Size = new System.Drawing.Size(186, 44);
             this.txtDescripcion.TabIndex = 1;
             // 
             // txtNombre
@@ -198,7 +222,7 @@
             this.txtNombre.ForeColor = System.Drawing.Color.Gray;
             this.txtNombre.Location = new System.Drawing.Point(1, 1);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(259, 20);
+            this.txtNombre.Size = new System.Drawing.Size(219, 20);
             this.txtNombre.TabIndex = 0;
             // 
             // ArticuloSmall
@@ -239,5 +263,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnAddCarrito;
         public System.Windows.Forms.Button btnVerArticulo;
+        public System.Windows.Forms.Button btnRemove;
     }
 }
