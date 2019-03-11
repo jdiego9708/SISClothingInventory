@@ -259,7 +259,7 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAddCarrito;
+        public System.Windows.Forms.Button btnEditar;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using CapaPresentacion.Forms.FormsArticulos;
 using CapaPresentacion.Forms.FormsClientes;
 using CapaPresentacion.Forms.FormsProveedores;
-using CapaPresentacion.Forms.FormsVentas;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -41,7 +40,7 @@ namespace CapaPresentacion.Forms.FormsPrincipales
             {
                 if (formulario is FrmObservarArticulos castForm)
                 {
-                    castForm.WindowState = FormWindowState.Normal;
+                    castForm.WindowState = FormWindowState.Maximized;
                     castForm.IsVenta = true;
                     castForm.Show();
                     castForm.Activate();
@@ -51,6 +50,7 @@ namespace CapaPresentacion.Forms.FormsPrincipales
 
             FrmObservarArticulos form = new FrmObservarArticulos
             {
+                WindowState = FormWindowState.Maximized,
                 StartPosition = FormStartPosition.CenterScreen,
                 Name = "FrmObservarArticulos",
                 IsVenta = true

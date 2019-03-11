@@ -17,7 +17,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
         public FrmNuevoArticulo()
         {
             InitializeComponent();
-            this.btnAddImagenes.Click += BtnAddImagenes_Click;
             this.btnGuardar.Click += BtnGuardar_Click;
             this.btnCancelar.Click += BtnCancelar_Click;
             this.txtTipo.Click += TxtTipo_Click;
@@ -34,15 +33,23 @@ namespace CapaPresentacion.Forms.FormsArticulos
             upload.Name = "Image" + cantidad_imagenes;
             upload.Numero_imagen = cantidad_imagenes;
             upload.Location = new System.Drawing.Point(0, 0);
-            this.panelImagenes.AddControl(upload);
+            this.panel1.AddControl(upload);
+            this.panel1.RefreshPanel(new UploadImage());
         }
 
         private void FrmNuevoArticulo_Load(object sender, EventArgs e)
         {
+            this.panel1.Location = new Point(this.txtNombre.Location.X +
+                this.txtNombre.Width + 10, this.txtNombre.Location.Y);
+            this.Controls.Add(this.panel1);
+            this.panel1.Visible = true;
+            this.panel1.Columns = 1;
+            this.toolBox1.Anchor = 
+                ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right)));
+            this.Controls.Add(toolBox1);
             this.toolBox1.Texto = "Agregar un artículo";
             this.toolBox1.EstablecerTexto();
-            if (!this.IsEditar)
-                this.Size = new Size(this.Width - this.panelImagenes.Width, this.Height + 10);
+            this.btnAgregarImagen.PerformClick();
         }
 
         private void Limpiar()
@@ -58,9 +65,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.txtDescripcion.Text = string.Empty;
             this.Articulo = null;
             this.cantidad_imagenes = 0;
-
-            if (this.panelImagenes.Visible)
-                this.btnAddImagenes.PerformClick();
         }
 
         public void AsignarDatosArticulo(Articulo articulo)
@@ -77,15 +81,8 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
             if (articulo.DtImagenes != null)
             {
-                if (this.panelImagenes.Controls.Count > 0)
-                    this.panelImagenes.Limpiar();
-
-                this.panelImagenes.Visible = true;
-                this.lblImagenes.Visible = true;
-                this.btnAgregarImagen.Visible = true;
-                this.btnAddImagenes.Text = "Sin imágenes";
-                this.Size = new Size(this.Width + this.panelImagenes.Width, this.Height + 10);
-                this.btnAddImagenes.Image = Resources.negative;
+                if (this.panel1.Controls.Count > 0)
+                    this.panel1.Limpiar();
 
                 this.cantidad_imagenes = articulo.DtImagenes.Rows.Count;
 
@@ -102,13 +99,14 @@ namespace CapaPresentacion.Forms.FormsArticulos
                         upload.Location = new System.Drawing.Point(0, 0);
                         upload.Observaciones = Convert.ToString(row["Descripcion_imagen"]);
                         upload.AsignarImagen(Convert.ToString(row["Imagen"]), "RutaImagenesArticulos");
-                        this.panelImagenes.AddControl(upload);
+                        this.panel1.AddControl(upload);
                     }
                     else
                     {
-                        this.panelImagenes.Limpiar();
+                        this.panel1.Limpiar();
                     }
                 }
+                this.panel1.RefreshPanel(new UploadImage());
             }
         }
 
@@ -121,7 +119,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
                 table.Columns.Add("Imagen", typeof(string));
                 table.Columns.Add("Descripcion_imagen", typeof(string));
 
-                foreach (UploadImage upload in this.panelImagenes.controls)
+                foreach (UploadImage upload in this.panel1.controls)
                 {
                     rpta =
                         ArchivosAdjuntos.GuardarArchivo(01, "RutaImagenesArticulos", upload.Nombre_imagen, upload.Ruta_origen);
@@ -293,29 +291,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
             {
                 Mensajes.MensajeErrorCompleto(this.Name, "BtnGuardar_Click",
                     "Hubo un error al guardar artículos", ex.Message);
-            }
-        }
-
-        private void BtnAddImagenes_Click(object sender, EventArgs e)
-        {
-            if (this.panelImagenes.Visible)
-            {
-                this.panelImagenes.Limpiar();
-                this.panelImagenes.Visible = false;
-                this.Size = new Size(this.Width - this.panelImagenes.Width, this.Height);
-                this.lblImagenes.Visible = false;
-                this.btnAddImagenes.Text = "Agregar imágenes";
-                this.btnAddImagenes.Image = Resources.mas;
-                this.btnAgregarImagen.Visible = false;
-            }
-            else
-            {
-                this.btnAgregarImagen.Visible = true;
-                this.lblImagenes.Visible = true;
-                this.btnAddImagenes.Text = "Sin imágenes";
-                this.panelImagenes.Visible = true;
-                this.Size = new Size(this.Width + this.panelImagenes.Width, this.Height);
-                this.btnAddImagenes.Image = Resources.negative;
             }
         }
 

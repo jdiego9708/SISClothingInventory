@@ -44,13 +44,12 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lblImagenes = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnAddImagenes = new System.Windows.Forms.Button();
             this.toolBox1 = new CapaPresentacion.Controles.ToolBox();
-            this.panelImagenes = new CapaPresentacion.Controles.CustomGridPanel();
-            this.btnAgregarImagen = new System.Windows.Forms.Button();
+            this.panel1 = new CapaPresentacion.Controles.CustomGridPanel();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -171,12 +170,33 @@
             // lblImagenes
             // 
             this.lblImagenes.AutoSize = true;
-            this.lblImagenes.Location = new System.Drawing.Point(336, 30);
+            this.lblImagenes.Location = new System.Drawing.Point(339, 21);
             this.lblImagenes.Name = "lblImagenes";
             this.lblImagenes.Size = new System.Drawing.Size(68, 19);
             this.lblImagenes.TabIndex = 14;
             this.lblImagenes.Text = "Imágenes";
-            this.lblImagenes.Visible = false;
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAgregarImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnAgregarImagen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.BackgroundImage")));
+            this.btnAgregarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarImagen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAgregarImagen.FlatAppearance.BorderSize = 0;
+            this.btnAgregarImagen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAgregarImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAgregarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarImagen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarImagen.ForeColor = System.Drawing.Color.Gray;
+            this.btnAgregarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarImagen.Location = new System.Drawing.Point(413, 14);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(33, 32);
+            this.btnAgregarImagen.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.btnAgregarImagen, "Adiciona una imagen");
+            this.btnAgregarImagen.UseVisualStyleBackColor = false;
             // 
             // errorProvider1
             // 
@@ -225,31 +245,8 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // btnAddImagenes
-            // 
-            this.btnAddImagenes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddImagenes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnAddImagenes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddImagenes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnAddImagenes.FlatAppearance.BorderSize = 0;
-            this.btnAddImagenes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnAddImagenes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnAddImagenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddImagenes.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddImagenes.ForeColor = System.Drawing.Color.Gray;
-            this.btnAddImagenes.Image = ((System.Drawing.Image)(resources.GetObject("btnAddImagenes.Image")));
-            this.btnAddImagenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddImagenes.Location = new System.Drawing.Point(4, 442);
-            this.btnAddImagenes.Name = "btnAddImagenes";
-            this.btnAddImagenes.Size = new System.Drawing.Size(325, 42);
-            this.btnAddImagenes.TabIndex = 12;
-            this.btnAddImagenes.Text = "Agregar imágenes";
-            this.btnAddImagenes.UseVisualStyleBackColor = false;
-            // 
             // toolBox1
             // 
-            this.toolBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.toolBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
             this.toolBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.toolBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -257,57 +254,34 @@
             this.toolBox1.Location = new System.Drawing.Point(0, 0);
             this.toolBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.toolBox1.Name = "toolBox1";
-            this.toolBox1.Size = new System.Drawing.Size(760, 17);
-            this.toolBox1.TabIndex = 18;
+            this.toolBox1.Size = new System.Drawing.Size(431, 16);
+            this.toolBox1.TabIndex = 0;
             this.toolBox1.Texto = null;
             // 
-            // panelImagenes
+            // panel1
             // 
-            this.panelImagenes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelImagenes.AutoScroll = true;
-            this.panelImagenes.Location = new System.Drawing.Point(335, 58);
-            this.panelImagenes.Name = "panelImagenes";
-            this.panelImagenes.Size = new System.Drawing.Size(411, 425);
-            this.panelImagenes.TabIndex = 19;
-            // 
-            // btnAgregarImagen
-            // 
-            this.btnAgregarImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregarImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnAgregarImagen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.BackgroundImage")));
-            this.btnAgregarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgregarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarImagen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnAgregarImagen.FlatAppearance.BorderSize = 0;
-            this.btnAgregarImagen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnAgregarImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnAgregarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarImagen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarImagen.ForeColor = System.Drawing.Color.Gray;
-            this.btnAgregarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarImagen.Location = new System.Drawing.Point(414, 24);
-            this.btnAgregarImagen.Name = "btnAgregarImagen";
-            this.btnAgregarImagen.Size = new System.Drawing.Size(32, 32);
-            this.btnAgregarImagen.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.btnAgregarImagen, "Adiciona una imagen");
-            this.btnAgregarImagen.UseVisualStyleBackColor = false;
+            this.panel1.AutoScroll = true;
+            this.panel1.Columns = 0;
+            this.panel1.Location = new System.Drawing.Point(343, 47);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(374, 436);
+            this.panel1.SizeAutomatica = false;
+            this.panel1.TabIndex = 21;
             // 
             // FrmNuevoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(758, 495);
+            this.ClientSize = new System.Drawing.Size(729, 495);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAgregarImagen);
-            this.Controls.Add(this.panelImagenes);
-            this.Controls.Add(this.toolBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblImagenes);
-            this.Controls.Add(this.btnAddImagenes);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDescripcion);
@@ -347,14 +321,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Button btnAddImagenes;
         private System.Windows.Forms.Label lblImagenes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Controles.ToolBox toolBox1;
-        private Controles.CustomGridPanel panelImagenes;
         private System.Windows.Forms.Button btnAgregarImagen;
+        private Controles.CustomGridPanel panel1;
     }
 }

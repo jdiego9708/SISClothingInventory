@@ -187,7 +187,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(118, 86);
+            this.lblCantidad.Location = new System.Drawing.Point(3, 86);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(55, 15);
             this.lblCantidad.TabIndex = 3;
@@ -197,7 +197,7 @@
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(3, 86);
+            this.lblTipo.Location = new System.Drawing.Point(3, 23);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(31, 15);
             this.lblTipo.TabIndex = 2;
@@ -208,10 +208,10 @@
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.Gray;
-            this.txtDescripcion.Location = new System.Drawing.Point(1, 26);
+            this.txtDescripcion.Location = new System.Drawing.Point(6, 39);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(186, 44);
+            this.txtDescripcion.Size = new System.Drawing.Size(172, 44);
             this.txtDescripcion.TabIndex = 1;
             // 
             // txtNombre

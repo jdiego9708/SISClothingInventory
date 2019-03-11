@@ -8,6 +8,12 @@ namespace CapaPresentacion.Controles
     public partial class CustomGridPanel : Panel
     {
         public List<UserControl> controls;
+        private int _columns;
+        private bool _sizeAutomatica;
+
+        public int Columns { get => _columns; set => _columns = value; }
+        public bool SizeAutomatica { get => _sizeAutomatica; set => _sizeAutomatica = value; }
+
         public CustomGridPanel()
         {
             controls = new List<UserControl>();
@@ -24,7 +30,6 @@ namespace CapaPresentacion.Controles
 
             //Agregamos el control a la lista
             this.controls.Add(control);
-            this.RefreshPanel(control);
         }
 
         public void RemoveControl(UserControl control)
@@ -35,7 +40,6 @@ namespace CapaPresentacion.Controles
 
             //Agregamos el control a la lista
             this.controls.Remove(control);
-            this.RefreshPanel(control);
         }
 
         public void Limpiar()
@@ -44,25 +48,39 @@ namespace CapaPresentacion.Controles
             this.Controls.Clear();
         }
 
-        private void RefreshPanel(UserControl control)
+        public void RefreshPanel(UserControl control)
         {
             //Limpiar todos los controles que tengamos
             this.Controls.Clear();
             //Si la cantidad de controles es mayor que cero, iniciamos
             if (this.controls.Count > 0)
             {
-                //Ancho del panel
-                int ancho_panel = this.Width;
-                //Cantidad de controles de la lista
-                int cantidad_controles = controls.Count;
+                if (this.Columns == 0)
+                    this.Columns = 1;
+
                 //Ancho del control que recibo
                 int ancho_x_control = control.Width;
-                //Cantidad de columnas en double, división entre ancho panel y ancho por control
-                double cantidad_columns = ancho_panel / ancho_x_control;
-                //Cantidad de columnas en entero, redondeando el double
-                int cantidad_columnas = Convert.ToInt32(Math.Round(cantidad_columns, MidpointRounding.AwayFromZero));
-                //Cantidad de filas
-                int cantidad_filas = cantidad_controles / cantidad_columnas;
+                //Ancho del panel
+                int ancho_panel = control.Width * Columns;
+                //Cantidad de controles de la lista
+                int cantidad_controles = controls.Count;
+
+                if (this.SizeAutomatica)
+                {
+                    //Cantidad de columnas en double, división entre ancho panel y ancho por control
+                    double cantidad_columns = this.Width / ancho_x_control;
+                    //Cantidad de columnas en entero, redondeando el double
+                    this.Columns = Convert.ToInt32(Math.Round(cantidad_columns, MidpointRounding.AwayFromZero));
+                    //Cantidad de filas
+                    int cantidad_filas = cantidad_controles / this.Columns;
+                    //Cambiar el ancho del panel para que cambie también el tamaño del form
+                    this.Width = ancho_x_control * this.Columns;
+                }
+                else
+                {
+                    //Cambiar el ancho del panel para que cambie también el tamaño del form
+                    this.Width = ancho_x_control * Columns;
+                }
 
                 //Si la cantidad de controles es igual a 1, agregaremos el primer control al panel
                 if (cantidad_controles == 1)
@@ -84,12 +102,11 @@ namespace CapaPresentacion.Controles
                         UserControl user = (UserControl)con;
                         //Si positionColumn es menor que la cantidad de columnas
                         //continuamos
-                        if (column <= cantidad_columnas)
+                        if (column <= this.Columns)
                         {
                             //Asigno la posicion del control
                             user.Location = new Point(positionX, positionY);
                             positionX += user.Width;
-
                             //Sumar uno a la positionColumn
                             column += 1;
                         }

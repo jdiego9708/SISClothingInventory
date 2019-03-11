@@ -29,6 +29,15 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.Load += FrmWait_Load;
+            this.Activated += FrmWait_Activated;
+        }
+
+        public event EventHandler onActivated;
+
+        private void FrmWait_Activated(object sender, EventArgs e)
+        {
+            if (this.onActivated != null)
+                this.onActivated(sender, e);
         }
 
         private void FrmWait_Load(object sender, EventArgs e)

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 using CapaNegocio;
 using CapaPresentacion.Properties;
+using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace CapaPresentacion.Forms.FormsArticulos
 {
@@ -23,8 +26,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
             this.btnRemove.Click += BtnRemove_Click;
         }
 
-        private bool carrito = false;
-
         private void BtnRemove_Click(object sender, EventArgs e)
         {
             this.btnRemove.Visible = false;
@@ -37,7 +38,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
             if (onBtnAddCart != null)
             {
                 onBtnAddCart(this, e);
-                this.carrito = true;
                 this.btnRemove.Visible = true;
             }
         }

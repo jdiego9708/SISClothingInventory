@@ -23,8 +23,19 @@ namespace CapaPresentacion
             frmWait = new FrmWait();
             frmWait.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             frmWait.Mensaje = mensaje;
+            frmWait.onActivated += FrmWait_onActivated;
             frmWait.ShowDialog();
         }
+
+        private static void FrmWait_onActivated(object sender, System.EventArgs e)
+        {
+            if (_error)
+            {
+                
+            }
+        }
+
+        static bool _error = false;
 
         static public void CloseForm()
         {
@@ -35,9 +46,9 @@ namespace CapaPresentacion
 
                 frmWait.Invoke(new CloseDelegate(CloseFormInternal));
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-
+                _error = true;
             }
         }
 

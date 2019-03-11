@@ -20,6 +20,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
         private string _descripcion_articulo;
         private int _precio;
         private DataTable dtImagenes;
+        private int _cantidad_carrito;
 
         public int Id_articulo { get => _id_articulo; set => _id_articulo = value; }
         public int Id_tipo_articulo { get => _id_tipo_articulo; set => _id_tipo_articulo = value; }
@@ -32,5 +33,6 @@ namespace CapaPresentacion.Forms.FormsArticulos
         public string Descripcion_articulo { get => _descripcion_articulo; set => _descripcion_articulo = value; }
         public int Precio { get => _precio; set => _precio = value; }
         public DataTable DtImagenes { get => dtImagenes; set => dtImagenes = value; }
+        public int Cantidad_carrito { get => _cantidad_carrito; set => _cantidad_carrito = value; }
     }
 }
