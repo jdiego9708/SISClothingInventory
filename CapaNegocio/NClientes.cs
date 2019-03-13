@@ -28,5 +28,17 @@ namespace CapaNegocio
         {
             return DClientes.BuscarClientes(tipo_busqueda, texto_busqueda, out rpta);
         }
+
+        public static string InsertarDireccionClientes(List<string> variables, out int id_direccion)
+        {
+            DClientes dClientes = new DClientes();
+            return dClientes.InsertarDireccionClientes(variables, out id_direccion);
+        }
+
+        public static string EditarDireccionClientes(List<string> variables, int id_direccion)
+        {
+            DClientes dClientes = new DClientes();
+            return dClientes.EditarClientes(variables, id_direccion);
+        }
     }
 }

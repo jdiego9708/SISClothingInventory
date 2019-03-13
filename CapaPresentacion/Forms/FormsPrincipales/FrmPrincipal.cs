@@ -1,6 +1,7 @@
 ﻿using CapaPresentacion.Forms.FormsArticulos;
 using CapaPresentacion.Forms.FormsClientes;
 using CapaPresentacion.Forms.FormsProveedores;
+using CapaPresentacion.Properties;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -22,6 +23,8 @@ namespace CapaPresentacion.Forms.FormsPrincipales
             this.btnProveedores.Click += BtnProveedores_Click;
             this.btnClientes.Click += BtnClientes_Click;
             this.btnVentas.Click += BtnVentas_Click;
+            this.btnUnlock.Click += BtnUnlock_Click;
+            this.Load += FrmPrincipal_Load;
         }
 
         #region VENTAS
@@ -465,5 +468,55 @@ namespace CapaPresentacion.Forms.FormsPrincipales
         }
 
         List<Form> formsAbiertos = new List<Form>();
+
+        private void BtnUnlock_Click(object sender, EventArgs e)
+        {
+            if (bloqueado)
+            {
+                FrmLogin login = new FrmLogin()
+                {
+                    FormBorderStyle = FormBorderStyle.None,
+                    TopLevel = false
+                };
+                login.onLogin += Login_onLogin;
+                login.Show();
+                this.container = new PoperContainer(login);
+                this.container.Show(this.btnUnlock);
+            }
+            else
+            {
+                bloqueado = true;
+                this.btnUnlock.Image = Resources.locked;
+                this.btnArticulos.Enabled = false;
+                this.btnProveedores.Enabled = false;
+                this.btnClientes.Enabled = false;
+                this.btnVentas.Enabled = false;
+                this.btnEstadisticas.Enabled = false;
+                this.btnEntradasSalidas.Enabled = false;
+                this.btnMantenimiento.Enabled = false;
+            }
+        }
+
+        private void Login_onLogin(object sender, EventArgs e)
+        {
+            this.container.Close();
+            bloqueado = false;
+            this.btnUnlock.Image = Resources.unlocked;
+            this.btnArticulos.Enabled = true;
+            this.btnProveedores.Enabled = true;
+            this.btnClientes.Enabled = true;
+            this.btnVentas.Enabled = true;
+            this.btnEstadisticas.Enabled = true;
+            this.btnEntradasSalidas.Enabled = true;
+            this.btnMantenimiento.Enabled = true;
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            this.btnUnlock.PerformClick();
+            //Código para mostrar notificaciones
+        }
+
+        private bool bloqueado = false;
     }
 }

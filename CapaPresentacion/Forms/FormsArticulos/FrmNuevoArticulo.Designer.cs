@@ -30,19 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoArticulo));
-            this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtTipo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtProveedor = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.numericCantidad = new System.Windows.Forms.NumericUpDown();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.lblImagenes = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnAgregarImagen = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -50,136 +44,103 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.toolBox1 = new CapaPresentacion.Controles.ToolBox();
             this.panel1 = new CapaPresentacion.Controles.CustomGridPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre artículo";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(4, 47);
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(3, 20);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(325, 26);
+            this.txtNombre.Size = new System.Drawing.Size(313, 23);
             this.txtNombre.TabIndex = 1;
             // 
             // txtTipo
             // 
+            this.txtTipo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTipo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtTipo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTipo.Location = new System.Drawing.Point(4, 106);
+            this.txtTipo.Location = new System.Drawing.Point(13, 24);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.ReadOnly = true;
-            this.txtTipo.Size = new System.Drawing.Size(173, 23);
+            this.txtTipo.Size = new System.Drawing.Size(295, 16);
             this.txtTipo.TabIndex = 3;
             this.txtTipo.Text = "Seleccione un tipo de artículo";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tipo";
-            // 
             // txtProveedor
             // 
+            this.txtProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtProveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtProveedor.Location = new System.Drawing.Point(4, 164);
+            this.txtProveedor.Location = new System.Drawing.Point(12, 25);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.ReadOnly = true;
-            this.txtProveedor.Size = new System.Drawing.Size(325, 23);
+            this.txtProveedor.Size = new System.Drawing.Size(296, 16);
             this.txtProveedor.TabIndex = 5;
             this.txtProveedor.Text = "Seleccione un proveedor";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 138);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Proveedor";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 206);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Cantidad";
             // 
             // numericCantidad
             // 
             this.numericCantidad.ForeColor = System.Drawing.Color.Gray;
-            this.numericCantidad.Location = new System.Drawing.Point(70, 202);
+            this.numericCantidad.Location = new System.Drawing.Point(32, 22);
             this.numericCantidad.Maximum = new decimal(new int[] {
             150,
             0,
             0,
             0});
             this.numericCantidad.Name = "numericCantidad";
-            this.numericCantidad.Size = new System.Drawing.Size(80, 26);
+            this.numericCantidad.Size = new System.Drawing.Size(80, 25);
             this.numericCantidad.TabIndex = 7;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(4, 270);
+            this.txtDescripcion.Location = new System.Drawing.Point(6, 28);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(325, 85);
+            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescripcion.Size = new System.Drawing.Size(307, 85);
             this.txtDescripcion.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 244);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 19);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Descripción";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(170, 206);
+            this.label6.Location = new System.Drawing.Point(15, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 19);
+            this.label6.Size = new System.Drawing.Size(15, 17);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Precio: $";
+            this.label6.Text = "$";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(227, 202);
+            this.txtPrecio.Location = new System.Drawing.Point(32, 20);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(102, 26);
+            this.txtPrecio.Size = new System.Drawing.Size(102, 25);
             this.txtPrecio.TabIndex = 11;
-            // 
-            // lblImagenes
-            // 
-            this.lblImagenes.AutoSize = true;
-            this.lblImagenes.Location = new System.Drawing.Point(339, 21);
-            this.lblImagenes.Name = "lblImagenes";
-            this.lblImagenes.Size = new System.Drawing.Size(68, 19);
-            this.lblImagenes.TabIndex = 14;
-            this.lblImagenes.Text = "Imágenes";
+            this.txtPrecio.Text = "0";
             // 
             // btnAgregarImagen
             // 
-            this.btnAgregarImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregarImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnAgregarImagen.BackColor = System.Drawing.Color.White;
             this.btnAgregarImagen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.BackgroundImage")));
             this.btnAgregarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -191,7 +152,7 @@
             this.btnAgregarImagen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarImagen.ForeColor = System.Drawing.Color.Gray;
             this.btnAgregarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarImagen.Location = new System.Drawing.Point(413, 14);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(6, 23);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(33, 32);
             this.btnAgregarImagen.TabIndex = 20;
@@ -216,9 +177,9 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.Gray;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(182, 361);
+            this.btnCancelar.Location = new System.Drawing.Point(226, 441);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(147, 42);
+            this.btnCancelar.Size = new System.Drawing.Size(103, 42);
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,9 +198,9 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.Gray;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(3, 361);
+            this.btnGuardar.Location = new System.Drawing.Point(10, 441);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(147, 42);
+            this.btnGuardar.Size = new System.Drawing.Size(102, 42);
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -265,11 +226,93 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Columns = 0;
-            this.panel1.Location = new System.Drawing.Point(343, 47);
+            this.panel1.Location = new System.Drawing.Point(6, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(374, 436);
+            this.panel1.Size = new System.Drawing.Size(370, 403);
             this.panel1.SizeAutomatica = false;
             this.panel1.TabIndex = 21;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(10, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(319, 53);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nombre";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtTipo);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(10, 72);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(319, 53);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tipo";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtProveedor);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(10, 131);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(319, 58);
+            this.groupBox3.TabIndex = 24;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Proveedor";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.numericCantidad);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(10, 195);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(140, 58);
+            this.groupBox4.TabIndex = 25;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Cantidad";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtPrecio);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(189, 195);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(140, 58);
+            this.groupBox5.TabIndex = 26;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Precio";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.txtDescripcion);
+            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(10, 259);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(319, 124);
+            this.groupBox6.TabIndex = 25;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Descripción";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.btnAgregarImagen);
+            this.groupBox7.Controls.Add(this.panel1);
+            this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(335, 13);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(382, 470);
+            this.groupBox7.TabIndex = 26;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Imagenes";
             // 
             // FrmNuevoArticulo
             // 
@@ -277,23 +320,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(729, 495);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnAgregarImagen);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.lblImagenes);
-            this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.numericCantidad);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtProveedor);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtTipo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -302,26 +337,30 @@
             this.Text = "Nuevo artículo";
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtTipo;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtProveedor;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numericCantidad;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Label lblImagenes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -329,5 +368,12 @@
         private Controles.ToolBox toolBox1;
         private System.Windows.Forms.Button btnAgregarImagen;
         private Controles.CustomGridPanel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }

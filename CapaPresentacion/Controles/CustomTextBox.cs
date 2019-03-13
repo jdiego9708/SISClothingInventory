@@ -137,6 +137,11 @@ namespace CapaPresentacion.Controles
         public string Texto { get => texto; set => texto = value; }
         public string TextoInicial { get => textoInicial; set => textoInicial = value; }
 
+        public void pxVisible(bool visible)
+        {
+            this.px.Visible = visible;
+        }
+
         public void EstablecerTextoInicial()
         {
             this.txtBusqueda.Text = TextoInicial;

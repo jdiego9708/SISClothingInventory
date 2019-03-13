@@ -33,14 +33,22 @@
             this.btnArticulos = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnConfiguraciones = new System.Windows.Forms.Button();
+            this.btnMantenimiento = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEntradasSalidas = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnUnlock = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnArticulos
@@ -53,7 +61,7 @@
             this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArticulos.ForeColor = System.Drawing.Color.White;
             this.btnArticulos.Image = ((System.Drawing.Image)(resources.GetObject("btnArticulos.Image")));
-            this.btnArticulos.Location = new System.Drawing.Point(0, 0);
+            this.btnArticulos.Location = new System.Drawing.Point(107, 0);
             this.btnArticulos.Name = "btnArticulos";
             this.btnArticulos.Size = new System.Drawing.Size(173, 227);
             this.btnArticulos.TabIndex = 0;
@@ -73,7 +81,7 @@
             this.btnProveedores.ForeColor = System.Drawing.Color.White;
             this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnProveedores.Location = new System.Drawing.Point(174, 0);
+            this.btnProveedores.Location = new System.Drawing.Point(281, 0);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(173, 113);
             this.btnProveedores.TabIndex = 1;
@@ -93,7 +101,7 @@
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClientes.Location = new System.Drawing.Point(174, 114);
+            this.btnClientes.Location = new System.Drawing.Point(281, 114);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(173, 113);
             this.btnClientes.TabIndex = 2;
@@ -102,25 +110,25 @@
             this.toolTip1.SetToolTip(this.btnClientes, "Clientes registrados");
             this.btnClientes.UseVisualStyleBackColor = false;
             // 
-            // btnConfiguraciones
+            // btnMantenimiento
             // 
-            this.btnConfiguraciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
-            this.btnConfiguraciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfiguraciones.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnConfiguraciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.btnConfiguraciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnConfiguraciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguraciones.ForeColor = System.Drawing.Color.White;
-            this.btnConfiguraciones.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguraciones.Image")));
-            this.btnConfiguraciones.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnConfiguraciones.Location = new System.Drawing.Point(348, 114);
-            this.btnConfiguraciones.Name = "btnConfiguraciones";
-            this.btnConfiguraciones.Size = new System.Drawing.Size(173, 113);
-            this.btnConfiguraciones.TabIndex = 3;
-            this.btnConfiguraciones.Text = "Mantenimiento";
-            this.btnConfiguraciones.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnConfiguraciones, "Configuraciones del sistema");
-            this.btnConfiguraciones.UseVisualStyleBackColor = false;
+            this.btnMantenimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.btnMantenimiento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMantenimiento.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMantenimiento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnMantenimiento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMantenimiento.ForeColor = System.Drawing.Color.White;
+            this.btnMantenimiento.Image = ((System.Drawing.Image)(resources.GetObject("btnMantenimiento.Image")));
+            this.btnMantenimiento.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMantenimiento.Location = new System.Drawing.Point(455, 114);
+            this.btnMantenimiento.Name = "btnMantenimiento";
+            this.btnMantenimiento.Size = new System.Drawing.Size(173, 113);
+            this.btnMantenimiento.TabIndex = 3;
+            this.btnMantenimiento.Text = "Mantenimiento";
+            this.btnMantenimiento.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnMantenimiento, "Configuraciones del sistema");
+            this.btnMantenimiento.UseVisualStyleBackColor = false;
             // 
             // btnVentas
             // 
@@ -133,7 +141,7 @@
             this.btnVentas.ForeColor = System.Drawing.Color.White;
             this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnVentas.Location = new System.Drawing.Point(0, 228);
+            this.btnVentas.Location = new System.Drawing.Point(107, 228);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(173, 113);
             this.btnVentas.TabIndex = 4;
@@ -153,7 +161,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEstadisticas.Location = new System.Drawing.Point(174, 228);
+            this.btnEstadisticas.Location = new System.Drawing.Point(281, 228);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(173, 113);
             this.btnEstadisticas.TabIndex = 5;
@@ -173,7 +181,7 @@
             this.btnReportes.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReportes.Location = new System.Drawing.Point(348, 228);
+            this.btnReportes.Location = new System.Drawing.Point(455, 228);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(173, 36);
             this.btnReportes.TabIndex = 6;
@@ -193,9 +201,9 @@
             this.btnAyuda.ForeColor = System.Drawing.Color.White;
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
             this.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAyuda.Location = new System.Drawing.Point(348, 265);
+            this.btnAyuda.Location = new System.Drawing.Point(455, 265);
             this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(173, 36);
+            this.btnAyuda.Size = new System.Drawing.Size(173, 37);
             this.btnAyuda.TabIndex = 7;
             this.btnAyuda.Text = "Ayuda";
             this.btnAyuda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,48 +221,142 @@
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(348, 302);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(455, 303);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(173, 39);
             this.btnCerrarSesion.TabIndex = 8;
-            this.btnCerrarSesion.Text = "Cerrar sesión";
+            this.btnCerrarSesion.Text = "Cerrar aplicación";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnCerrarSesion, "Cerrar sesión");
+            this.toolTip1.SetToolTip(this.btnCerrarSesion, "Salir del programa");
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnEntradasSalidas
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.Location = new System.Drawing.Point(348, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 113);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Entradas - Salidas";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.button1, "Observe las entradas y salidas con pendientes");
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEntradasSalidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.btnEntradasSalidas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntradasSalidas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEntradasSalidas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnEntradasSalidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEntradasSalidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntradasSalidas.ForeColor = System.Drawing.Color.White;
+            this.btnEntradasSalidas.Image = ((System.Drawing.Image)(resources.GetObject("btnEntradasSalidas.Image")));
+            this.btnEntradasSalidas.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEntradasSalidas.Location = new System.Drawing.Point(455, 0);
+            this.btnEntradasSalidas.Name = "btnEntradasSalidas";
+            this.btnEntradasSalidas.Size = new System.Drawing.Size(173, 113);
+            this.btnEntradasSalidas.TabIndex = 9;
+            this.btnEntradasSalidas.Text = "Entradas - Salidas";
+            this.btnEntradasSalidas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnEntradasSalidas, "Observe las entradas y salidas con pendientes");
+            this.btnEntradasSalidas.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(0, 188);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 39);
+            this.button2.TabIndex = 11;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.button2, "Cerrar sesión");
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnUnlock
+            // 
+            this.btnUnlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.btnUnlock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnlock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnUnlock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnUnlock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnlock.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnlock.ForeColor = System.Drawing.Color.White;
+            this.btnUnlock.Image = ((System.Drawing.Image)(resources.GetObject("btnUnlock.Image")));
+            this.btnUnlock.Location = new System.Drawing.Point(0, 268);
+            this.btnUnlock.Name = "btnUnlock";
+            this.btnUnlock.Size = new System.Drawing.Size(106, 73);
+            this.btnUnlock.TabIndex = 12;
+            this.btnUnlock.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnUnlock, "Cerrar sesión");
+            this.btnUnlock.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(0, 228);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(106, 39);
+            this.button4.TabIndex = 13;
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.button4, "Cerrar sesión");
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(9, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(89, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 101);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(106, 86);
+            this.panel1.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 65);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Software de \r\ninventario \r\nprendas\r\nJuan Diego Duque\r\njdiego9708";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(522, 343);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(630, 343);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnUnlock);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnEntradasSalidas);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.btnVentas);
-            this.Controls.Add(this.btnConfiguraciones);
+            this.Controls.Add(this.btnMantenimiento);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnProveedores);
             this.Controls.Add(this.btnArticulos);
@@ -265,6 +367,9 @@
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrincipal";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -274,13 +379,19 @@
         private System.Windows.Forms.Button btnArticulos;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Button btnConfiguraciones;
+        private System.Windows.Forms.Button btnMantenimiento;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEntradasSalidas;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUnlock;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }

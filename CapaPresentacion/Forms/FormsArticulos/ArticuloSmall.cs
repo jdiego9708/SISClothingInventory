@@ -28,6 +28,7 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private void BtnRemove_Click(object sender, EventArgs e)
         {
+            //this.articulo.Cantidad_carrito -= 1;
             this.btnRemove.Visible = false;
             if (onBtnRemove != null)
                 onBtnRemove(this, e);
@@ -35,6 +36,9 @@ namespace CapaPresentacion.Forms.FormsArticulos
 
         private void BtnAddCarrito_Click(object sender, EventArgs e)
         {
+            if (this.articulo.Cantidad_carrito == 0)
+                this.articulo.Cantidad_carrito = 1;
+
             if (onBtnAddCart != null)
             {
                 onBtnAddCart(this, e);

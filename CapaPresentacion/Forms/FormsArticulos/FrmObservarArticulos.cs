@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -244,13 +245,14 @@ namespace CapaPresentacion.Forms.FormsArticulos
         {
             ArticuloSmall art = (ArticuloSmall)sender;
             bool existe = false;
-            int cantidad_total_carrito = 0;
+
             foreach (ArticuloSmall articuloSmall in this.articulosVenta)
             {
                 if (articuloSmall.Id_articulo == art.Id_articulo)
                 {
                     articuloSmall.articulo.Cantidad_carrito += 1;
                     existe = true;
+                    art = articuloSmall;
                     break;
                 }
             }

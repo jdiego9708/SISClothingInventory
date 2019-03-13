@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
@@ -285,6 +282,253 @@ namespace CapaDatos
             return DtResultado;
         }
 
+        #endregion
+
+        #region METODO INSERTAR DIRECCION CLIENTE
+        public string InsertarDireccionClientes(List<string> Variables, out int id_direccion)
+        {
+            id_direccion = 0;
+            int contador = 0;
+            //asignamos a una cadena string la variable rpta y la iniciamos en vacía
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            SqlCon.InfoMessage += new SqlInfoMessageEventHandler(SqlCon_InfoMessage);
+            SqlCon.FireInfoMessageEventOnUserErrors = true;
+            //Capturador de errores
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //establecer comando
+                SqlCommand SqlCmd = new SqlCommand
+                {
+                    Connection = SqlCon,
+                    CommandText = "sp_Insertar_direccion_cliente",
+                    //Indicamos que es un procedimiento almacenado
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlParameter Id_direccion = new SqlParameter
+                {
+                    ParameterName = "@Id_direccion",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+                };
+                SqlCmd.Parameters.Add(Id_direccion);
+
+                SqlParameter Id_cliente = new SqlParameter
+                {
+                    ParameterName = "@Id_cliente",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+                };
+                SqlCmd.Parameters.Add(Id_cliente);
+                contador += 1;
+
+                SqlParameter CalleCarrera = new SqlParameter
+                {
+                    ParameterName = "@CalleCarrera",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 50,
+                    Value = Variables[contador].Trim().ToUpper()
+                };
+                SqlCmd.Parameters.Add(CalleCarrera);
+                contador += 1;
+
+                SqlParameter NumCalleCarrera = new SqlParameter
+                {
+                    ParameterName = "@NumCalleCarrera",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(NumCalleCarrera);
+                contador += 1;
+
+                SqlParameter Numero1 = new SqlParameter
+                {
+                    ParameterName = "@Numero1",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(Numero1);
+                contador += 1;
+
+                SqlParameter Numero2 = new SqlParameter
+                {
+                    ParameterName = "@Numero2",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(Numero2);
+                contador += 1;
+
+                SqlParameter Referencias = new SqlParameter
+                {
+                    ParameterName = "@Referencias",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(Referencias);
+                contador += 1;
+
+                //Ejecutamos nuestro comando
+                //Se puede ejecutar este metodo pero ya tenemos el mensaje que devuelve sql
+                rpta = SqlCmd.ExecuteNonQuery() >= 1 ? "OK" : "NO";
+
+                if (rpta != "OK")
+                {
+                    if (this.Mensaje_respuesta != null)
+                    {
+                        rpta = this.Mensaje_respuesta;
+                    }
+                }
+                else
+                {
+                    id_direccion = Convert.ToInt32(SqlCmd.Parameters["@Id_direccion"].Value);
+                }
+            }
+            //Mostramos posible error que tengamos
+            catch (SqlException ex)
+            {
+                rpta = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                //Si la cadena SqlCon esta abierta la cerramos
+                if (SqlCon.State == ConnectionState.Open)
+                    SqlCon.Close();
+            }
+            return rpta;
+        }
+        #endregion
+
+        #region METODO EDITAR DIRECCION CLIENTE
+        public string EditarDireccionClientes(List<string> Variables, int id_direccion)
+        {
+            int contador = 0;
+            //asignamos a una cadena string la variable rpta y la iniciamos en vacía
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            SqlCon.InfoMessage += new SqlInfoMessageEventHandler(SqlCon_InfoMessage);
+            SqlCon.FireInfoMessageEventOnUserErrors = true;
+            //Capturador de errores
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //establecer comando
+                SqlCommand SqlCmd = new SqlCommand
+                {
+                    Connection = SqlCon,
+                    CommandText = "sp_Editar_direccion_cliente",
+                    //Indicamos que es un procedimiento almacenado
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlParameter Id_direccion = new SqlParameter
+                {
+                    ParameterName = "@Id_direccion",
+                    SqlDbType = SqlDbType.Int,
+                    Value = id_direccion
+                };
+                SqlCmd.Parameters.Add(Id_direccion);
+
+                SqlParameter Id_cliente = new SqlParameter
+                {
+                    ParameterName = "@Id_cliente",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+                };
+                SqlCmd.Parameters.Add(Id_cliente);
+                contador += 1;
+
+                SqlParameter CalleCarrera = new SqlParameter
+                {
+                    ParameterName = "@CalleCarrera",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 50,
+                    Value = Variables[contador].Trim().ToUpper()
+                };
+                SqlCmd.Parameters.Add(CalleCarrera);
+                contador += 1;
+
+                SqlParameter NumCalleCarrera = new SqlParameter
+                {
+                    ParameterName = "@NumCalleCarrera",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(NumCalleCarrera);
+                contador += 1;
+
+                SqlParameter Numero1 = new SqlParameter
+                {
+                    ParameterName = "@Numero1",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(Numero1);
+                contador += 1;
+
+                SqlParameter Numero2 = new SqlParameter
+                {
+                    ParameterName = "@Numero2",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(Numero2);
+                contador += 1;
+
+                SqlParameter Referencias = new SqlParameter
+                {
+                    ParameterName = "@Referencias",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 5,
+                    Value = Variables[contador].Trim()
+                };
+                SqlCmd.Parameters.Add(Referencias);
+                contador += 1;
+
+                //Ejecutamos nuestro comando
+                //Se puede ejecutar este metodo pero ya tenemos el mensaje que devuelve sql
+                rpta = SqlCmd.ExecuteNonQuery() >= 1 ? "OK" : "NO";
+
+                if (rpta != "OK")
+                {
+                    if (this.Mensaje_respuesta != null)
+                    {
+                        rpta = this.Mensaje_respuesta;
+                    }
+                }
+            }
+            //Mostramos posible error que tengamos
+            catch (SqlException ex)
+            {
+                rpta = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                //Si la cadena SqlCon esta abierta la cerramos
+                if (SqlCon.State == ConnectionState.Open)
+                    SqlCon.Close();
+            }
+            return rpta;
+        }
         #endregion
     }
 }

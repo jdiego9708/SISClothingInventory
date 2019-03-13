@@ -9,6 +9,8 @@ namespace CapaPresentacion.Forms.FormsClientes
 {
     public partial class FrmObservarClientes : Form
     {
+        FrmNuevoCliente addCliente;
+        PoperContainer container;
         public FrmObservarClientes()
         {
             InitializeComponent();
@@ -17,6 +19,29 @@ namespace CapaPresentacion.Forms.FormsClientes
             this.txtBusqueda.onLostFocus += TxtBusqueda_onLostFocus;
             this.dgvClientes.DoubleClick += DgvClientes_DoubleClick;
             this.Load += FrmObservarClientes_Load;
+            this.btnAddClient.Click += BtnAddClient_Click;
+            this.btnRefresh.Click += BtnRefresh_Click;
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            this.BuscarClientes("COMPLETO", "");
+        }
+
+        private void BtnAddClient_Click(object sender, EventArgs e)
+        {
+            this.addCliente = new FrmNuevoCliente();
+            this.addCliente.FormBorderStyle = FormBorderStyle.None;
+            this.addCliente.TopLevel = false;
+            this.addCliente.FormClosed += AddCliente_FormClosed;
+            this.addCliente.Show();
+            this.container = new PoperContainer(addCliente);
+            this.container.Show(this.btnAddClient);
+        }
+
+        private void AddCliente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.container.Close();
         }
 
         private void FrmObservarClientes_Load(object sender, EventArgs e)
@@ -26,6 +51,8 @@ namespace CapaPresentacion.Forms.FormsClientes
 
             this.txtBusqueda.TextoInicial = "Ingrese texto para buscar clientes";
             this.txtBusqueda.EstablecerTextoInicial();
+
+            this.BuscarClientes("COMPLETO", "");
         }
 
         private Cliente GetCliente(object row)

@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.groupBox1.SuspendLayout();
+            this.gbMetodoPago = new System.Windows.Forms.GroupBox();
+            this.rdTarjeta = new System.Windows.Forms.RadioButton();
+            this.rdEfectivo = new System.Windows.Forms.RadioButton();
+            this.gbMetodoPago.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtCliente
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.Location = new System.Drawing.Point(4, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 18);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Seleccione un cliente";
+            this.txtCliente.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCliente.Location = new System.Drawing.Point(4, 25);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(193, 18);
+            this.txtCliente.TabIndex = 5;
+            this.txtCliente.Text = "Seleccione un cliente";
             // 
             // label2
             // 
@@ -57,64 +57,64 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Cliente";
             // 
-            // groupBox1
+            // gbMetodoPago
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 73);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Método de pago";
+            this.gbMetodoPago.Controls.Add(this.rdTarjeta);
+            this.gbMetodoPago.Controls.Add(this.rdEfectivo);
+            this.gbMetodoPago.Location = new System.Drawing.Point(4, 50);
+            this.gbMetodoPago.Name = "gbMetodoPago";
+            this.gbMetodoPago.Size = new System.Drawing.Size(200, 73);
+            this.gbMetodoPago.TabIndex = 6;
+            this.gbMetodoPago.TabStop = false;
+            this.gbMetodoPago.Text = "Método de pago";
             // 
-            // radioButton1
+            // rdTarjeta
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(71, 21);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Efectivo";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdTarjeta.AutoSize = true;
+            this.rdTarjeta.Location = new System.Drawing.Point(7, 41);
+            this.rdTarjeta.Name = "rdTarjeta";
+            this.rdTarjeta.Size = new System.Drawing.Size(65, 21);
+            this.rdTarjeta.TabIndex = 1;
+            this.rdTarjeta.TabStop = true;
+            this.rdTarjeta.Text = "Tarjeta";
+            this.rdTarjeta.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdEfectivo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 41);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 21);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Tarjeta";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdEfectivo.AutoSize = true;
+            this.rdEfectivo.Location = new System.Drawing.Point(7, 19);
+            this.rdEfectivo.Name = "rdEfectivo";
+            this.rdEfectivo.Size = new System.Drawing.Size(71, 21);
+            this.rdEfectivo.TabIndex = 0;
+            this.rdEfectivo.TabStop = true;
+            this.rdEfectivo.Text = "Efectivo";
+            this.rdEfectivo.UseVisualStyleBackColor = true;
             // 
             // VentaDirecta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.gbMetodoPago);
+            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gray;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VentaDirecta";
             this.Size = new System.Drawing.Size(206, 130);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbMetodoPago.ResumeLayout(false);
+            this.gbMetodoPago.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox gbMetodoPago;
+        private System.Windows.Forms.RadioButton rdTarjeta;
+        private System.Windows.Forms.RadioButton rdEfectivo;
     }
 }
