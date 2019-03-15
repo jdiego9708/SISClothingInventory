@@ -23,24 +23,56 @@ namespace CapaPresentacion.Forms.FormsVentas
             this.btnTerminar.Click += BtnTerminar_Click;
         }
 
-        private DataTable dtDetalle(string estado)
+        private DataTable dtDetalle(string estado, out bool finish, out string rpta)
         {
             DataTable dtDetalle = new DataTable();
-            dtDetalle.Columns.Add("Id_detalle_articulo", typeof(int));
-            dtDetalle.Columns.Add("Estado_venta", typeof(string));
-            dtDetalle.Columns.Add("Precio_cobrar", typeof(int));
-            dtDetalle.Columns.Add("Cantidad", typeof(int));
-            dtDetalle.Columns.Add("Observaciones", typeof(string));
-
-            foreach (ArticuloCarrito art in this.panelArticulos.controls)
+            finish = true;
+            rpta = "OK";
+            try
             {
-                if (art.chkArticulo.Checked)
+                dtDetalle.Columns.Add("Id_detalle_articulo", typeof(int));
+                dtDetalle.Columns.Add("Estado_venta", typeof(string));
+                dtDetalle.Columns.Add("Precio_cobrar", typeof(int));
+                dtDetalle.Columns.Add("Cantidad", typeof(int));
+                dtDetalle.Columns.Add("Observaciones", typeof(string));
+                foreach (ArticuloCarrito art in this.panelArticulos.controls)
                 {
-                    dtDetalle.Rows.Add(art.returnValues(dtDetalle, estado));
-                    art.Enabled = false;
+                    if (art.chkArticulo.Checked)
+                    {
+                        if (art.Enabled)
+                        {
+                            DataRow row = art.returnValues(dtDetalle, estado);
+
+                            if (row == null)
+                            {
+                                finish = false;
+                                dtDetalle = null;
+                                break;
+                            }
+                            else
+                            {
+                                art.Estado = "TERMINADO";
+                                dtDetalle.Rows.Add(row);
+                                art.Enabled = false;
+                            }
+                        }
+                        else
+                        {
+                            finish = true;
+                        }
+                    }
+                    else
+                    {
+                        if (art.Enabled)
+                            finish = false;
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+                dtDetalle = null;
+            }
             return dtDetalle;
         }
 
@@ -58,9 +90,18 @@ namespace CapaPresentacion.Forms.FormsVentas
                 {
                     foreach (ArticuloCarrito art in this.panelArticulos.controls)
                     {
-                        int precio = art.Articulo.Precio;
-                        int cantidad = art.Articulo.Cantidad_carrito;
-                        total += precio * cantidad;
+                        if (art.Ready)
+                        {
+                            int precio = art.Articulo.Precio;
+                            int cantidad = art.Articulo.Cantidad_carrito;
+                            total += precio * cantidad;
+                        }
+                        else
+                        {
+                            //int precio = art.Articulo.Precio;
+                            //int cantidad = art.Articulo.Cantidad_carrito;
+                            //total -= precio * cantidad;
+                        }
                     }
                 }
                 this.lblTotal.Text = "Total: " + total.ToString("C");
@@ -70,31 +111,88 @@ namespace CapaPresentacion.Forms.FormsVentas
 
         private void BtnTerminar_Click(object sender, EventArgs e)
         {
+            string tipo_venta;
             string rpta = "OK";
             string estado = "";
-            if (this.rdEnvio.Checked)
+            DatosUsuario datos = DatosUsuario.GetInstancia();
+            int id_empleado = datos.Id_usuario;
+            bool finish = true;
+            try
             {
-                EnvioPedido envio = (EnvioPedido)this.panel1.Controls[0];
-                if (envio.Comprobacion(out int id_cliente, out int id_direccion, out string observaciones))
+                if (this.rdEnvio.Checked)
                 {
+                    tipo_venta = "ENVIO";
                     estado = "PENDIENTE ENVIO";
-                    List<string> Variables = new List<string>
+                    EnvioPedido envio = (EnvioPedido)this.panel1.Controls[0];
+                    DataTable detalle = this.dtDetalle(estado, out finish, out rpta);
+                    if (detalle != null)
                     {
-                        "0", id_cliente.ToString(), id_direccion.ToString(),
-                        estado, observaciones
-                    };
-                    rpta = NVentas.InsertarVentas(Variables, this.dtDetalle(estado), out int id_venta);
+                        if (envio.Comprobacion(out int id_cliente, out int id_direccion, out string observaciones))
+                        {
+                            List<string> Variables = new List<string>
+                            {
+                                id_empleado.ToString(), id_cliente.ToString(), id_direccion.ToString(),
+                                tipo_venta, estado, observaciones
+                            };
+                            if (this.id_venta == 0)
+                                rpta = NVentas.InsertarVentas(Variables, detalle, out this.id_venta);
+                            else
+                                rpta = NVentas.InsertarDetalleVentas(this.id_venta, detalle);
+
+                            if (rpta.Equals("OK"))
+                            {
+                                Mensajes.MensajeInformacion("Venta realizada correctamente, para seguir " +
+                                    "el detalle del envío vaya al módulo de entradas y salidas", "Entendido");
+                                if (finish)
+                                {
+                                    this.Close();
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (this.rdSeparar.Checked)
+                {
 
                 }
-            }
-            else if (this.rdSeparar.Checked)
-            {
+                else if (this.rdVentaDirecta.Checked)
+                {
+                    tipo_venta = "VENTA DIRECTA";
+                    VentaDirecta venta = (VentaDirecta)this.panel1.Controls[0];
+                    estado = "TERMINADO";
+                    DataTable detalle = this.dtDetalle(estado, out finish, out rpta);
+                    if (detalle != null)
+                    {
+                        if (venta.Comprobaciones(out int id_cliente,
+                            out string tipo_pago, out string observaciones))
+                        {
+                            List<string> Variables = new List<string>
+                                {
+                                    id_empleado.ToString(), id_cliente.ToString(), "0",
+                                    tipo_venta, estado, observaciones
+                                };
 
-            }
-            else if (this.rdVentaDirecta.Checked)
-            {
-                VentaDirecta envio = (VentaDirecta)this.panel1.Controls[0];
+                            if (this.id_venta == 0)
+                                rpta = NVentas.InsertarVentas(Variables, detalle, out this.id_venta);
+                            else
+                                rpta = NVentas.InsertarDetalleVentas(this.id_venta, detalle);
 
+                            if (rpta.Equals("OK"))
+                            {
+                                Mensajes.MensajeOkForm("¡Venta realizada correctamente!");
+                                if (finish)
+                                {
+                                    this.Close();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Mensajes.MensajeErrorCompleto(this.Name, "BtnTerminar_Click",
+                    "Hubo un error al terminar el pedido", ex.Message);
             }
         }
 
@@ -185,6 +283,8 @@ namespace CapaPresentacion.Forms.FormsVentas
                     listArticulos.Add(art);
                 }
 
+                this.chkSeleccionarTodos.Checked = true;
+
                 List<ArticuloCarrito> nuevaListaSmall = new List<ArticuloCarrito>();
                 foreach (Articulo art in listArticulos)
                 {
@@ -193,13 +293,18 @@ namespace CapaPresentacion.Forms.FormsVentas
                     articulo.AsignarDatos(art);
                     articulo.Tag = art.Id_articulo;
                     articulo.chkArticulo.Checked = true;
-                    articulo.onChkArticuloCheckedChanged += Articulo_onChkArticuloCheckedChanged;
-                    articulo.onBtnRemoveClick += Articulo_onBtnRemoveClick;
-                    articulo.onBtnVerPerfilClick += Articulo_onBtnVerPerfilClick;
+                    articulo.OnChkArticuloCheckedChanged += Articulo_onChkArticuloCheckedChanged;
+                    articulo.OnBtnRemoveClick += Articulo_onBtnRemoveClick;
+                    articulo.OnBtnVerPerfilClick += Articulo_onBtnVerPerfilClick;
                     this.panelArticulos.AddControl(articulo);
                     nuevaListaSmall.Add(articulo);
-                    this.TotalValue(true, art.Precio * art.Cantidad_carrito);
+                    //this.TotalValue(true, art.Precio * art.Cantidad_carrito);
                 }
+
+                this.TotalValue(false, 0);
+                this.items_seleccionados = this.panelArticulos.controls.Count;
+                this.groupBox1.Text = "Productos seleccionados (" + this.items_seleccionados + ")";
+
                 this.panelArticulos.Width = this.Width;
                 this.panelArticulos.RefreshPanel(new ArticuloCarrito());
                 if (articulos.Count > 10)
@@ -230,18 +335,29 @@ namespace CapaPresentacion.Forms.FormsVentas
         {
             ArticuloCarrito art = (ArticuloCarrito)sender;
             int total = 0;
-            if (art.chkArticulo.Checked)
+            if (art.Ready)
             {
-                total = art.Articulo.Precio * art.Articulo.Cantidad_carrito;
-                this.items_seleccionados += 1;
-                this.TotalValue(true, total);
+                if (art.chkArticulo.Checked)
+                {
+                    total = art.Articulo.Precio * art.Articulo.Cantidad_carrito;
+                    this.items_seleccionados += 1;
+                    this.TotalValue(true, total);
+                }
+                else
+                {
+                    total = art.Articulo.Precio * art.Articulo.Cantidad_carrito;
+                    this.items_seleccionados -= 1;
+                    this.TotalValue(true, -total);
+                }
             }
             else
             {
-                total = art.Articulo.Precio * art.Articulo.Cantidad_carrito;
                 this.items_seleccionados -= 1;
-                this.TotalValue(true, -total);
             }
+
+            if (this.items_seleccionados == this.panelArticulos.controls.Count)
+                this.chkSeleccionarTodos.Checked = true;
+
             this.groupBox1.Text = "Productos seleccionados (" + this.items_seleccionados + ")";
         }
 
@@ -261,7 +377,8 @@ namespace CapaPresentacion.Forms.FormsVentas
                 this.panelArticulos.RemoveControl(art);
                 this.panelArticulos.RefreshPanel(art);
             }
-            
         }
+
+        private int id_venta = 0;
     }
 }

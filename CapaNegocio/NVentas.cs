@@ -22,5 +22,11 @@ namespace CapaNegocio
             DVentas dVentas = new DVentas();
             return dVentas.InsertarDetalleVenta(id_venta, detalle);
         }
+
+        public static DataTable BuscarVentas(string tipo_busqueda, string texto_busqueda,
+                                         string fecha, out string rpta)
+        {
+            return DVentas.BuscarVentas(tipo_busqueda, texto_busqueda, fecha, out rpta);
+        }
     }
 }

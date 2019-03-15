@@ -41,9 +41,9 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnEntradasSalidas = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPendientes = new System.Windows.Forms.Button();
             this.btnUnlock = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -207,6 +207,7 @@
             this.btnAyuda.TabIndex = 7;
             this.btnAyuda.Text = "Ayuda";
             this.btnAyuda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnAyuda, "Ayuda y manuales");
             this.btnAyuda.UseVisualStyleBackColor = false;
             // 
             // btnCerrarSesion
@@ -250,24 +251,24 @@
             this.toolTip1.SetToolTip(this.btnEntradasSalidas, "Observe las entradas y salidas con pendientes");
             this.btnEntradasSalidas.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnPendientes
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(0, 188);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 39);
-            this.button2.TabIndex = 11;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button2, "Cerrar sesión");
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.btnPendientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPendientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnPendientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnPendientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnPendientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPendientes.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPendientes.ForeColor = System.Drawing.Color.White;
+            this.btnPendientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPendientes.Image")));
+            this.btnPendientes.Location = new System.Drawing.Point(0, 188);
+            this.btnPendientes.Name = "btnPendientes";
+            this.btnPendientes.Size = new System.Drawing.Size(106, 39);
+            this.btnPendientes.TabIndex = 11;
+            this.btnPendientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnPendientes, "Pendientes");
+            this.btnPendientes.UseVisualStyleBackColor = false;
             // 
             // btnUnlock
             // 
@@ -285,27 +286,27 @@
             this.btnUnlock.Size = new System.Drawing.Size(106, 73);
             this.btnUnlock.TabIndex = 12;
             this.btnUnlock.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnUnlock, "Cerrar sesión");
+            this.toolTip1.SetToolTip(this.btnUnlock, "Bloquear");
             this.btnUnlock.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnConfig
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(0, 228);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 39);
-            this.button4.TabIndex = 13;
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button4, "Cerrar sesión");
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(177)))), ((int)(((byte)(203)))));
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfig.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnConfig.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.ForeColor = System.Drawing.Color.White;
+            this.btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.Image")));
+            this.btnConfig.Location = new System.Drawing.Point(0, 228);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(106, 39);
+            this.btnConfig.TabIndex = 13;
+            this.btnConfig.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnConfig, "Configuraciones");
+            this.btnConfig.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -347,9 +348,9 @@
             this.ClientSize = new System.Drawing.Size(630, 343);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnUnlock);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnPendientes);
             this.Controls.Add(this.btnEntradasSalidas);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnAyuda);
@@ -387,9 +388,9 @@
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnEntradasSalidas;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPendientes;
         private System.Windows.Forms.Button btnUnlock;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;

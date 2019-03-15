@@ -20,6 +20,23 @@ namespace CapaPresentacion.Forms.FormsVentas
             this.txtCliente.Click += TxtCliente_Click;
         }
 
+        public bool Comprobaciones(out int id_cliente, 
+            out string tipo_pago, out string observaciones)
+        {
+            id_cliente = 0;
+            tipo_pago = this.rdEfectivo.Checked ? "EFECTIVO" : "TARJETA";
+            observaciones = this.txtObservaciones.Text;
+            if (this.txtCliente.Tag == null)
+            {
+                return false;
+            }
+            else
+            {
+                id_cliente = Convert.ToInt32(this.txtCliente.Tag);
+                return true;
+            }
+        }
+
         private void TxtCliente_Click(object sender, EventArgs e)
         {
             FrmObservarClientes observarClientes = new FrmObservarClientes

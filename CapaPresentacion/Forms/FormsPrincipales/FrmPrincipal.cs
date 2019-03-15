@@ -1,5 +1,6 @@
 ﻿using CapaPresentacion.Forms.FormsArticulos;
 using CapaPresentacion.Forms.FormsClientes;
+using CapaPresentacion.Forms.FormsEntradasSalidas;
 using CapaPresentacion.Forms.FormsProveedores;
 using CapaPresentacion.Properties;
 using System;
@@ -14,6 +15,7 @@ namespace CapaPresentacion.Forms.FormsPrincipales
         Proveedores controlProveedores;
         Clientes controlClientes;
         Ventas controlVentas;
+        EntradasSalidas controlEntradasSalidas;
         PoperContainer container;
 
         public FrmPrincipal()
@@ -24,8 +26,45 @@ namespace CapaPresentacion.Forms.FormsPrincipales
             this.btnClientes.Click += BtnClientes_Click;
             this.btnVentas.Click += BtnVentas_Click;
             this.btnUnlock.Click += BtnUnlock_Click;
+            this.btnEntradasSalidas.Click += BtnEntradasSalidas_Click;
             this.Load += FrmPrincipal_Load;
         }
+
+        #region ENTRADAS Y SALIDAS
+        private void BtnEntradasSalidas_Click(object sender, EventArgs e)
+        {
+            this.controlEntradasSalidas = new EntradasSalidas();
+            this.container = new PoperContainer(controlEntradasSalidas);
+            this.controlEntradasSalidas.btnSalidas.Click += BtnSalidas_Click;
+            this.container.Show(Cursor.Position);
+        }
+
+        private void BtnSalidas_Click(object sender, EventArgs e)
+        {
+            this.container.Close();
+            foreach (Form formulario in this.formsAbiertos)
+            {
+                if (formulario is FrmSalidas castForm)
+                {
+                    castForm.WindowState = FormWindowState.Maximized;
+                    castForm.Show();
+                    castForm.Activate();
+                    return;
+                }
+            }
+
+            FrmSalidas form = new FrmSalidas
+            {
+                WindowState = FormWindowState.Maximized,
+                StartPosition = FormStartPosition.CenterScreen,
+                Name = "FrmSalidas"
+            };
+            form.FormClosed += Frm_FormClosed;
+            form.Show();
+            Form frm = (Form)form;
+            this.formsAbiertos.Add(frm);
+        }
+        #endregion
 
         #region VENTAS
 
@@ -39,6 +78,7 @@ namespace CapaPresentacion.Forms.FormsPrincipales
 
         private void BtnNuevaVenta_Click(object sender, EventArgs e)
         {
+            this.container.Close();
             foreach (Form formulario in this.formsAbiertos)
             {
                 if (formulario is FrmObservarArticulos castForm)
@@ -494,6 +534,8 @@ namespace CapaPresentacion.Forms.FormsPrincipales
                 this.btnEstadisticas.Enabled = false;
                 this.btnEntradasSalidas.Enabled = false;
                 this.btnMantenimiento.Enabled = false;
+                this.btnConfig.Enabled = false;
+                this.btnPendientes.Enabled = false;
             }
         }
 
@@ -509,6 +551,8 @@ namespace CapaPresentacion.Forms.FormsPrincipales
             this.btnEstadisticas.Enabled = true;
             this.btnEntradasSalidas.Enabled = true;
             this.btnMantenimiento.Enabled = true;
+            this.btnConfig.Enabled = true;
+            this.btnPendientes.Enabled = true;
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)

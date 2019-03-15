@@ -320,7 +320,7 @@ namespace CapaDatos
                 {
                     ParameterName = "@Id_cliente",
                     SqlDbType = SqlDbType.Int,
-                    Direction = ParameterDirection.Output
+                    Value = Variables[contador]
                 };
                 SqlCmd.Parameters.Add(Id_cliente);
                 contador += 1;

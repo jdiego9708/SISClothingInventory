@@ -33,6 +33,8 @@
             this.gbMetodoPago = new System.Windows.Forms.GroupBox();
             this.rdTarjeta = new System.Windows.Forms.RadioButton();
             this.rdEfectivo = new System.Windows.Forms.RadioButton();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.gbMetodoPago.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,11 +92,32 @@
             this.rdEfectivo.Text = "Efectivo";
             this.rdEfectivo.UseVisualStyleBackColor = true;
             // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtObservaciones.Location = new System.Drawing.Point(4, 146);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtObservaciones.Size = new System.Drawing.Size(200, 46);
+            this.txtObservaciones.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1, 126);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(162, 17);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Observaciones de la venta";
+            // 
             // VentaDirecta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtObservaciones);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.gbMetodoPago);
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.label2);
@@ -102,7 +125,7 @@
             this.ForeColor = System.Drawing.Color.Gray;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VentaDirecta";
-            this.Size = new System.Drawing.Size(206, 130);
+            this.Size = new System.Drawing.Size(206, 202);
             this.gbMetodoPago.ResumeLayout(false);
             this.gbMetodoPago.PerformLayout();
             this.ResumeLayout(false);
@@ -116,5 +139,7 @@
         private System.Windows.Forms.GroupBox gbMetodoPago;
         private System.Windows.Forms.RadioButton rdTarjeta;
         private System.Windows.Forms.RadioButton rdEfectivo;
+        private System.Windows.Forms.TextBox txtObservaciones;
+        private System.Windows.Forms.Label label8;
     }
 }

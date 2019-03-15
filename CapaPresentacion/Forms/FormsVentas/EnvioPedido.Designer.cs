@@ -70,7 +70,7 @@
             this.txtCliente.Location = new System.Drawing.Point(3, 25);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(200, 18);
-            this.txtCliente.TabIndex = 7;
+            this.txtCliente.TabIndex = 0;
             this.txtCliente.Text = "Seleccione un cliente";
             // 
             // label2
@@ -129,7 +129,7 @@
             this.txtNumero2.Location = new System.Drawing.Point(146, 56);
             this.txtNumero2.Name = "txtNumero2";
             this.txtNumero2.Size = new System.Drawing.Size(47, 25);
-            this.txtNumero2.TabIndex = 17;
+            this.txtNumero2.TabIndex = 3;
             this.txtNumero2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -170,7 +170,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(3, 72);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(172, 25);
-            this.txtTelefono.TabIndex = 18;
+            this.txtTelefono.TabIndex = 1;
             // 
             // label6
             // 
@@ -187,7 +187,7 @@
             this.txtNombre.Location = new System.Drawing.Point(3, 24);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(172, 25);
-            this.txtNombre.TabIndex = 16;
+            this.txtNombre.TabIndex = 0;
             // 
             // label5
             // 
@@ -205,7 +205,7 @@
             this.rdOtro.Location = new System.Drawing.Point(116, 3);
             this.rdOtro.Name = "rdOtro";
             this.rdOtro.Size = new System.Drawing.Size(53, 21);
-            this.rdOtro.TabIndex = 2;
+            this.rdOtro.TabIndex = 1;
             this.rdOtro.TabStop = true;
             this.rdOtro.Text = "Otro";
             this.rdOtro.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@
             this.rdMismoCliente.Location = new System.Drawing.Point(3, 3);
             this.rdMismoCliente.Name = "rdMismoCliente";
             this.rdMismoCliente.Size = new System.Drawing.Size(107, 21);
-            this.rdMismoCliente.TabIndex = 1;
+            this.rdMismoCliente.TabIndex = 0;
             this.rdMismoCliente.TabStop = true;
             this.rdMismoCliente.Text = "Mismo cliente";
             this.rdMismoCliente.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@
             this.txtReferencias.Name = "txtReferencias";
             this.txtReferencias.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtReferencias.Size = new System.Drawing.Size(184, 46);
-            this.txtReferencias.TabIndex = 13;
+            this.txtReferencias.TabIndex = 4;
             // 
             // label3
             // 
@@ -256,7 +256,7 @@
             this.txtNumero1.Location = new System.Drawing.Point(80, 56);
             this.txtNumero1.Name = "txtNumero1";
             this.txtNumero1.Size = new System.Drawing.Size(47, 25);
-            this.txtNumero1.TabIndex = 11;
+            this.txtNumero1.TabIndex = 2;
             this.txtNumero1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -277,7 +277,7 @@
             this.listaCalleCarrera.Location = new System.Drawing.Point(9, 25);
             this.listaCalleCarrera.Name = "listaCalleCarrera";
             this.listaCalleCarrera.Size = new System.Drawing.Size(110, 25);
-            this.listaCalleCarrera.TabIndex = 1;
+            this.listaCalleCarrera.TabIndex = 0;
             // 
             // txtNumeroCalleCarrera
             // 
@@ -285,7 +285,7 @@
             this.txtNumeroCalleCarrera.Location = new System.Drawing.Point(125, 25);
             this.txtNumeroCalleCarrera.Name = "txtNumeroCalleCarrera";
             this.txtNumeroCalleCarrera.Size = new System.Drawing.Size(68, 25);
-            this.txtNumeroCalleCarrera.TabIndex = 0;
+            this.txtNumeroCalleCarrera.TabIndex = 1;
             this.txtNumeroCalleCarrera.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // errorProvider1
@@ -309,7 +309,7 @@
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtObservaciones.Size = new System.Drawing.Size(197, 46);
-            this.txtObservaciones.TabIndex = 18;
+            this.txtObservaciones.TabIndex = 1;
             // 
             // EnvioPedido
             // 

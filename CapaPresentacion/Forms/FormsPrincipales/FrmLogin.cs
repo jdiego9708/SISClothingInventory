@@ -39,6 +39,10 @@ namespace CapaPresentacion.Forms.FormsPrincipales
                 NEmpleados.Login(this.listaEmpleados.Text, this.txtPass.Text, out string rpta);
             if (dtLogin != null)
             {
+                DatosUsuario datos = DatosUsuario.GetInstancia();
+                datos.Id_usuario = (Int32)dtLogin.Rows[0]["Id_empleado"];
+                datos.Nombre = dtLogin.Rows[0]["Nombre_empleado"].ToString();
+                datos.Tipo_usuario = dtLogin.Rows[0]["Cargo_empleado"].ToString();
                 this.onLogin?.Invoke(dtLogin, e);
                 this.Close();
             }
@@ -76,6 +80,7 @@ namespace CapaPresentacion.Forms.FormsPrincipales
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             this.BuscarEmpleados("COMPLETO", "");
+            this.txtPass.Focus();
         }
     }
 }

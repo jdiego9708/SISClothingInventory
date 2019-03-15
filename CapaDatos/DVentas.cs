@@ -89,9 +89,28 @@ namespace CapaDatos
                 SqlCmd.Parameters.Add(Id_cliente);
                 contador += 1;
 
+                SqlParameter Id_direccion = new SqlParameter
+                {
+                    ParameterName = "@Id_direccion",
+                    SqlDbType = SqlDbType.Int,
+                    Value = Variables[contador]
+                };
+                SqlCmd.Parameters.Add(Id_direccion);
+                contador += 1;
+
+                SqlParameter Tipo_venta = new SqlParameter
+                {
+                    ParameterName = "@Tipo_venta",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 50,
+                    Value = Variables[contador].Trim().ToUpper()
+                };
+                SqlCmd.Parameters.Add(Tipo_venta);
+                contador += 1;
+
                 SqlParameter Estado_cuenta = new SqlParameter
                 {
-                    ParameterName = "@Estado_cuenta",
+                    ParameterName = "@Estado_venta",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
                     Value = Variables[contador].Trim().ToUpper()
@@ -209,6 +228,73 @@ namespace CapaDatos
             }
             return rpta;
         }
+        #endregion
+
+        #region METODO BUSCAR VENTAS
+        public static DataTable BuscarVentas(string tipo_busqueda,
+            string texto_busqueda, string fecha ,out string rpta)
+        {
+            rpta = "OK";
+            DataTable DtResultado = new DataTable("Ventas");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand Sqlcmd = new SqlCommand
+                {
+                    Connection = SqlCon,
+                    CommandText = "sp_Buscar_ventas",
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlParameter Tipo_busqueda = new SqlParameter
+                {
+                    ParameterName = "@Tipo_busqueda",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 50,
+                    Value = tipo_busqueda.Trim().ToUpper()
+                };
+                Sqlcmd.Parameters.Add(Tipo_busqueda);
+
+                SqlParameter Texto_busqueda = new SqlParameter
+                {
+                    ParameterName = "@Texto_busqueda",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 50,
+                    Value = texto_busqueda.Trim().ToUpper()
+                };
+                Sqlcmd.Parameters.Add(Texto_busqueda);
+
+                SqlParameter Fecha = new SqlParameter
+                {
+                    ParameterName = "@Fecha",
+                    SqlDbType = SqlDbType.Date,
+                    Value = fecha
+                };
+                Sqlcmd.Parameters.Add(Fecha);
+
+                SqlDataAdapter SqlData = new SqlDataAdapter(Sqlcmd);
+                SqlData.Fill(DtResultado);
+
+                if (DtResultado.Rows.Count < 1)
+                {
+                    DtResultado = null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                rpta = ex.Message;
+                DtResultado = null;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+                DtResultado = null;
+            }
+
+            return DtResultado;
+        }
+
         #endregion
     }
 }

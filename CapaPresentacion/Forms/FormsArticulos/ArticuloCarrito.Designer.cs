@@ -40,7 +40,9 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnVerPerfil = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pxImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // chkArticulo
@@ -111,11 +113,11 @@
             this.txtCantidad.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtCantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.ForeColor = System.Drawing.Color.Gray;
-            this.txtCantidad.Location = new System.Drawing.Point(313, 0);
+            this.txtCantidad.Location = new System.Drawing.Point(316, 0);
             this.txtCantidad.Multiline = true;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.ReadOnly = true;
-            this.txtCantidad.Size = new System.Drawing.Size(72, 38);
+            this.txtCantidad.Size = new System.Drawing.Size(65, 38);
             this.txtCantidad.TabIndex = 6;
             this.txtCantidad.Text = "Cantidad";
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -127,7 +129,7 @@
             this.txtSubTotal.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtSubTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubTotal.ForeColor = System.Drawing.Color.Gray;
-            this.txtSubTotal.Location = new System.Drawing.Point(388, 0);
+            this.txtSubTotal.Location = new System.Drawing.Point(398, 0);
             this.txtSubTotal.Multiline = true;
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.ReadOnly = true;
@@ -178,6 +180,10 @@
             this.toolTip1.SetToolTip(this.btnVerPerfil, "Ver perfil");
             this.btnVerPerfil.UseVisualStyleBackColor = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ArticuloCarrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -198,6 +204,7 @@
             this.Name = "ArticuloCarrito";
             this.Size = new System.Drawing.Size(536, 41);
             ((System.ComponentModel.ISupportInitialize)(this.pxImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +222,6 @@
         public System.Windows.Forms.Button btnVerPerfil;
         public System.Windows.Forms.CheckBox chkArticulo;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

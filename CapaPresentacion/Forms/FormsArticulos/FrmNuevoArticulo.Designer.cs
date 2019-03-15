@@ -43,14 +43,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.toolBox1 = new CapaPresentacion.Controles.ToolBox();
-            this.panel1 = new CapaPresentacion.Controles.CustomGridPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new CapaPresentacion.Controles.CustomGridPanel();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -59,7 +58,6 @@
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -152,7 +150,7 @@
             this.btnAgregarImagen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarImagen.ForeColor = System.Drawing.Color.Gray;
             this.btnAgregarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarImagen.Location = new System.Drawing.Point(6, 23);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(335, 27);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(33, 32);
             this.btnAgregarImagen.TabIndex = 20;
@@ -219,24 +217,11 @@
             this.toolBox1.TabIndex = 0;
             this.toolBox1.Texto = null;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoScroll = true;
-            this.panel1.Columns = 0;
-            this.panel1.Location = new System.Drawing.Point(6, 61);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 403);
-            this.panel1.SizeAutomatica = false;
-            this.panel1.TabIndex = 21;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 13);
+            this.groupBox1.Location = new System.Drawing.Point(10, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(319, 53);
             this.groupBox1.TabIndex = 22;
@@ -247,7 +232,7 @@
             // 
             this.groupBox2.Controls.Add(this.txtTipo);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(10, 72);
+            this.groupBox2.Location = new System.Drawing.Point(10, 86);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(319, 53);
             this.groupBox2.TabIndex = 23;
@@ -258,7 +243,7 @@
             // 
             this.groupBox3.Controls.Add(this.txtProveedor);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(10, 131);
+            this.groupBox3.Location = new System.Drawing.Point(10, 145);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(319, 58);
             this.groupBox3.TabIndex = 24;
@@ -269,7 +254,7 @@
             // 
             this.groupBox4.Controls.Add(this.numericCantidad);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(10, 195);
+            this.groupBox4.Location = new System.Drawing.Point(10, 209);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(140, 58);
             this.groupBox4.TabIndex = 25;
@@ -281,7 +266,7 @@
             this.groupBox5.Controls.Add(this.txtPrecio);
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(189, 195);
+            this.groupBox5.Location = new System.Drawing.Point(189, 209);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(140, 58);
             this.groupBox5.TabIndex = 26;
@@ -292,27 +277,25 @@
             // 
             this.groupBox6.Controls.Add(this.txtDescripcion);
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(10, 259);
+            this.groupBox6.Location = new System.Drawing.Point(10, 273);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(319, 124);
             this.groupBox6.TabIndex = 25;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Descripción";
             // 
-            // groupBox7
+            // panel1
             // 
-            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox7.Controls.Add(this.btnAgregarImagen);
-            this.groupBox7.Controls.Add(this.panel1);
-            this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(335, 13);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(382, 470);
-            this.groupBox7.TabIndex = 26;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Imagenes";
+            this.panel1.AutoScroll = true;
+            this.panel1.Columns = 0;
+            this.panel1.Location = new System.Drawing.Point(335, 65);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(382, 418);
+            this.panel1.SizeAutomatica = false;
+            this.panel1.TabIndex = 27;
             // 
             // FrmNuevoArticulo
             // 
@@ -320,7 +303,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(729, 495);
-            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -348,7 +332,6 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -367,13 +350,12 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Controles.ToolBox toolBox1;
         private System.Windows.Forms.Button btnAgregarImagen;
-        private Controles.CustomGridPanel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private Controles.CustomGridPanel panel1;
     }
 }
